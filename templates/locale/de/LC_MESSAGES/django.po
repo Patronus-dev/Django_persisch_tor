@@ -1,0 +1,443 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-25 20:10+0330\n"
+"PO-Revision-Date: 2024-11-28 21:22+0330\n"
+"Last-Translator:   <mehdii.dev@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\404.html:5
+msgid "Page not found"
+msgstr "Seite nicht gefunden"
+
+#: .\404.html:21 .\home.html:7 .\home.html:37
+msgid "Home"
+msgstr "Startseite"
+
+#: .\404.html:41
+msgid "Page Not Found :("
+msgstr "Seite nicht gefunden :("
+
+#: .\404.html:42
+msgid ""
+"We couldn't find the page you were looking for. It may have been moved or "
+"deleted, or you may have typed the URL incorrectly."
+msgstr ""
+"Wir konnten die gesuchte Seite nicht finden. Sie wurde möglicherweise "
+"verschoben oder gelöscht, oder Sie haben die URL falsch eingegeben."
+
+#: .\404.html:45
+msgid "BACK TO HOME"
+msgstr "ZURÜCK ZUR STARTSEITE"
+
+#: .\503.html:5
+msgid "Updating!"
+msgstr "Aktualisierung!"
+
+#: .\503.html:19
+msgid "We are updating :)"
+msgstr "Wir aktualisieren :)"
+
+#: .\503.html:21
+msgid "Website will be available soon..."
+msgstr "Die Website wird in Kürze verfügbar sein …"
+
+#: .\home.html:38
+msgid "About"
+msgstr "Über"
+
+#: .\home.html:39
+msgid "Services"
+msgstr "Dienstleistungen"
+
+#: .\home.html:40
+msgid "Resume"
+msgstr "Bewerbung"
+
+#: .\home.html:41
+msgid "Blog"
+msgstr "Blog"
+
+#: .\home.html:42
+msgid "Contact"
+msgstr "Contact"
+
+#: .\home.html:66
+msgid "I'm MEHDI"
+msgstr "Ich Heiße MEHDI"
+
+#: .\home.html:68
+msgid "WEB DEVELOPER"
+msgstr "WEB-ENTWICKLER"
+
+#: .\home.html:68
+msgid "FREELANCER"
+msgstr "SELBSTSTÄNDIGER"
+
+#: .\home.html:68
+msgid "BACKEND"
+msgstr "BACK-END ENTWICKLER"
+
+#: .\home.html:73 .\home.html:446
+msgid "Email"
+msgstr "E-Mail"
+
+#: .\home.html:77 .\home.html:441
+msgid "Phone"
+msgstr "Telefon"
+
+#: .\home.html:80 .\home.html:436
+msgid "Address"
+msgstr "Adresse"
+
+#: .\home.html:80
+msgid "Tehran"
+msgstr "Tehran"
+
+#: .\home.html:83
+msgid "Nationality"
+msgstr "Heimatland"
+
+#: .\home.html:83
+msgid "Iran"
+msgstr "Iran"
+
+#: .\home.html:96
+msgid "Profile"
+msgstr "Profil"
+
+#: .\home.html:109
+msgid "Intro"
+msgstr "Einleitung"
+
+#: .\home.html:110
+msgid "Hi, my name is Mehdi Sabz."
+msgstr "Hallo, mein Name ist Mehdi Sabz."
+
+#: .\home.html:113
+msgid ""
+"The person who build and develops websites. I am a programmer and web "
+"developer who enjoys a wide range of hobbies, such as building web "
+"applications and coding. For me, it is more like a hobby than a job."
+msgstr ""
+"Die Person, die Websites erstellt und entwickelt. Ich bin Programmierer und "
+"Webentwickler und habe viele verschiedene Hobbys, wie das Erstellen von "
+"Webanwendungen und das Programmieren. Für mich ist das mehr ein Hobby als "
+"ein Job."
+
+#: .\home.html:118
+msgid ""
+"I can turn Caffeine into complex programs. So either Coffee is a magic "
+"potion or I am a wizard !"
+msgstr ""
+"Ich kann Koffein in komplexe Programme umwandeln. Entweder ist Kaffee ein "
+"Zaubertrank oder ich bin ein Zauberer!"
+
+#: .\home.html:126
+msgid "My Motto : Dream, Plan, Do !"
+msgstr "Mein Motto: Träumen, Plannen, Machen!"
+
+#: .\home.html:133
+msgid "Skills"
+msgstr "Fähigkeiten"
+
+#: .\home.html:135
+msgid "Python"
+msgstr "Python"
+
+#: .\home.html:143
+msgid "Django"
+msgstr "Django"
+
+#: .\home.html:151 .\home.html:185
+msgid "Web Design"
+msgstr "Webdesign"
+
+#: .\home.html:159
+msgid "HTML & CSS"
+msgstr "HTML & CSS"
+
+#: .\home.html:177
+msgid "What I'm Doing"
+msgstr "Was mache ich genau"
+
+#: .\home.html:178
+msgid "I am a web developer"
+msgstr "Ich bin Webentwickler"
+
+#: .\home.html:186
+msgid ""
+"Design responsive,user-friendly websites with modern aesthetics,also "
+"provides an intuitive user experience.You'll enjoy!"
+msgstr ""
+"Entwerfen Sie ansprechende, benutzerfreundliche Websites mit moderner "
+"Ästhetik, die auch ein intuitives Benutzererlebnis bieten.Genießen Sie!"
+
+#: .\home.html:193
+msgid "Development"
+msgstr "Entwicklung"
+
+#: .\home.html:194
+msgid ""
+"Create secure and scalable web applications using Python and Django,"
+"emphasizing high performance and reliability."
+msgstr ""
+"Erstellen Sie sichere und skalierbare Webanwendungen mit Python und Django, "
+"wobei Sie Wert auf hohe Leistung und Zuverlässigkeit legen."
+
+#: .\home.html:201
+msgid "Social Media"
+msgstr "Soziale Medien"
+
+#: .\home.html:202
+msgid ""
+"In today's world, presence on social networks as well as website has a great "
+"impact on your business and introduction to customers."
+msgstr ""
+"In der heutigen Welt hat die Präsenz in sozialen Netzwerken sowie auf "
+"Websites einen großen Einfluss auf Ihr Geschäft und Ihre Vorstellung bei den "
+"Kunden."
+
+#: .\home.html:209
+msgid "Branding"
+msgstr "Markenbildung"
+
+#: .\home.html:210
+msgid ""
+"Having a website significantly increases the visibility and credibility of "
+"the business and provides a digital storefront to the audience."
+msgstr ""
+"Eine Website steigert die Sichtbarkeit und Glaubwürdigkeit des Unternehmens "
+"beträchtlich und bietet der Zielgruppe ein digitales Schaufenster."
+
+#: .\home.html:217
+msgid "Strategy"
+msgstr "Strategie"
+
+#: .\home.html:218
+msgid ""
+"Focus on increasing brand awareness, creating customer engagement, and "
+"achieving business goals."
+msgstr ""
+"Konzentrieren Sie sich darauf, die Markenbekanntheit zu steigern, "
+"Kundenbindung zu schaffen und Geschäftsziele zu erreichen."
+
+#: .\home.html:225
+msgid "Consulting"
+msgstr "Beratung"
+
+#: .\home.html:226
+msgid ""
+"Tailored solutions to enhance online presence, improve user experience,and "
+"achieve business goals effectively."
+msgstr ""
+"Maßgeschneiderte Lösungen zur Erweiterung der Online-Präsenz, Verbesserung "
+"des Benutzererlebnisses und effektiven Erreichung von Geschäftszielen."
+
+#: .\home.html:243
+msgid "Programming Languages"
+msgstr "Programmier sprachen"
+
+#: .\home.html:250
+msgid "Successful Project"
+msgstr "Erfolgreiches Projekt"
+
+#: .\home.html:257
+msgid "Certificates and Documents"
+msgstr "Zertifikate und Dokumente"
+
+#: .\home.html:264
+msgid "Workshops and Training"
+msgstr "Workshops und Schulungen"
+
+#: .\home.html:276
+msgid "Resume "
+msgstr "Wieder aufnehmen"
+
+#: .\home.html:281
+msgid "Education"
+msgstr "Ausbildung"
+
+#: .\home.html:283
+msgid "Degrees"
+msgstr "Abschlüsse"
+
+#: .\home.html:285
+msgid "Mathematics and physics Diploma"
+msgstr "Abitur in Mathematik und Physik"
+
+#: .\home.html:288
+msgid "Computer Science Diploma"
+msgstr "Abitur in Informatik"
+
+#: .\home.html:291
+msgid "Programming Courses"
+msgstr "Programmier kurse"
+
+#: .\home.html:294
+msgid "HTML & CSS certificate"
+msgstr "HTML & CSS Zertifikat"
+
+#: .\home.html:296 .\home.html:303 .\home.html:309 .\home.html:315
+msgid "(Click for file view)"
+msgstr "(Datei anzeigen)"
+
+#: .\home.html:297 .\home.html:304 .\home.html:310 .\home.html:316
+msgid "From"
+msgstr "Von"
+
+#: .\home.html:298 .\home.html:305 .\home.html:311 .\home.html:317
+msgid "Cando"
+msgstr "Cando"
+
+#: .\home.html:299
+msgid " Computer Science Engineering institution."
+msgstr "Computer Science Engineering Institution."
+
+#: .\home.html:302
+msgid "Python Foundation Master certificate"
+msgstr "Python Foundation Master Zertifikat"
+
+#: .\home.html:306 .\home.html:312 .\home.html:318
+msgid "Computer Science Engineering institution."
+msgstr "Computer Science Engineering Institution."
+
+#: .\home.html:308
+msgid "Python Advanced Master certificate"
+msgstr "Python Advanced Master Zertifikat"
+
+#: .\home.html:314
+msgid "Django certificate"
+msgstr "Django Zertifikat"
+
+#: .\home.html:323
+msgid "About me"
+msgstr "Über mich"
+
+#: .\home.html:325
+msgid "Languages"
+msgstr "Sprachen"
+
+#: .\home.html:327
+msgid "Persian"
+msgstr "Persisch"
+
+#: .\home.html:329
+msgid "Deutsch"
+msgstr "Deutsch"
+
+#: .\home.html:332
+msgid "English"
+msgstr "Englisch"
+
+#: .\home.html:335
+msgid "Turkish (Azerbaijan)"
+msgstr "Türkisch (Aserbaidschan)"
+
+#: .\home.html:348
+msgid "Professional Experience"
+msgstr "Berufserfahrung"
+
+#: .\home.html:349
+msgid "2019 to Present"
+msgstr "2019 bis heute"
+
+#: .\home.html:350
+msgid "Accountant and IT Support"
+msgstr "Buchhaltung und IT-Verantwortlicher"
+
+#: .\home.html:351
+msgid ""
+"Experience in accounting and also as IT Supporter at Amer Engineering "
+"company."
+msgstr ""
+"Erfahrung in der Buchhaltung und auch als IT-Verantwortlicher bei der Amer "
+"Engineering Firma"
+
+#: .\home.html:365
+msgid "Latest blogs"
+msgstr "Die neusten Blogs"
+
+#: .\home.html:385
+msgid "Continue Reading"
+msgstr "Weiterlesen"
+
+#: .\home.html:395
+msgid "See more ..."
+msgstr "Mehr sehen ..."
+
+#: .\home.html:412
+msgid "Write Your Message"
+msgstr "Schreiben Sie Ihre Nachricht"
+
+#: .\home.html:413
+msgid ""
+"I would like to receive your comments, suggestions or questions; Please "
+"enter your message."
+msgstr ""
+"Ich würde gerne Ihre Kommentare, Vorschläge oder Fragen erhalten. Bitte "
+"geben Sie Ihre Nachricht ein."
+
+#: .\home.html:424
+msgid "Send Message"
+msgstr "Nachricht senden"
+
+#: .\home.html:437
+msgid "Tehran, Iran"
+msgstr "Tehran, Iran"
+
+#~ msgid ""
+#~ "Django is a powerful and secure web framework for developing websites and "
+#~ "web applications. This framework provides advanced tools and security "
+#~ "features, enabling developers to create high-performance applications "
+#~ "resistant to cyber attacks. With its \"batteries included\"  philosophy, "
+#~ "Django meets all web development needs in a comprehensive package."
+#~ msgstr ""
+#~ "Django ist ein leistungsstarkes und sicheres Webframework für die "
+#~ "Entwicklung von Websites und Webanwendungen. Dieses Framework bietet "
+#~ "erweiterte Tools und Sicherheitsfunktionen, mit denen Entwickler "
+#~ "leistungsstarke Anwendungen erstellen können, die gegen Cyberangriffe "
+#~ "resistent sind. Mit seiner Philosophie „Batterien inklusive“ erfüllt "
+#~ "Django alle Anforderungen der Webentwicklung in einem umfassenden Paket."
+
+#~ msgid "Hobbies"
+#~ msgstr "Hobbys"
+
+#~ msgid "Traveling"
+#~ msgstr "Reisen"
+
+#~ msgid "Gaming"
+#~ msgstr "Videospiele"
+
+#~ msgid "Meeting Family & Friends"
+#~ msgstr "Familie & Freunde treffen"
+
+#~ msgid "Music"
+#~ msgstr "Musik"
+
+#~ msgid "Pets"
+#~ msgstr "Haustiere"
+
+#~ msgid "Persian "
+#~ msgstr "Persisch"
+
+#~ msgid "Other Skills"
+#~ msgstr "Andere Fähigkeiten"
+
+#~ msgid "Accountant"
+#~ msgstr "Buchhalter"
+
+#~ msgid "Working as an accountant in a private company."
+#~ msgstr "Arbeite als Buchhalter in einem privaten Firma."
