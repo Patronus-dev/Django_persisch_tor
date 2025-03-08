@@ -215,3 +215,7 @@ HANDLER404 = 'pages.views.custom_404_view'
 # reCAPTCHA settings
 RECAPTCHA_PUBLIC_KEY = env.str('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = env.str('RECAPTCHA_PRIVATE_KEY')
+
+# Login/out redirect settings
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'

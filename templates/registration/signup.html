@@ -1,0 +1,43 @@
+{% extends '_base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+
+{% block page_title %}{% trans 'Sign up' %}{% endblock page_title %}
+
+
+{% block content %}
+    <div style="margin-top: 10%;">
+        <div style="width: fit-content; margin: 0 auto; border: solid 1px royalblue; border-radius: 5%">
+            <form class="form" method="post">
+                <p class="title">Create an Account </p>
+                <p class="message">Signup now and get access to our website. </p>
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="flex">
+{#                    <label style="width: 100%">#}
+{#                        <input required="" placeholder="" type="text" class="input">#}
+{#                        <span>Username</span>#}
+{#                    </label>#}
+                </div>
+
+{#                <label>#}
+{#                    <input required="" placeholder="" type="email" class="input">#}
+{#                    <span>Email</span>#}
+{#                </label>#}
+{##}
+{#                <label>#}
+{#                    <input required="" placeholder="" type="password" class="input">#}
+{#                    <span>Password</span>#}
+{#                </label>#}
+{#                <label>#}
+{#                    <input required="" placeholder="" type="password" class="input">#}
+{#                    <span>Confirm password</span>#}
+{#                </label>#}
+                <button class="submit">Submit</button>
+                <p class="signin">Already have an account ? <a href="{% url 'login' %}">Login</a></p>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

@@ -25,9 +25,6 @@ class CustomUser(AbstractUser):
     total_reviews = models.IntegerField(default=0)  # تعداد نظراتی که گذاشته
     is_banned = models.BooleanField(default=False)  # آیا حساب مسدود شده؟
 
-    date_joined = models.DateTimeField(auto_now_add=True)  # تاریخ عضویت
-    last_login = models.DateTimeField(auto_now=True)  # آخرین ورود به سایت
-
     # اضافه کردن related_name برای جلوگیری از تداخل در 'groups' و 'user_permissions' در صورت نیاز
     groups = models.ManyToManyField('auth.Group', related_name='customuser_groups', blank=True)
     user_permissions = models.ManyToManyField('auth.Permission', related_name='customuser_permissions', blank=True)

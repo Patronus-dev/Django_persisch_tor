@@ -7,6 +7,8 @@ from language.views import set_language
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls')),
     path('set-language/', set_language, name='set_language'),
 
     # Rosetta

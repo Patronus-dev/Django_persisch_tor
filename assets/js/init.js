@@ -454,7 +454,7 @@ function directify_fn_share_closer(){
 	});
 	/* ---------------------------------------------- */
 	
-	var btnSign			= jQuery('.directify_fn_submit_main_section .have-account p a');
+	var btnSign			= jQuery('.directify_fn_submit_main_section .have-registration p a');
 	var closerSign		= jQuery('.directify_fn_sign_in_closer');
 	var closerBtn		= jQuery('.directify_fn_sign_in .closer a');
 	var boxSign			= jQuery('.directify_fn_sign_in');
