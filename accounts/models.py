@@ -7,11 +7,11 @@ class CustomUser(AbstractUser):
     name = models.CharField(max_length=100, null=False, blank=False, verbose_name="Name",
                             help_text="Enter your name."
                             )
-    phone_number = PhoneNumberField(region="DE", max_length=15, unique=True, null=False, blank=False,
+    phone_number = PhoneNumberField(region="DE", max_length=15, unique=True, null=True, blank=True,
                                     verbose_name="Phone Number",
                                     help_text="Enter your phone number."
                                     )
-    email = models.EmailField(unique=True, null=True, blank=True, verbose_name="E-Mail",
+    email = models.EmailField(unique=True, null=False, blank=False, verbose_name="E-Mail",
                               help_text="Enter your Email address."
                               )
     profile_pic = models.ImageField(upload_to='profile_pics/', null=True, blank=True, verbose_name="Profile photo")

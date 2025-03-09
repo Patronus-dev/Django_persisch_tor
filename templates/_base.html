@@ -38,7 +38,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
     <!--[if lt IE 9]> <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script> <![endif]-->
 
-
 </head>
 
 <body>
@@ -323,11 +322,12 @@
                                     <li><a href="#">Single Page</a></li>
                                 </ul>
                             </li>
-                            <li class="button">
+                            <li class="add_listing" style="">
                                 {% if user.is_authenticated %}
-                                    <form action="{% url 'logout' %}" method="post">
+                                    <form action="{% url '#' %}" method="post">
                                     {% csrf_token %}
-                                        <button class="button">Log out</button> | {{ user.username }}
+                                        <a href="#">Profile</a>
+                                    <img class="svg" src="{% static 'img/svg/human.svg' %}" alt=""/>
                                     </form>
                                 {% else %}
                                     <a href="{% url 'login' %}">Login</a>

@@ -219,3 +219,6 @@ RECAPTCHA_PRIVATE_KEY = env.str('RECAPTCHA_PRIVATE_KEY')
 # Login/out redirect settings
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Email config
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
