@@ -1,20 +1,106 @@
 from django.db import models
+from django.urls import reverse
+from django.contrib.auth import get_user_model
 
 
 class Place(models.Model):
     CATEGORY_GROUP = [
-        ('restaurant', 'Restaurant'),
+        ('Food and Drink', 'Food and Drink'),
+        ('medical services', 'Medical services'),
+        ('technical services', 'Technical services'),
         ('store', 'Store'),
-        ('cafe', 'Cafe'),
-        ('service', 'Service'),
+        ('entertainment', 'Entertainment'),
         ('other', 'Other')
     ]
 
-    name = models.CharField(max_length=255, unique=True, verbose_name="Name of the place",
-                            help_text="Enter the name of the place.")
-    category = models.CharField(max_length=100, choices=CATEGORY_GROUP, verbose_name="Category",
-                                help_text="Select the category of the place.")
-    address = models.CharField(max_length=500, verbose_name="Address",
+    GERMAN_CITIES = (
+        ("Berlin", "Berlin"),
+        ("Hamburg", "Hamburg"),
+        ("München", "München"),
+        ("Köln", "Köln"),
+        ("Frankfurt am Main", "Frankfurt am Main"),
+        ("Stuttgart", "Stuttgart"),
+        ("Düsseldorf", "Düsseldorf"),
+        ("Dortmund", "Dortmund"),
+        ("Essen", "Essen"),
+        ("Leipzig", "Leipzig"),
+        ("Bremen", "Bremen"),
+        ("Dresden", "Dresden"),
+        ("Hannover", "Hannover"),
+        ("Nürnberg", "Nürnberg"),
+        ("Duisburg", "Duisburg"),
+        ("Bochum", "Bochum"),
+        ("Wuppertal", "Wuppertal"),
+        ("Bielefeld", "Bielefeld"),
+        ("Bonn", "Bonn"),
+        ("Münster", "Münster"),
+        ("Karlsruhe", "Karlsruhe"),
+        ("Mannheim", "Mannheim"),
+        ("Augsburg", "Augsburg"),
+        ("Wiesbaden", "Wiesbaden"),
+        ("Mönchengladbach", "Mönchengladbach"),
+        ("Gelsenkirchen", "Gelsenkirchen"),
+        ("Braunschweig", "Braunschweig"),
+        ("Chemnitz", "Chemnitz"),
+        ("Kiel", "Kiel"),
+        ("Aachen", "Aachen"),
+        ("Halle (Saale)", "Halle (Saale)"),
+        ("Magdeburg", "Magdeburg"),
+        ("Freiburg im Breisgau", "Freiburg im Breisgau"),
+        ("Krefeld", "Krefeld"),
+        ("Lübeck", "Lübeck"),
+        ("Oberhausen", "Oberhausen"),
+        ("Erfurt", "Erfurt"),
+        ("Mainz", "Mainz"),
+        ("Rostock", "Rostock"),
+        ("Kassel", "Kassel"),
+        ("Hagen", "Hagen"),
+        ("Hamm", "Hamm"),
+        ("Saarbrücken", "Saarbrücken"),
+        ("Mülheim an der Ruhr", "Mülheim an der Ruhr"),
+        ("Potsdam", "Potsdam"),
+        ("Ludwigshafen am Rhein", "Ludwigshafen am Rhein"),
+        ("Oldenburg", "Oldenburg"),
+        ("Leverkusen", "Leverkusen"),
+        ("Osnabrück", "Osnabrück"),
+        ("Solingen", "Solingen"),
+        ("Heidelberg", "Heidelberg"),
+        ("Herne", "Herne"),
+        ("Neuss", "Neuss"),
+        ("Darmstadt", "Darmstadt"),
+        ("Paderborn", "Paderborn"),
+        ("Regensburg", "Regensburg"),
+        ("Ingolstadt", "Ingolstadt"),
+        ("Würzburg", "Würzburg"),
+        ("Fürth", "Fürth"),
+        ("Wolfsburg", "Wolfsburg"),
+        ("Offenbach am Main", "Offenbach am Main"),
+        ("Ulm", "Ulm"),
+        ("Heilbronn", "Heilbronn"),
+        ("Pforzheim", "Pforzheim"),
+        ("Göttingen", "Göttingen"),
+        ("Bottrop", "Bottrop"),
+        ("Trier", "Trier"),
+        ("Recklinghausen", "Recklinghausen"),
+        ("Reutlingen", "Reutlingen"),
+        ("Bremerhaven", "Bremerhaven"),
+        ("Koblenz", "Koblenz"),
+        ("Bergisch Gladbach", "Bergisch Gladbach"),
+        ("Jena", "Jena"),
+        ("Remscheid", "Remscheid"),
+        ("Erlangen", "Erlangen"),
+        ("Moers", "Moers"),
+        ("Siegen", "Siegen"),
+        ("Hildesheim", "Hildesheim"),
+        ("Salzgitter", "Salzgitter"),
+    )
+
+    title = models.CharField(max_length=250, unique=True, verbose_name="Name of the place", blank=True, null=True,
+                             help_text="Enter the name of the place.")
+    category = models.CharField(max_length=100, choices=CATEGORY_GROUP, blank=False, null=False,
+                                verbose_name="Category", help_text="Select the category of the place.")
+    city = models.CharField(max_length=100, choices=GERMAN_CITIES, blank=False, null=False, default='Berlin')
+    address = models.CharField(max_length=500, verbose_name="Address", blank=True, null=True,
                                help_text="Enter the address of the place.")
     phone_number = models.CharField(max_length=15, blank=True, null=True, verbose_name="Phone number",
                                     help_text="Enter the phone number of the place.")
@@ -22,14 +108,41 @@ class Place(models.Model):
                               help_text="Enter the website of the place.")
     description = models.TextField(blank=True, null=True, verbose_name="Description",
                                    help_text="Write a description of the place.")
-    image = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
-                              help_text="Upload an image of the place.")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated At")
+
+    image1 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
+                               help_text="Upload an image 1 of the place.")
+    image2 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
+                               help_text="Upload an image 2 of the place.")
+    image3 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
+                               help_text="Upload an image 3 of the place.")
+    image4 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
+                               help_text="Upload an image 4 of the place.")
+    image5 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
+                               help_text="Upload an image 5 of the place.")
+
+    datetime_created = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
+    datetime_updated = models.DateTimeField(auto_now=True, verbose_name="Updated At")
 
     def __str__(self):
-        return self.name
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('place_detail', args=[self.id])
 
     class Meta:
         verbose_name = "Place"
         verbose_name_plural = "Places"
+
+
+class Comment(models.Model):
+    USER_OPINIONS = [
+        ('perfect', 'Perfect'),
+        ('good', 'Good'),
+        ('weak', 'Weak')
+    ]
+
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    place = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='comments')
+    text = models.TextField(max_length=500, blank=False, null=False, verbose_name="Description",
+                            help_text="Write your comment here.")
+    opinion = models.CharField(max_length=50, choices=USER_OPINIONS, blank=False, null=False)
