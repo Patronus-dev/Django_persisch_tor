@@ -1,13 +1,16 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
+from django.core.files.uploadedfile import InMemoryUploadedFile
+from io import BytesIO
+from PIL import Image
 
 
 class Place(models.Model):
     CATEGORY_GROUP = [
-        ('Food and Drink', 'Food and Drink'),
-        ('medical services', 'Medical services'),
-        ('technical services', 'Technical services'),
+        ('food & drink', 'Food & Drink'),
+        ('medical', 'Medical'),
+        ('technical', 'Technical'),
         ('store', 'Store'),
         ('entertainment', 'Entertainment'),
         ('other', 'Other')
@@ -95,29 +98,29 @@ class Place(models.Model):
         ("Salzgitter", "Salzgitter"),
     )
 
-    title = models.CharField(max_length=250, unique=True, verbose_name="Name of the place", blank=True, null=True,
+    title = models.CharField(max_length=250, unique=True, verbose_name="Name of the place", blank=False, null=False,
                              help_text="Enter the name of the place.")
     category = models.CharField(max_length=100, choices=CATEGORY_GROUP, blank=False, null=False,
                                 verbose_name="Category", help_text="Select the category of the place.")
     city = models.CharField(max_length=100, choices=GERMAN_CITIES, blank=False, null=False, default='Berlin')
-    address = models.CharField(max_length=500, verbose_name="Address", blank=True, null=True,
+    address = models.CharField(max_length=500, verbose_name="Address", blank=False, null=False,
                                help_text="Enter the address of the place.")
     phone_number = models.CharField(max_length=15, blank=True, null=True, verbose_name="Phone number",
                                     help_text="Enter the phone number of the place.")
     website = models.URLField(max_length=200, blank=True, null=True, verbose_name="Website",
                               help_text="Enter the website of the place.")
-    description = models.TextField(blank=True, null=True, verbose_name="Description",
+    description = models.TextField(blank=False, null=False, verbose_name="Description",
                                    help_text="Write a description of the place.")
 
-    image1 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
+    image1 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image1",
                                help_text="Upload an image 1 of the place.")
-    image2 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
+    image2 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image2",
                                help_text="Upload an image 2 of the place.")
-    image3 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
+    image3 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image3",
                                help_text="Upload an image 3 of the place.")
-    image4 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
+    image4 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image4",
                                help_text="Upload an image 4 of the place.")
-    image5 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image",
+    image5 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image5",
                                help_text="Upload an image 5 of the place.")
 
     datetime_created = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
@@ -132,6 +135,36 @@ class Place(models.Model):
     class Meta:
         verbose_name = "Place"
         verbose_name_plural = "Places"
+
+    def save(self, *args, **kwargs):
+        # برای هر فیلد تصویر تغییر اندازه بده
+        if self.image1:
+            self.image1 = self.resize_image(self.image1)
+        if self.image2:
+            self.image2 = self.resize_image(self.image2)
+        if self.image3:
+            self.image3 = self.resize_image(self.image3)
+        if self.image4:
+            self.image4 = self.resize_image(self.image4)
+        if self.image5:
+            self.image5 = self.resize_image(self.image5)
+
+        # ذخیره‌سازی تغییرات
+        super(Place, self).save(*args, **kwargs)
+
+    def resize_image(self, image):
+        """تغییر اندازه تصویر به 720x720 پیکسل"""
+        img = Image.open(image)
+        img = img.convert('RGB')  # برای جلوگیری از مشکلات فرمت
+        img = img.resize((720, 720), Image.Resampling.LANCZOS)  # تغییر به LANCZOS
+
+        # ذخیره کردن تصویر تغییر اندازه داده شده
+        thumb_io = BytesIO()
+        img.save(thumb_io, 'JPEG', quality=85)
+        thumb_io.seek(0)
+
+        # بازسازی فایل تصویر تغییر اندازه داده شده
+        return InMemoryUploadedFile(thumb_io, None, image.name, 'image/jpeg', thumb_io.tell(), None)
 
 
 class Comment(models.Model):

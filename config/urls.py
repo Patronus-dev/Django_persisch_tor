@@ -9,6 +9,7 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
+    path('places/', include('places.urls')),
     path('set-language/', set_language, name='set_language'),
 
     # Rosetta

@@ -17,9 +17,9 @@ class CustomUser(AbstractUser):
     profile_pic = models.ImageField(upload_to='profile_pics/', null=True, blank=True, verbose_name="Profile photo")
 
     # ارجاع به مدل 'Place' که در اپلیکیشن دیگری به نام 'places' است
-    favorite_places = models.ManyToManyField('places.Place', blank=True)  # مکان‌های موردعلاقه کاربر
-    reported_places = models.ManyToManyField('places.Place', related_name='reports',
-                                             blank=True)  # مکان‌هایی که ریپورت کرده
+    # favorite_places = models.ManyToManyField('places.Place', blank=True)  # مکان‌های موردعلاقه کاربر
+    # reported_places = models.ManyToManyField('places.Place', related_name='reports',
+    #                                          blank=True)  # مکان‌هایی که ریپورت کرده
 
     total_reports = models.IntegerField(default=0)  # تعداد ریپورت‌هایی که داده
     total_reviews = models.IntegerField(default=0)  # تعداد نظراتی که گذاشته
@@ -28,4 +28,7 @@ class CustomUser(AbstractUser):
     # اضافه کردن related_name برای جلوگیری از تداخل در 'groups' و 'user_permissions' در صورت نیاز
     groups = models.ManyToManyField('auth.Group', related_name='customuser_groups', blank=True)
     user_permissions = models.ManyToManyField('auth.Permission', related_name='customuser_permissions', blank=True)
+
+    def __str__(self):
+        return self.username
 

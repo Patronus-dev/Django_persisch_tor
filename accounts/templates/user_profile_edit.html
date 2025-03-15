@@ -90,6 +90,7 @@
     <!-- /HEADER -->
 {% endblock header %}
 
+
 {% block content %}
     <!-- CONTENT -->
     <div class="directify_fn_content">
@@ -115,17 +116,13 @@
                             <div class="header">
                                 <div class="prof_who">
                                     <div class="img_holder">
-                                        {% if user_profile.profile_pic %}
-                                            <img src="{{ user_profile.profile_pic }}" alt="Profile pic"/>
-                                        {% else %}
-                                            <img src="{% static 'img/user/profile_pic_user_80x80.png' %}"
-                                                 alt="Profile pic"/>
-                                        {% endif %}
+                                        <img src="{% static 'img/user/profile_pic_user_80x80.png' %}"
+                                             alt="Profile pic"/>
                                     </div>
                                     <div class="title_holder">
                                         <div>
                                             <span>Welcome!</span>
-                                            <h3>{{ user_profile.username }}</h3>
+                                            <h3>{{ user.name }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -147,11 +144,11 @@
                                     <li><a href="dashboard-adding.html">Add Listings</a></li>
                                     <li><a href="dashboard-invoices.html">Invoices</a></li>
                                     <li class="label">Account</li>
-                                    <li><a href="{% url 'user_profile_edit' %}">Edit Profile</a></li>
-                                    <li class="add_listing">
+                                    <li><a href="{% url 'user_profile' %}">My Profile</a></li>
+                                    <li>
                                         <form action="{% url 'logout' %}" method="post">
                                             {% csrf_token %}
-                                            <button type="submit">Log Out</button>
+                                            <button type="submit" class="btn btn-outline-danger">Log Out</button>
                                         </form>
                                     </li>
                                 </ul>
@@ -167,17 +164,12 @@
                         <div class="hidden_list">
                             <div class="hidden_list_inner">
                                 <div class="prof_img">
-                                    {% if user_profile.profile_pic %}
-                                        <img src="{{ user_profile.profile_pic }}" alt="Profile pic"/>
-                                    {% else %}
-                                        <img src="{% static 'img/user/profile_pic_user_80x80.png' %}"
-                                             alt="Profile pic"/>
-                                    {% endif %}
+                                    <img src="{% static 'img/user/profile_pic_user_80x80.png' %}" alt=""/>
                                 </div>
                                 <div class="prof_name">
                                     <div>
                                         <h6>Welcome!</h6>
-                                        <h3>{{ user_profile.username }}</h3>
+                                        <h3>{{ user.name }}</h3>
                                     </div>
                                 </div>
                                 <div class="hamburger hamburger--spin">
@@ -203,120 +195,70 @@
                                     <li><a href="dashboard-adding.html">Adding</a></li>
                                     <li><a href="dashboard-invoices.html">Invoices</a></li>
                                     <li class="label">Account</li>
-                                    <li><a href="{% url 'user_profile_edit' %}">Edit profile</a></li>
-                                    <li class="add_listing">
-                                        <form action="" method="post">
-                                            {% csrf_token %}
-                                            <a href="{% url 'logout' %}">Log Out</a>
-                                        </form>
-                                    </li>
+                                    <li><a href="dashboard-profile.html">Profile</a></li>
+                                    <li><a href="#">Log Out</a></li>
                                 </ul>
                             </div>
                         </div>
                         <!-- /DASHBOARD HIDDEN LIST -->
 
-                        <div class="dashboard">
-                            <div class="title_holder">
-                                <h3>User Panel Dashboard</h3><hr>
-                                <span>Username: </span>{{ user_profile.username }}<br>
-                                <span>E-Mail: </span>{{ user_profile.email }}<br>
-                                <span>Phone: </span>{{ user_profile.phone_number }}<br>
-                            </div>
-                            <div class="informator_box directify_fn_masonry">
-                                <div class="informator__single listing directify_fn_masonry_in">
-                                    <h3>15</h3>
-                                    <span>Active Listings</span>
-                                </div>
-                                <div class="informator__single bookmark directify_fn_masonry_in">
-                                    <h3>387</h3>
-                                    <span>Times Bookmarked</span>
-                                </div>
-                                <div class="informator__single review directify_fn_masonry_in">
-                                    <h3>144</h3>
-                                    <span>Total Reviews</span>
-                                </div>
-                            </div>
-                            <div class="recent_actions">
+                        <div class="dashboard" data-wop="true">
+
+                            <div class="profile__details">
                                 <div class="title_holder">
-                                    <span>Recent Activities</span>
+                                    <h3>Profile Details</h3>
                                 </div>
-                                <div class="action__single">
-                                    <div class="icon">
-                                        <img class="svg" src="img/svg/layers.svg" alt=""/>
+                                <form>
+
+                                    <!-- PROFILE FORM -->
+                                    <div class="directify_fn_profile_form">
+
+                                        <!-- MAIN SECTION -->
+                                        <div class="directify_fn_profile_main_section">
+                                            <div class="profile__image">
+                                                {% if user.profile_pic %}
+                                                    <img src="{{ user.profile_pic }}" alt="Profile pic"/>
+                                                {% else %}
+                                                    <img src="{% static 'img/user/profile_pic_user_180x180.png' %}"
+                                                         alt="Profile pic"/>
+                                                {% endif %}
+                                            </div>
+                                            <h3>Edit Profile</h3>
+                                            <form method="POST" enctype="multipart/form-data" action="{% url 'user_profile_edit' %}">
+                                                {% csrf_token %}
+                                                {{ form|crispy }}
+                                                <button type="submit">Save Changes</button>
+                                            </form>
+                                        </div>
+                                        <!-- /MAIN SECTION -->
+
+                                        <!-- SECURITY SECTION -->
+                                        <div class="directify_fn_profile_security_section">
+                                            <h3>Change Password</h3>
+                                            <div class="security__pass-new">
+                                                <label>New Password</label>
+                                                <label for="security__pass-new"></label><input type="password" id="security__pass-new"/>
+                                            </div>
+                                            <div class="security__pass-new-confirm">
+                                                <label>Confirm New Password</label>
+                                                <label for="security__pass-new-confirm"></label><input type="password" id="security__pass-new-confirm"/>
+                                            </div>
+                                            <div class="security__pass-current">
+                                                <label>Current Password</label>
+                                                <label for="security__pass-current"></label><input type="password" id="security__pass-current"/>
+                                            </div>
+                                            <div class="profile__save-password">
+                                                <input type="submit" value="Save Password"/>
+                                            </div>
+                                        </div>
+                                        <!-- /SECURITY SECTION -->
+
                                     </div>
-                                    <div class="content">
-                                        <p>
-                                            <span class="title"><a href="#">The Lombardy</a></span>
-                                            <span class="text">— Your new submission has been approved</span>
-                                        </p>
-                                        <span class="time_duration">2 Days Ago</span>
-                                    </div>
-                                </div>
-                                <div class="action__single">
-                                    <div class="icon">
-                                        <img class="svg" src="img/svg/favorite.svg" alt=""/>
-                                    </div>
-                                    <div class="content">
-                                        <p>
-                                            <span class="text">John Doe left a review</span>
-                                            <span class="rating">5.0</span>
-                                            <span class="text">on</span>
-                                            <span class="title"><a href="#">Butcher Bar</a></span>
-                                        </p>
-                                        <span class="time_duration">4 Days Ago</span>
-                                    </div>
-                                </div>
-                                <div class="action__single">
-                                    <div class="icon">
-                                        <img class="svg big" src="img/svg/bookmark.svg" alt=""/>
-                                    </div>
-                                    <div class="content">
-                                        <p>
-                                            <span class="text">Anna Alieva bookmarked your</span>
-                                            <span class="title"><a href="#">Mahattan Walking Tour</a></span>
-                                        </p>
-                                        <span class="time_duration">7 Days Ago</span>
-                                    </div>
-                                </div>
-                                <div class="action__single">
-                                    <div class="icon">
-                                        <img class="svg" src="img/svg/layers.svg" alt=""/>
-                                    </div>
-                                    <div class="content">
-                                        <p>
-                                            <span class="title"><a href="#">Manhattan Walking Tour</a></span>
-                                            <span class="text">— Your new submission has been approved</span>
-                                        </p>
-                                        <span class="time_duration">14 Days Ago</span>
-                                    </div>
-                                </div>
-                                <div class="action__single">
-                                    <div class="icon">
-                                        <img class="svg" src="img/svg/favorite.svg" alt=""/>
-                                    </div>
-                                    <div class="content">
-                                        <p>
-                                            <span class="text">John Doe left a review</span>
-                                            <span class="rating">4.0</span>
-                                            <span class="text">on</span>
-                                            <span class="title"><a href="#">Honey Badger</a></span>
-                                        </p>
-                                        <span class="time_duration">20 Days Ago</span>
-                                    </div>
-                                </div>
-                                <div class="action__single">
-                                    <div class="icon">
-                                        <img class="svg big" src="img/svg/bookmark.svg" alt=""/>
-                                    </div>
-                                    <div class="content">
-                                        <p>
-                                            <span class="text">Anna Alieva bookmarked your</span>
-                                            <span class="title"><a href="#">Brooklyn Bridge Park</a></span>
-                                        </p>
-                                        <span class="time_duration">22 Days Ago</span>
-                                    </div>
-                                </div>
+                                    <!-- /PROFILE FORM -->
+
+                                </form>
                             </div>
+
                         </div>
                     </div>
 

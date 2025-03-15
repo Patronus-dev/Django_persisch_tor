@@ -12,7 +12,7 @@
     <!-- CONTENT -->
     <div class="directify_fn_content">
 
-        <div class="directify_fn_all_listings_wrap">
+        <div class="directify_fn_all_listings_wrap" style="background-image: url('{% static 'img/home/803.jpg' %}')">
             <div class="directify_fn_all_listings">
                 <div class="all_listings">
                     <div class="container">
@@ -20,20 +20,21 @@
                             <div class="discovering_wrap">
                                 <div class="discovering">
                                     <div class="title_holder">
-                                        <h3>Discover the Best Places</h3>
-                                        <span>Directify helps you find all top locations</span>
+                                        <h1 style="margin-bottom: 10%"><strong>Persisch-Tor</strong></h1>
+                                        <h3>Discover the Best Places an Services</h3>
+                                        <span>Persisch Tor helps you find all top locations</span>
                                     </div>
                                     <div class="searching">
                                         <label>
                                             <input class="directify_fn_search_input" type="search"
                                                    placeholder="What Are You Looking For?"/>
                                         </label>
-                                        <a class="directify_fn_search_btn" href="#"><img class="svg"
-                                                                                         src="{% static 'img/svg/search.svg' %}"
-                                                                                         alt=""/><span>Search</span></a>
+                                        <a class="directify_fn_search_btn" href="#">
+                                            <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
                                         <div class="clearfix"></div>
                                         <span class="browse_me">or browse</span>
-                                        <img class="svg my_dotted_arrow" src="{% static 'img/svg/arrow2.svg' %}" alt=""/>
+                                        <img class="svg my_dotted_arrow" src="{% static 'img/svg/arrow2.svg' %}"
+                                             alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -44,115 +45,56 @@
                                              data-hover-border="#0089e2" data-skew="" data-text-color=""
                                              data-bg-color="" data-bg-opacity="" data-border-width=""
                                              data-border-color="">
-                                            <div class="cat_single">
-                                                <div class="cat_single_bg">
-                                                    <div class="overlay_color"></div>
+                                            {% for item in places %}
+                                                <div class="cat_single">
+                                                    <div class="cat_single_bg">
+                                                        <div class="overlay_color"></div>
+                                                    </div>
+                                                    <div class="cat_single_content">
+                                                        <a href="{% url 'place_list' %}?category={{ item.category|urlencode }}"
+                                                           class="filter">
+                                                            {% if item.category == 'food & drink' %}
+                                                                <img class="svg"
+                                                                     src="{% static 'img/svg/restaurant.svg' %}"
+                                                                     alt="Food & Drink"/>
+                                                            {% endif %}
+                                                            {% if item.category == 'medical' %}
+                                                                <img class="svg"
+                                                                     src="{% static 'img/svg/hospital.svg' %}"
+                                                                     alt="medical"/>
+                                                            {% endif %}
+                                                            {% if item.category == 'technical' %}
+                                                                <img class="svg"
+                                                                     src="{% static 'img/svg/service.svg' %}"
+                                                                     alt="technical"/>
+                                                            {% endif %}
+                                                            {% if item.category == 'store' %}
+                                                                <img class="svg"
+                                                                     src="{% static 'img/svg/shopping-cart.svg' %}"
+                                                                     alt="store"/>
+                                                            {% endif %}
+                                                            {% if item.category == 'entertainment' %}
+                                                                <img class="svg"
+                                                                     src="{% static 'img/svg/bicycle.svg' %}"
+                                                                     alt="entertainment"/>
+                                                            {% endif %}
+                                                            {% if item.category == 'other' %}
+                                                                <img class="svg"
+                                                                     src="{% static 'img/svg/magnifying-glass-browser.svg' %}"
+                                                                     alt="other"/>
+                                                            {% endif %}
+                                                            <br>
+                                                            <span style="margin-top: 25%"
+                                                                  class="cat_title">{{ item.category }}</span>
+                                                        </a>
+                                                    </div>
+
                                                 </div>
-                                                <div class="cat_single_content">
-                                                    <a href="#">
-                                                        <img class="svg" src="{% static 'img/svg/restaurant.svg' %}"
-                                                             alt=""/>
-                                                        <span class="cat_title">Restaurants</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="cat_single">
-                                                <div class="cat_single_bg">
-                                                    <div class="overlay_color"></div>
-                                                </div>
-                                                <div class="cat_single_content">
-                                                    <a href="#">
-                                                        <img class="svg" src="{% static 'img/svg/hotel.svg' %}" alt=""/>
-                                                        <span class="cat_title">Hotels</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="cat_single">
-                                                <div class="cat_single_bg">
-                                                    <div class="overlay_color"></div>
-                                                </div>
-                                                <div class="cat_single_content">
-                                                    <a href="#">
-                                                        <img class="svg" src="{% static 'img/svg/shopping.svg' %}"
-                                                             alt=""/>
-                                                        <span class="cat_title">Shopping</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="cat_single">
-                                                <div class="cat_single_bg">
-                                                    <div class="overlay_color"></div>
-                                                </div>
-                                                <div class="cat_single_content">
-                                                    <a href="#">
-                                                        <img class="svg" src="{% static 'img/svg/gallery.svg' %}"
-                                                             alt=""/>
-                                                        <span class="cat_title">Gallery</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="cat_single">
-                                                <div class="cat_single_bg">
-                                                    <div class="overlay_color"></div>
-                                                </div>
-                                                <div class="cat_single_content">
-                                                    <a href="#">
-                                                        <img class="svg" src="{% static 'img/svg/park.svg' %}" alt=""/>
-                                                        <span class="cat_title">Park</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="cat_single">
-                                                <div class="cat_single_bg">
-                                                    <div class="overlay_color"></div>
-                                                </div>
-                                                <div class="cat_single_content">
-                                                    <a href="#">
-                                                        <img class="svg" src="{% static 'img/svg/movie.svg' %}" alt=""/>
-                                                        <span class="cat_title">Movie</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="cat_single">
-                                                <div class="cat_single_bg">
-                                                    <div class="overlay_color"></div>
-                                                </div>
-                                                <div class="cat_single_content">
-                                                    <a href="#">
-                                                        <img class="svg" src="{% static 'img/svg/service.svg' %}"
-                                                             alt=""/>
-                                                        <span class="cat_title">Services</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="cat_single">
-                                                <div class="cat_single_bg">
-                                                    <div class="overlay_color"></div>
-                                                </div>
-                                                <div class="cat_single_content">
-                                                    <a href="#">
-                                                        <img class="svg" src="{% static 'img/svg/theatre.svg' %}"
-                                                             alt=""/>
-                                                        <span class="cat_title">Theatres</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="cat_single">
-                                                <div class="cat_single_bg">
-                                                    <div class="overlay_color"></div>
-                                                </div>
-                                                <div class="cat_single_content">
-                                                    <a href="#">
-                                                        <img class="svg" src="{% static 'img/svg/hospital.svg' %}"
-                                                             alt=""/>
-                                                        <span class="cat_title">Hospitals</span>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                         <div class="all_cat_btn">
-                                            <a href="#"><span class="text">All Categories</span><i
-                                                    class="xcon-angle-right"></i></a>
+                                            <a href="{% url 'place_list' %}"><span class="text">All Services</span>
+                                                <i class="xcon-angle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>

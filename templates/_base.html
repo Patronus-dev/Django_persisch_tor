@@ -45,311 +45,211 @@
 <!-- WRAPPER ALL -->
 <div class="directify_fn_wrapper_all">
 
-
     <!-- MOBILE MENU -->
-    <div class="directify_fn_mobile_menu_wrap" data-bg-type="light">
-
-        <div class="directify_fn_mobile_menu">
-            <div class="mobile_logo">
-                <a class="dark" href="#"><img src="{% static 'img/logo-dark.png' %}" alt=""/></a>
-                <a class="light" href="#"><img src="{% static 'img/logo-light.png' %}" alt=""/></a>
-            </div>
-            <div class="mobile_search">
-                <a href="#">
-                    <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
-                    Search
-                </a>
-            </div>
-            <div class="hamburger hamburger--collapse-r">
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
+    {% block header_mobile %}
+        <div class="directify_fn_mobile_menu_wrap" data-bg-type="light">
+            <div class="directify_fn_mobile_menu">
+                <div class="mobile_logo">
+                    <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo-dark.png' %}" alt=""/></a>
+                    <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo-light.png' %}" alt=""/></a>
+                </div>
+                <div class="mobile_search">
+                    <a href="#">
+                        <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
+                        Search
+                    </a>
+                </div>
+                <div class="hamburger hamburger--collapse-r">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+                <div class="s-search">
+                    <a href="#">
+                        <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
+                    </a>
                 </div>
             </div>
-            <div class="s-search">
-                <a href="#">
-                    <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
-                </a>
-            </div>
-        </div>
-        <div class="directify_fn_mobile_nav">
-            <ul class="nav">
-                <li>
-                    <a href="#">Explore<i class="xcon-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="#">Restaurants</a></li>
-                        <li><a href="#">Hotels</a></li>
-                        <li><a href="#">Shopping</a></li>
-                        <li><a href="#">Galleries</a></li>
-                        <li><a href="#">Parks</a></li>
-                        <li><a href="#">Movies</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Theatres</a></li>
-                        <li><a href="#">Hospitals</a></li>
-                        <li><a href="#">Single Page #1</a></li>
-                        <li><a href="#">Single Page #2</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Pages<i class="xcon-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="#">Homepage #1</a></li>
-                        <li><a href="#">Homepage #2</a></li>
-                        <li><a href="#">Homepage #3</a></li>
-                        <li><a href="#">Homepage #4</a></li>
-                        <li><a href="#">Homepage #5</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li>
-                            <a href="#">Submenu Level #1<i class="xcon-angle-down"></i></a>
-                            <ul class="sub_menu">
-                                <li><a href="#">Level #2</a></li>
-                                <li><a href="#">Level #2</a></li>
+
+            <div class="directify_fn_mobile_nav">
+                <ul class="nav">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>
+                        <a href="{% url 'place_list' %}">Places<i class="xcon-angle-down"></i></a>
+                        <ul class="sub_menu masonry-filter">
+                            {% for category in categories %}
                                 <li>
-                                    <a href="#">Level #2<i class="xcon-angle-down"></i></a>
-                                    <ul class="sub_menu">
-                                        <li><a href="#">Level #3</a></li>
-                                        <li><a href="#">Level #3</a></li>
-                                        <li><a href="#">Level #3</a></li>
-                                        <li>
-                                            <a href="#">Level #3<i class="xcon-angle-down"></i></a>
-                                            <ul class="sub_menu">
-                                                <li><a href="#">Level #4</a></li>
-                                                <li><a href="#">Level #4</a></li>
-                                                <li><a href="#">Level #4</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                    <a href="{% url 'place_list' %}?category={{ category|urlencode }}" class="filter">
+                                        {{ category|capfirst }}
+                                    </a>
                                 </li>
-                                <li><a href="#">Level #2</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Dashboard<i class="xcon-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="#">Dashboard - Home</a></li>
-                        <li>
-                            <a href="#">Dashboard - Listings<i class="xcon-angle-down"></i></a>
-                            <ul class="sub_menu">
-                                <li><a href="#">Active</a></li>
-                                <li><a href="#">Panding</a></li>
-                                <li><a href="#">Expired</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Dashboard - Reviews</a></li>
-                        <li><a href="#">Dashboard - Bookmarks</a></li>
-                        <li><a href="#">Dashboard - Adding</a></li>
-                        <li><a href="#">Dashboard - Invoices</a></li>
-                        <li><a href="#">Dashboard - Profile</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Blog<i class="xcon-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Single Page</a></li>
-                    </ul>
-                </li>
-                <li class="log-in">
-                    <a href="#">Log In</a>
-                </li>
-                <li class="add_listing">
-                    <a href="#"><span>Add Listings</span></a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="mobile_search_see one">
-            <div class="selects">
-                <div>
-                    <label>
-                        <input class="directify_fn_search_input" type="search" placeholder="What Are You Looking For?"/>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <select class="directify_fn_select">
-                            <option value="all">All Listings</option>
-                            <option value="restaurant">Restaurants</option>
-                            <option value="hotel">Hotels</option>
-                            <option value="shopping">Shopping</option>
-                            <option value="gallery">Gallery</option>
-                            <option value="park">Park</option>
-                            <option value="movie">Movie</option>
-                            <option value="service">Services</option>
-                            <option value="theatre">Theatres</option>
-                            <option value="hospital">Hospitals</option>
-                        </select>
-                    </label>
-                </div>
-                <div>
-                    <label for="select-location"></label>
-                    <input type="text" id="select-location" placeholder="Location"/>
-                    <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}" alt=""/>
-                </div>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li class="log-in">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'user_profile' %}">Profile</a>
+                        {% else %}
+                            <a href="{% url 'login' %}">Login</a>
+                        {% endif %}
+                    </li>
+                    <li class="add_listing">
+                        <a href="#">
+                            <img class="svg" src="{% static 'img/svg/pencil.svg' %}" alt=""/>
+                            <span>Add Listings</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <a href="#"><img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
-        </div>
 
-    </div>
+            <div class="mobile_search_see one">
+                <div class="selects">
+                    <div>
+                        <label>
+                            <input class="directify_fn_search_input" type="search"
+                                   placeholder="What Are You Looking For?"/>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <select class="directify_fn_select">
+                                <option value="all">All Listings</option>
+                                <option value="restaurant">Restaurants</option>
+                                <option value="hotel">Hotels</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="gallery">Gallery</option>
+                                <option value="park">Park</option>
+                                <option value="movie">Movie</option>
+                                <option value="service">Services</option>
+                                <option value="theatre">Theatres</option>
+                                <option value="hospital">Hospitals</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="select-location"></label>
+                        <input type="text" id="select-location" placeholder="Location"/>
+                        <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}" alt=""/>
+                    </div>
+                </div>
+                <a href="#"><img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
+            </div>
+        </div>
+    {% endblock header_mobile %}
     <!-- /MOBILE MENU -->
 
+
     <!-- HEADER -->
-    <header class="directify_fn_header_wrap" data-bg-type="light">
-        <div>
-            <div class="directify_fn_header">
-                <div class="header">
-                    <div class="directify_fn_header_logo">
-                        <a class="dark" href="#"><img src="{% static 'img/logo-dark.png' %}" alt=""/></a>
-                        <a class="light" href="#"><img src="{% static 'img/logo-light.png' %}" alt=""/></a>
-                    </div>
-                    <div class="directify_fn_header_search">
-                        <a href="#">
-                            <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
-                            Search
-                        </a>
-                        <div class="directify_fn_header_search_see_wrap one">
-                            <div class="header_search_see">
-                                <div class="selects">
-                                    <div>
-                                        <label>
-                                            <input class="directify_fn_search_input" type="search"
-                                                   placeholder="What Are You Looking For?"/>
-                                        </label>
+    {% block header %}
+        <header class="directify_fn_header_wrap" data-bg-type="light">
+            <div>
+                <div class="directify_fn_header">
+                    <div class="header">
+                        <div class="directify_fn_header_logo">
+                            <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo-dark.png' %}" alt=""/></a>
+                            <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo-light.png' %}"
+                                                                          alt=""/></a>
+                        </div>
+                        <div class="directify_fn_header_search">
+                            <a href="#">
+                                <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
+                                Search
+                            </a>
+                            <div class="directify_fn_header_search_see_wrap one">
+                                <div class="header_search_see">
+                                    <div class="selects">
+                                        <div>
+                                            <label>
+                                                <input class="directify_fn_search_input" type="search"
+                                                       placeholder="What Are You Looking For?"/>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <select class="directify_fn_select">
+                                                    <option value="all">All Listings</option>
+                                                    <option value="restaurant">Restaurants</option>
+                                                    <option value="hotel">Hotels</option>
+                                                    <option value="shopping">Shopping</option>
+                                                    <option value="gallery">Gallery</option>
+                                                    <option value="park">Park</option>
+                                                    <option value="movie">Movie</option>
+                                                    <option value="service">Services</option>
+                                                    <option value="theatre">Theatres</option>
+                                                    <option value="hospital">Hospitals</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label for="select-location-1"></label><input type="text"
+                                                                                          id="select-location-1"
+                                                                                          placeholder="Location"/>
+                                            <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}"
+                                                 alt=""/>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label>
-                                            <select class="directify_fn_select">
-                                                <option value="all">All Listings</option>
-                                                <option value="restaurant">Restaurants</option>
-                                                <option value="hotel">Hotels</option>
-                                                <option value="shopping">Shopping</option>
-                                                <option value="gallery">Gallery</option>
-                                                <option value="park">Park</option>
-                                                <option value="movie">Movie</option>
-                                                <option value="service">Services</option>
-                                                <option value="theatre">Theatres</option>
-                                                <option value="hospital">Hospitals</option>
-                                            </select>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label for="select-location-1"></label><input type="text" id="select-location-1"
-                                                                                      placeholder="Location"/>
-                                        <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}" alt=""/>
-                                    </div>
+                                    <a href="#"><img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
                                 </div>
-                                <a href="#"><img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="directify_fn_header_nav_list">
-                        <ul class="nav__hor">
-                            <li>
-                                <a href="#">Explore<i class="xcon-angle-down"></i></a>
-                                <ul class="sub_menu">
-                                    <li><a href="#">Restaurants</a></li>
-                                    <li><a href="#">Hotels</a></li>
-                                    <li><a href="#">Shopping</a></li>
-                                    <li><a href="#">Galleries</a></li>
-                                    <li><a href="#">Parks</a></li>
-                                    <li><a href="#">Movies</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Theatres</a></li>
-                                    <li><a href="#">Hospitals</a></li>
-                                    <li><a href="#">Single Page #1</a></li>
-                                    <li><a href="#">Single Page #2</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Pages<i class="xcon-angle-down"></i></a>
-                                <ul class="sub_menu">
-                                    <li><a href="#">Homepage #1</a></li>
-                                    <li><a href="#">Homepage #2</a></li>
-                                    <li><a href="#">Homepage #3</a></li>
-                                    <li><a href="#">Homepage #4</a></li>
-                                    <li><a href="#">Homepage #5</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li>
-                                        <a href="#">Submenu Level #1<i class="xcon-angle-right"></i></a>
-                                        <ul class="sub_menu">
-                                            <li><a href="#">Level #2</a></li>
-                                            <li><a href="#">Level #2</a></li>
+                        <div class="directify_fn_header_nav_list">
+                            <ul class="nav__hor">
+                                <li>
+                                    <a href="{% url 'home' %}">Home<i class="xcon-"></i></a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'place_list' %}">Places & Services<i class="xcon-angle-down"></i></a>
+                                    <ul class="sub_menu masonry-filter">
+                                        {% for category in categories %}
                                             <li>
-                                                <a href="#">Level #2<i class="xcon-angle-right"></i></a>
-                                                <ul class="sub_menu">
-                                                    <li><a href="#">Level #3</a></li>
-                                                    <li><a href="#">Level #3</a></li>
-                                                    <li><a href="#">Level #3</a></li>
-                                                    <li>
-                                                        <a href="#">Level #3<i class="xcon-angle-right"></i></a>
-                                                        <ul class="sub_menu">
-                                                            <li><a href="#">Level #4</a></li>
-                                                            <li><a href="#">Level #4</a></li>
-                                                            <li><a href="#">Level #4</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                                <a href="{% url 'place_list' %}?category={{ category|urlencode }}"
+                                                   class="filter">
+                                                    {{ category|capfirst }}
+                                                </a>
                                             </li>
-                                            <li><a href="#">Level #2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Dashboard<i class="xcon-angle-down"></i></a>
-                                <ul class="sub_menu">
-                                    <li><a href="#">Dashboard - Home</a></li>
-                                    <li>
-                                        <a href="#">Dashboard - Listings<i class="xcon-angle-right"></i></a>
-                                        <ul class="sub_menu">
-                                            <li><a href="#">Active</a></li>
-                                            <li><a href="#">Panding</a></li>
-                                            <li><a href="#">Expired</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Dashboard - Reviews</a></li>
-                                    <li><a href="#">Dashboard - Bookmarks</a></li>
-                                    <li><a href="#">Dashboard - Adding</a></li>
-                                    <li><a href="#">Dashboard - Invoices</a></li>
-                                    <li><a href="#">Dashboard - Profile</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Blog<i class="xcon-angle-down"></i></a>
-                                <ul class="sub_menu">
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Single Page</a></li>
-                                </ul>
-                            </li>
-                            <li class="add_listing" style="">
-                                {% if user.is_authenticated %}
-                                    <form action="{% url '#' %}" method="post">
-                                    {% csrf_token %}
-                                        <a href="#">Profile</a>
-                                    <img class="svg" src="{% static 'img/svg/human.svg' %}" alt=""/>
-                                    </form>
-                                {% else %}
-                                    <a href="{% url 'login' %}">Login</a>
-                                {% endif %}
-                            </li>
-                            <li class="add_listing">
-                                <a href="#">
-                                    <img class="svg" src="{% static 'img/svg/pencil.svg' %}" alt=""/>
-                                    <span>Add Listings</span>
-                                </a>
-                            </li>
-                        </ul>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Blog<i class="xcon-"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">About us<i class="xcon-"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact us<i class="xcon-"></i></a>
+                                </li>
+                                <li class="add_listing">
+                                    {% if user.is_authenticated %}
+                                        <a href="{% url 'user_profile' %}">Profile</a>
+                                        <img class="svg" src="{% static 'img/svg/human.svg' %}" alt=""/>
+                                    {% else %}
+                                        <a href="{% url 'login' %}">Login</a>
+                                    {% endif %}
+                                </li>
+                                <li class="add_listing">
+                                    <a href="#">
+                                        <img class="svg" src="{% static 'img/svg/pencil.svg' %}" alt=""/>
+                                        <span>Add Listings</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
+    {% endblock header %}
     <!-- /HEADER -->
 
+    <!-- Content -->
     {% block content %}
     {% endblock content %}
-
+    <!-- /Content -->
 
     <!-- FOOTER -->
     <footer class="directify_fn_footer_wrap">

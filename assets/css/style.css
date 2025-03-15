@@ -7727,27 +7727,27 @@ div.directify_fn_sign_in_closer{
   padding-left: 30px;
 }
 
-.title::before,.title::after {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  left: 0px;
-  background-color: royalblue;
-}
+/*.title::before,.title::after {*/
+/*  position: absolute;*/
+/*  content: "";*/
+/*  height: 16px;*/
+/*  width: 16px;*/
+/*  border-radius: 50%;*/
+/*  left: 0px;*/
+/*  background-color: royalblue;*/
+/*}*/
 
-.title::before {
-  width: 18px;
-  height: 18px;
-  background-color: royalblue;
-}
+/*.title::before {*/
+/*  width: 18px;*/
+/*  height: 18px;*/
+/*  background-color: royalblue;*/
+/*}*/
 
-.title::after {
-  width: 18px;
-  height: 18px;
-  animation: pulse 1s linear infinite;
-}
+/*.title::after {*/
+/*  width: 18px;*/
+/*  height: 18px;*/
+/*  animation: pulse 1s linear infinite;*/
+/*}*/
 
 .message, .signin {
   color: rgba(88, 87, 87, 0.822);
