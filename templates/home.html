@@ -12,33 +12,37 @@
     <!-- CONTENT -->
     <div class="directify_fn_content">
 
-        <div class="directify_fn_all_listings_wrap" style="background-image: url('{% static 'img/home/803.jpg' %}')">
+        <!-- Intro -->
+        <div class="directify_fn_all_listings_wrap">
             <div class="directify_fn_all_listings">
                 <div class="all_listings">
                     <div class="container">
-                        <div class="listings_wrap">
-                            <div class="discovering_wrap">
+                        <div class="listings_wrap" style="">
+                            <div>
+                                <img src="{% static 'img/logo.png' %}" alt="Persisch Tor"
+                                     style="float: left; margin-top: 11%; margin-left: 7%;">
+                            </div>
+                            <div class="discovering_wrap" style=" width: fit-content; float: right; margin-right: 10%">
                                 <div class="discovering">
-                                    <div class="title_holder">
-                                        <h1 style="margin-bottom: 10%"><strong>Persisch-Tor</strong></h1>
-                                        <h3>Discover the Best Places an Services</h3>
-                                        <span>Persisch Tor helps you find all top locations</span>
+                                    <div class="title_holder" style="direction: rtl; margin-top: 10%">
+                                        <h1 style="margin-bottom: 5%; font-size: xxx-large;">
+                                            <strong>{% trans 'Persisch Tor' %}</strong></h1>
+                                        <h3>{% trans 'Gate for easy access!' %}</h3>
+                                        <span>{% trans 'Discover the Best Places and Services' %}</span>
                                     </div>
-                                    <div class="searching">
+                                    <div class="searching" style="float: right">
                                         <label>
                                             <input class="directify_fn_search_input" type="search"
                                                    placeholder="What Are You Looking For?"/>
                                         </label>
                                         <a class="directify_fn_search_btn" href="#">
-                                            <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
+                                            <img class="svg" src="{% static 'img/svg/search.svg' %}"
+                                                 alt=""/><span>{% trans 'Search' %}</span></a>
                                         <div class="clearfix"></div>
-                                        <span class="browse_me">or browse</span>
-                                        <img class="svg my_dotted_arrow" src="{% static 'img/svg/arrow2.svg' %}"
-                                             alt=""/>
                                     </div>
                                 </div>
                             </div>
-                            <div class="listing_categories_wrap">
+                            <div class="listing_categories_wrap" style="margin-left: 5%; width: fit-content">
                                 <div class="listing_categories">
                                     <div class="list_cat">
                                         <div class="cat_single_wrap" data-hover-text="#0089e2" data-hover-bg=""
@@ -92,9 +96,10 @@
                                                 </div>
                                             {% endfor %}
                                         </div>
-                                        <div class="all_cat_btn">
-                                            <a href="{% url 'place_list' %}"><span class="text">All Services</span>
-                                                <i class="xcon-angle-right"></i></a>
+                                        <div class="all_cat_btn" style="direction: rtl; margin-right: 15%">
+                                            <a href="{% url 'place_list' %}">
+                                                <span class="text">{% trans 'Go to all Services' %}</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -104,126 +109,59 @@
                 </div>
             </div>
         </div>
-
-        <!-- FAMOUS CITIES SIMPLE(111) -->
-        <div class="directify_fn_simple_famous_cities_wrap">
-            <div class="directify_fn_simple_famous_cities">
-                <div class="simple_famous_cities">
-                    <div class="container">
-                        <div class="simple_famous_cities_wrap">
-                            <div class="title_holder">
-                                <h3>Most Popular Cities to Travel</h3>
-                                <span class="title">These are Top Places that recommended by Directify</span>
-                                <span class="line"></span>
-                            </div>
-                            <div class="fam_cities_wrap directify_fn_masonry">
-                                <div class="fam_city_wrap directify_fn_masonry_in">
-                                    <a href="#"><img src="{% static 'img/popular_cities/city1-m.jpg' %}" alt=""/></a>
-                                    <div class="title_holder">
-                                        <a href="#">
-                                            <span class="city">New York</span>
-                                            <span class="listings">227 Listings</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="fam_city_wrap directify_fn_masonry_in">
-                                    <a href="#"><img src="{% static 'img/popular_cities/city2-m.jpg' %}" alt=""/></a>
-                                    <div class="title_holder">
-                                        <a href="#">
-                                            <span class="city">Paris</span>
-                                            <span class="listings">154 Listings</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="fam_city_wrap directify_fn_masonry_in">
-                                    <a href="#"><img src="{% static 'img/popular_cities/city3-m.jpg' %}" alt=""/></a>
-                                    <div class="title_holder">
-                                        <a href="#">
-                                            <span class="city">Rome</span>
-                                            <span class="listings">854 Listings</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="fam_city_wrap directify_fn_masonry_in">
-                                    <a href="#"><img src="{% static 'img/popular_cities/city4-m.jpg' %}" alt=""/></a>
-                                    <div class="title_holder">
-                                        <a href="#">
-                                            <span class="city">London</span>
-                                            <span class="listings">239 Listings</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="fam_city_wrap directify_fn_masonry_in">
-                                    <a href="#"><img src="{% static 'img/popular_cities/city5-m.jpg' %}" alt=""/></a>
-                                    <div class="title_holder">
-                                        <a href="#">
-                                            <span class="city">Moscow</span>
-                                            <span class="listings">634 Listings</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="fam_city_wrap directify_fn_masonry_in">
-                                    <a href="#"><img src="{% static 'img/popular_cities/city6-m.jpg' %}" alt=""/></a>
-                                    <div class="title_holder">
-                                        <a href="#">
-                                            <span class="city">Tokyo</span>
-                                            <span class="listings">123 Listings</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /FAMOUS CITIES SIMPLE(111) -->
+        <!-- /Intro -->
 
         <!-- HOW IT WORK -->
-        <div class="directify_fn_workstep_wrap">
+        <div class="directify_fn_workstep_wrap" id="about_us">
             <div class="directify_fn_workstep">
                 <div class="workstep_wrap">
                     <div class="container">
                         <div class="workstep">
-                            <div class="title_holder">
-                                <h3>How It Works</h3>
-                                <span class="title">Let the Directify direct you toward to top places</span>
-                                <span class="line"></span>
+                            <div class="title_holder" style="direction: rtl">
+                                <h3>{% trans 'How It Works' %}</h3>
+                                <span class="title">{% trans 'Let the Persisch-Tor direct you toward to top places' %}</span>
+                                <span class="line" style="margin-right: 8%"></span>
+                                <br>
+                                <div class="title_holder">
+                                    <p style="font-size: large; text-align: justify">
+                                        {% trans "Finding the right services and businesses is always a major challenge for Persian speakers living in Germany. Many people, when looking for a specialist doctor, a professional repairman, a suitable store or a quality restaurant, etc., look for the opinions and experiences of others to make a better choice. In the absence of a centralized source, this information is often shared through social networks and Telegram groups, which makes it difficult to find accurate and reliable answers, and it is also difficult to join and check the opinions in such channels and groups.Persisch-Tor (Persisch-Tor) is designed to simplify this process. Here, users can: Search for places and professionals based on different categories. Read other people's opinions about their services and experiences. Share their experiences with other users. As a result, this platform is a suitable platform for collecting information that is directly provided by users. Therefore, the decision to choose services or places will be based on real feedback and opinions of our fellow speakers who have used these services. As a result, this website not only helps to find reliable services, but also provides an opportunity to share useful experiences." %}</p>
+                                </div>
                             </div>
-                            <div class="steps">
+                            <div class="steps" style="direction: rtl; text-align: justify">
                                 <div class="step_single_wrap">
                                     <div class="step_single">
                                         <div class="number">
-                                            <span class="text">01</span>
+                                            <span class="text">3</span>
                                             <span class="after"></span>
                                         </div>
                                         <div class="title_holder">
-                                            <h3>Choose What To Do</h3>
-                                            <span>Looking for a cozy hotel to stay, a restaurant to eat, a museum to visit or a mall to do some shopping?</span>
+                                            <h3>{% trans 'Everything is ready!' %}</h3>
+                                            <span>{% trans "Find the right service provider for your needs by reviewing user reviews and share your experience once you're done." %}</span>
+                                            {#                                            با بررسی نظرات کاربران ، خدمات دهنده مناسب نیاز خود را پیدا کنید و پس از اتمام ، تجربه خودتون رو به اشتراک بگذارید#}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="step_single_wrap">
                                     <div class="step_single">
                                         <div class="number">
-                                            <span class="text">02</span>
+                                            <span class="text">2</span>
                                             <span class="after"></span>
                                         </div>
                                         <div class="title_holder">
-                                            <h3>Find the Best Locations </h3>
-                                            <span>Search and filter hundreds of listings, read reviews, explore photos and find the perfect spot.</span>
+                                            <h3>{% trans 'Find or introduce' %}</h3>
+                                            <span>{% trans 'Browse the listings, read reviews, and find the right choice. Also, share your experiences about receiving services from professionals (doctors, technicians, stores, etc.) with others.' %}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="step_single_wrap">
                                     <div class="step_single">
                                         <div class="number">
-                                            <span class="text">03</span>
+                                            <span class="text">1</span>
                                             <span class="after"></span>
                                         </div>
                                         <div class="title_holder">
-                                            <h3>Go and Have Fun</h3>
-                                            <span>Go and have a good time or even make a booking directly from the listing page. Sed do eiusmod tempor </span>
+                                            <h3>{% trans 'Decide What you want' %}</h3>
+                                            <span>{% trans 'Are you looking for a good clinic, specialists in any field, a cozy hotel for your stay, a restaurant for a delicious meal, or a reliable store with reasonable prices for shopping?' %}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -237,49 +175,49 @@
 
 
         <!-- FROM OUR BLOG -->
-        <div class="directify_fn_exmblog_wrap">
-            <div class="directify_fn_exmblog">
-                <div class="exmblog_wrap">
-                    <div class="container">
-                        <div class="exmblogs">
-                            <div class="title_holder">
-                                <h3>From Our Blog</h3>
-                                <span class="title">We post everyday about places that you want to know about.</span>
-                                <span class="line"></span>
-                            </div>
-                            <div class="exmblog_single_wrap">
-                                <div class="exmblog_single">
-                                    <img class="svg" src="{% static 'img/svg/open-book.svg' %}" alt=""/>
-                                    <div class="title_holder">
-                                        <h3><a href="#">Best Destinations for Travellers</a></h3>
-                                        <span class="title">Cras aliquam sagittis urna in consectetur. Aenean felis lacus.</span>
-                                        <span class="read_more"><a href="#">Read More</a><span
-                                                class="date"> - April 01</span></span>
-                                    </div>
-                                </div>
-                                <div class="exmblog_single">
-                                    <img class="svg" src="{% static 'img/svg/open-book.svg' %}" alt=""/>
-                                    <div class="title_holder">
-                                        <h3><a href="#">How to Promote Your Business</a></h3>
-                                        <span class="title">Cras aliquam sagittis urna in consectetur. Aenean felis lacus.</span>
-                                        <span class="read_more"><a href="#">Read More</a><span
-                                                class="date"> - March 27</span></span>
-                                    </div>
-                                </div>
-                                <div class="exmblog_single">
-                                    <img class="svg" src="{% static 'img/svg/open-book.svg' %}" alt=""/>
-                                    <div class="title_holder">
-                                        <h3><a href="#">Tips for High Quality Holiday</a></h3>
-                                        <span class="title">Cras aliquam sagittis urna in consectetur. Aenean felis lacus.</span>
-                                        <span class="read_more"><a href="#">Read More</a><span class="date"> - January 18</span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {#        <div class="directify_fn_exmblog_wrap">#}
+        {#            <div class="directify_fn_exmblog">#}
+        {#                <div class="exmblog_wrap">#}
+        {#                    <div class="container">#}
+        {#                        <div class="exmblogs">#}
+        {#                            <div class="title_holder">#}
+        {#                                <h3>From Our Blog</h3>#}
+        {#                                <span class="title">We post everyday about places that you want to know about.</span>#}
+        {#                                <span class="line"></span>#}
+        {#                            </div>#}
+        {#                            <div class="exmblog_single_wrap">#}
+        {#                                <div class="exmblog_single">#}
+        {#                                    <img class="svg" src="{% static 'img/svg/open-book.svg' %}" alt=""/>#}
+        {#                                    <div class="title_holder">#}
+        {#                                        <h3><a href="#">Best Destinations for Travellers</a></h3>#}
+        {#                                        <span class="title">Cras aliquam sagittis urna in consectetur. Aenean felis lacus.</span>#}
+        {#                                        <span class="read_more"><a href="#">Read More</a><span#}
+        {#                                                class="date"> - April 01</span></span>#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                                <div class="exmblog_single">#}
+        {#                                    <img class="svg" src="{% static 'img/svg/open-book.svg' %}" alt=""/>#}
+        {#                                    <div class="title_holder">#}
+        {#                                        <h3><a href="#">How to Promote Your Business</a></h3>#}
+        {#                                        <span class="title">Cras aliquam sagittis urna in consectetur. Aenean felis lacus.</span>#}
+        {#                                        <span class="read_more"><a href="#">Read More</a><span#}
+        {#                                                class="date"> - March 27</span></span>#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                                <div class="exmblog_single">#}
+        {#                                    <img class="svg" src="{% static 'img/svg/open-book.svg' %}" alt=""/>#}
+        {#                                    <div class="title_holder">#}
+        {#                                        <h3><a href="#">Tips for High Quality Holiday</a></h3>#}
+        {#                                        <span class="title">Cras aliquam sagittis urna in consectetur. Aenean felis lacus.</span>#}
+        {#                                        <span class="read_more"><a href="#">Read More</a><span class="date"> - January 18</span></span>#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
         <!-- /FROM OUR BLOG -->
 
     </div>

@@ -3,13 +3,13 @@
 
 <!DOCTYPE html>
 <!--[if lt IE 7 ]>
-<html class="ie ie6" lang="en"> <![endif]-->
+<html class="ie ie6" lang="fa"> <![endif]-->
 <!--[if IE 7 ]>
-<html class="ie ie7" lang="en"> <![endif]-->
+<html class="ie ie7" lang="fa"> <![endif]-->
 <!--[if IE 8 ]>
-<html class="ie ie8" lang="en"> <![endif]-->
+<html class="ie ie8" lang="fa"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en"> <!--<![endif]-->
+<html lang="fa"> <!--<![endif]-->
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -50,8 +50,8 @@
         <div class="directify_fn_mobile_menu_wrap" data-bg-type="light">
             <div class="directify_fn_mobile_menu">
                 <div class="mobile_logo">
-                    <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo-dark.png' %}" alt=""/></a>
-                    <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo-light.png' %}" alt=""/></a>
+                    <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}" alt=""/></a>
+                    <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}" alt=""/></a>
                 </div>
                 <div class="mobile_search">
                     <a href="#">
@@ -86,8 +86,8 @@
                             {% endfor %}
                         </ul>
                     </li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">About us</a></li>
+{#                    <li><a href="#">Blog</a></li>#}
+                    <li><a href="#about_us">About us</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li class="log-in">
                         {% if user.is_authenticated %}
@@ -149,12 +149,12 @@
                 <div class="directify_fn_header">
                     <div class="header">
                         <div class="directify_fn_header_logo">
-                            <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo-dark.png' %}" alt=""/></a>
-                            <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo-light.png' %}"
+                            <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}" alt=""/></a>
+                            <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
                                                                           alt=""/></a>
                         </div>
                         <div class="directify_fn_header_search">
-                            <a href="#">
+                            <a href="#" style="margin-top: 15%">
                                 <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
                                 Search
                             </a>
@@ -195,7 +195,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="directify_fn_header_nav_list">
+                        <div class="directify_fn_header_nav_list" style="margin-top: 1%">
                             <ul class="nav__hor">
                                 <li>
                                     <a href="{% url 'home' %}">Home<i class="xcon-"></i></a>
@@ -214,13 +214,13 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#">Blog<i class="xcon-"></i></a>
+{#                                    <a href="#">Blog<i class="xcon-"></i></a>#}
                                 </li>
                                 <li>
-                                    <a href="#">About us<i class="xcon-"></i></a>
+                                    <a href="#about_us">About us<i class="xcon-"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#">Contact us<i class="xcon-"></i></a>
+                                    <a href="#contact_us">Contact us<i class="xcon-"></i></a>
                                 </li>
                                 <li class="add_listing">
                                     {% if user.is_authenticated %}
@@ -260,9 +260,9 @@
                         <div class="footer_location">
                             <div class="footer_location_rows">
                                 <div class="footer_location_row">
-                                    <div class="footer_logo">
+                                    <div class="footer_logo" id="contact_us">
                                         <a href="#">
-                                            <img class="dark" src="{% static 'img/logo-dark.png' %}" alt=""/>
+                                            <img class="dark" src="{% static 'img/logo.png' %}" alt=""/>
                                         </a>
                                     </div>
                                 </div>

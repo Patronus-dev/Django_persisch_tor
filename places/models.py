@@ -112,16 +112,16 @@ class Place(models.Model):
     description = models.TextField(blank=False, null=False, verbose_name="Description",
                                    help_text="Write a description of the place.")
 
-    image1 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image1",
-                               help_text="Upload an image 1 of the place.")
-    image2 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image2",
-                               help_text="Upload an image 2 of the place.")
-    image3 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image3",
-                               help_text="Upload an image 3 of the place.")
-    image4 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image4",
-                               help_text="Upload an image 4 of the place.")
-    image5 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Place Image5",
-                               help_text="Upload an image 5 of the place.")
+    image_main = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Main Image",
+                                   help_text="Upload an main image of the place or service.")
+    image2 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Image2",
+                               help_text="Upload an image 2 of the place or service.")
+    image3 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Image3",
+                               help_text="Upload an image 3 of the place or service.")
+    image4 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Image4",
+                               help_text="Upload an image 4 of the place or service.")
+    image5 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Image5",
+                               help_text="Upload an image 5 of the place or service.")
 
     datetime_created = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
     datetime_updated = models.DateTimeField(auto_now=True, verbose_name="Updated At")
@@ -138,8 +138,8 @@ class Place(models.Model):
 
     def save(self, *args, **kwargs):
         # برای هر فیلد تصویر تغییر اندازه بده
-        if self.image1:
-            self.image1 = self.resize_image(self.image1)
+        if self.image_main:
+            self.image_main = self.resize_image(self.image_main)
         if self.image2:
             self.image2 = self.resize_image(self.image2)
         if self.image3:

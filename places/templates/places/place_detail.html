@@ -4,21 +4,22 @@
 {% load static %}
 {% load i18n %}
 
-{% block page_title %}{% trans 'Login' %}{% endblock page_title %}
+{% block page_title %}{% trans 'Services' %}{% endblock page_title %}
 
+<!-- HEADER -->
 {% block header %}
-    <!-- HEADER -->
     <header class="directify_fn_header_wrap" data-bg-type="light">
         <div>
             <div class="directify_fn_header">
                 <div class="header">
                     <div class="directify_fn_header_logo">
-                        <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo-dark.png' %}" alt=""/></a>
-                        <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo-light.png' %}"
+                        <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
+                                                                     alt=""/></a>
+                        <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
                                                                       alt=""/></a>
                     </div>
                     <div class="directify_fn_header_search">
-                        <a href="#">
+                        <a href="#" style="margin-top: 15%">
                             <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
                             Search
                         </a>
@@ -48,21 +49,33 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <label for="select-location-1"></label><input type="text" id="select-location-1"
+                                        <label for="select-location-1"></label><input type="text"
+                                                                                      id="select-location-1"
                                                                                       placeholder="Location"/>
-                                        <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}" alt=""/>
+                                        <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}"
+                                             alt=""/>
                                     </div>
                                 </div>
                                 <a href="#"><img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
                             </div>
                         </div>
                     </div>
-                    <div class="directify_fn_header_nav_list">
+                    <div class="directify_fn_header_nav_list" style="margin-top: 1%">
                         <ul class="nav__hor">
                             <li>
-                                <a href="#">Places<i class="xcon-angle-down"></i></a>
-                                <ul class="sub_menu">
-                                    <li><a href="#">Restaurants</a></li>
+                                <a href="{% url 'home' %}">Home<i class="xcon-"></i></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'place_list' %}">Places & Services<i class="xcon-angle-down"></i></a>
+                                <ul class="sub_menu masonry-filter">
+                                    {% for category in categories %}
+                                        <li>
+                                            <a href="{% url 'place_list' %}?category={{ category|urlencode }}"
+                                               class="filter">
+                                                {{ category|capfirst }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </li>
                             <li>
@@ -72,21 +85,16 @@
                                 <a href="#">About us<i class="xcon-"></i></a>
                             </li>
                             <li>
-                                <a href="#">Contact us<i class="xcon-"></i></a>
+                                <a href="#contact_us">Contact us<i class="xcon-"></i></a>
                             </li>
                             <li class="add_listing">
                                 {% if user.is_authenticated %}
-                                    <form action="" method="post">
-                                        <a href="{% url 'user_profile' %}" type="submit">Profile</a>
-                                        <img class="svg" src="{% static 'img/svg/human.svg' %}" alt=""/>
-                                    </form>
+                                    <a href="{% url 'user_profile' %}">Profile</a>
+                                    <img class="svg" src="{% static 'img/svg/human.svg' %}" alt=""/>
                                 {% else %}
-                                    <form action="" method="post">
-                                        <a href="{% url 'login' %}" type="submit">Login</a>
-                                    </form>
+                                    <a href="{% url 'login' %}">Login</a>
                                 {% endif %}
                             </li>
-
                             <li class="add_listing">
                                 <a href="#">
                                     <img class="svg" src="{% static 'img/svg/pencil.svg' %}" alt=""/>
@@ -95,86 +103,134 @@
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </div>
     </header>
-    <!-- /HEADER -->
 {% endblock header %}
+<!-- /HEADER -->
 
 {% block content %}
     <!-- CONTENT -->
     <div class="directify_fn_content">
 
-        <!-- BLOG -->
+        <!-- PLACE OR SERVICE -->
         <div class="directify_fn_blog_single_wrap">
             <div class="directify_fn_blog_single">
                 <div class="blog_single">
                     <div class="container">
                         <div class="blog_single_wrapper">
 
-                            <!-- POST IMAGE -->
+                            <!-- PLACE IMAGE MAIN -->
                             <div class="post_img">
-                                <div class="bg-img jarallax" data-speed=".55"></div>
+                                {% if place.image_main %}
+                                    <img src="{{ place.image_main.url }}" alt="{{ place.title }}"
+                                         style="width: fit-content; height: auto">
+                                {% elif place.image2 %}
+                                    <img src="{{ place.image2.url }}" alt="{{ place.title }}"
+                                         style="width: fit-content; height: auto">
+                                {% elif place.image3 %}
+                                    <img src="{{ place.image3.url }}" alt="{{ place.title }}"
+                                         style="width: fit-content; height: auto">
+                                {% elif place.image4 %}
+                                    <img src="{{ place.image4.url }}" alt="{{ place.title }}"
+                                         style="width: fit-content; height: auto">
+                                {% elif place.image5 %}
+                                    <img src="{{ place.image5.url }}" alt="{{ place.title }}"
+                                         style="width: fit-content; height: auto">
+                                {% else %}
+                                    {% if place.category == 'Food & Drink' %}
+                                        <img src="{% static 'img/places/services/Food and Drink service_1_11zon.jpg' %}"
+                                             alt="{{ place.title }}"/>
+                                    {% elif place.category == 'medical' %}
+                                        <img src="{% static 'img/places/services/medical service_2_11zon.jpg' %}"
+                                             alt="{{ place.title }}"/>
+                                    {% elif place.category == 'technical' %}
+                                        <img src="{% static 'img/places/services/technical service_4_11zon.jpg' %}"
+                                             alt="{{ place.title }}"/>
+                                    {% elif place.category == 'store' %}
+                                        <img src="{% static 'img/places/services/store service_3_11zon.jpg' %}"
+                                             alt="{{ place.title }}"/>
+                                    {% elif place.category == 'entertainment' %}
+                                        <img src="{% static 'img/places/services/entertainment service_6_11zon.jpg' %}"
+                                             alt="{{ place.title }}"/>
+                                    {% elif place.category == 'other' %}
+                                        <img src="{% static 'img/places/services/other.png' %}"
+                                             alt="{{ place.title }}"/>
+                                    {% endif %}
+                                {% endif %}
                             </div>
-                            <!-- /POST IMAGE -->
+                            <!-- /PLACE IMAGE MAIN -->
 
-                            <!-- POST CONTENT -->
+                            <!-- PLACE CONTENT -->
                             <div class="post_content">
                                 <div class="title_holder">
-                                    <span><a href="#">Travel</a><span class="date">April 01</span></span>
-                                    <h3>Best Destinations for Travellers</h3>
-                                    <p class="post_intro">This is just hightlight content of the post. Rest goes as it
-                                        should be. Integer non augue et dui sagittis pellentesque. Pellentesque viverra
-                                        vitae mi a luctus. Suspendisse id ligula molestie, mollis dolor vitae, sagittis
-                                        diam. Sed vitae malesuada dolor. </p>
-                                    <p class="text">Cras cursus commodo nisl, eget facilisis ipsum molestie ac. Nullam
-                                        vel sem congue, feugiat risus ut, efficitur velit. Nam tincidunt in mi at
-                                        porttitor.</p>
-                                    <p class="text">Nullam maximus eget odio nec elementum. Aliquam convallis in mauris
-                                        vulputate mattis. Pellentesque habitant morbi tristique senectus et netus et
-                                        malesuada fames ac turpis egestas. Duis ultrices, mi non ultricies sagittis, sem
-                                        erat consequat justo, ac imperdiet justo felis id felis. Fusce ac lacus lorem.
-                                        Vivamus ullamcorper purus a purus dapibus pellentesque. Sed tristique pretium
-                                        ipsum at commodo. Nullam viverra iaculis tortor, sed dictum mauris. </p>
+                                    <span>
+                                        Category : <a
+                                            href="{% url 'place_list' %}?category={{ place.category|urlencode }}"
+                                            class="filter">{{ place.category|capfirst }}</a>
+                                        <span class="date">{{ place.datetime_created }}</span>
+                                    </span>
+
+                                    <div class="directify_fn_tags">
+                                        <h5 style="color: #C10A28"><strong>Important :</strong></h5>
+                                        <h6 style="color: #C10A28">Only the authenticity of the existence or
+                                            non-existence of each location and the
+                                            authenticity of the service providers' jobs have been reviewed by the site
+                                            support. Accordingly, the site owner does not bear any responsibility or
+                                            endorsement for the level of skill or quality of services provided by the
+                                            stores
+                                            or individuals introduced. Therefore, to remind you of the main purpose of
+                                            this
+                                            website, the final decision to use the services is yours and based on the
+                                            suggestions of other users and is completely optional.
+                                        </h6>
+                                    </div>
+                                    <hr>
+                                    <h3>{{ place.title }}</h3>
+                                    <p class="text">{{ place.description }}</p>
+                                    <h4>Information's :</h4>
+                                    <p class="text">City : {{ place.city }}</p>
+                                    {% if place.address %}
+                                    <p class="text">Address : {{ place.address }}</p>
+                                    {% endif %}
+                                    {% if place.phone_number %}
+                                    <p class="text">Phone : {{ place.phone_number }}</p>
+                                    {% endif %}
+                                    {% if place.website %}
+                                    <p class="text">Website : <a href="{{ place.website }}" target="_blank">{{ place.website }}</a></p>
+                                    {% endif %}
                                 </div>
-                                <div class="directify_fn_tags">
-                                    <label>Tags:</label>
-                                    <em><a href="#">Travel</a>,<a href="#">Destination</a>,<a href="#">Holiday</a>,<a
-                                            href="#">Europe</a></em>
-                                </div>
-                                <div class="directify_fn_social_icons">
-                                    <label>Share:</label>
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <i class="xcon-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="xcon-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="xcon-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="xcon-pinterest"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="xcon-gplus"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+
                             </div>
-                            <!-- /POST CONTENT -->
+                            <!-- /PLACE CONTENT -->
+
+                            <!-- PLACE OTHER IMAGES -->
+                            {% if  images %}
+                                <div class="directify_fn_simple_famous_cities_wrap">
+                                    <div class="directify_fn_simple_famous_cities">
+                                        <div class="simple_famous_cities">
+                                            <div class="container">
+                                                <div class="simple_famous_cities_wrap">
+                                                    <div class="title_holder">
+                                                        <h3>Photos</h3>
+                                                        <span class="line"></span>
+                                                    </div>
+                                                    <div class="fam_cities_wrap directify_fn_masonry">
+                                                        {% for image in images %}
+                                                            <div class="fam_city_wrap directify_fn_masonry_in">
+                                                                <img src="{{ image }}" alt="{{ place.title }}"/>
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <!-- /PLACE OTHER IMAGES -->
 
                             <!-- POST COMMENT -->
                             <div class="directify_fn_comment_wrapper">
@@ -280,9 +336,7 @@
                 </div>
             </div>
         </div>
-        <!-- /BLOG -->
-
-
+        <!-- /PLACE OR SERVICE -->
     </div>
     <!-- /CONTENT -->
 {% endblock content %}

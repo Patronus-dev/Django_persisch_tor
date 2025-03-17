@@ -4,21 +4,22 @@
 {% load static %}
 {% load i18n %}
 
-{% block page_title %}{% trans 'Login' %}{% endblock page_title %}
+{% block page_title %}{% trans 'Services' %}{% endblock page_title %}
 
+<!-- HEADER -->
 {% block header %}
-    <!-- HEADER -->
     <header class="directify_fn_header_wrap" data-bg-type="light">
         <div>
             <div class="directify_fn_header">
                 <div class="header">
                     <div class="directify_fn_header_logo">
-                        <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo-dark.png' %}" alt=""/></a>
-                        <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo-light.png' %}"
+                        <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
+                                                                     alt=""/></a>
+                        <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
                                                                       alt=""/></a>
                     </div>
                     <div class="directify_fn_header_search">
-                        <a href="#">
+                        <a href="#" style="margin-top: 15%">
                             <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
                             Search
                         </a>
@@ -48,22 +49,24 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <label for="select-location-1"></label><input type="text" id="select-location-1"
+                                        <label for="select-location-1"></label><input type="text"
+                                                                                      id="select-location-1"
                                                                                       placeholder="Location"/>
-                                        <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}" alt=""/>
+                                        <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}"
+                                             alt=""/>
                                     </div>
                                 </div>
                                 <a href="#"><img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
                             </div>
                         </div>
                     </div>
-                    <div class="directify_fn_header_nav_list">
+                    <div class="directify_fn_header_nav_list" style="margin-top: 1%">
                         <ul class="nav__hor">
                             <li>
                                 <a href="{% url 'home' %}">Home<i class="xcon-"></i></a>
                             </li>
                             <li>
-                                <a href="{% url 'place_list' %}">Places<i class="xcon-angle-down"></i></a>
+                                <a href="{% url 'place_list' %}">Places & Services<i class="xcon-angle-down"></i></a>
                                 <ul class="sub_menu masonry-filter">
                                     {% for category in categories %}
                                         <li>
@@ -82,7 +85,7 @@
                                 <a href="#">About us<i class="xcon-"></i></a>
                             </li>
                             <li>
-                                <a href="#">Contact us<i class="xcon-"></i></a>
+                                <a href="#contact_us">Contact us<i class="xcon-"></i></a>
                             </li>
                             <li class="add_listing">
                                 {% if user.is_authenticated %}
@@ -105,14 +108,13 @@
             </div>
         </div>
     </header>
-    <!-- /HEADER -->
 {% endblock header %}
+<!-- /HEADER -->
 
 {% block content %}
     <!-- CONTENT -->
     <div class="directify_fn_content">
-
-        <!-- BLOG -->
+        <!-- PLACE OR SERVICE -->
         <div class="directify_fn_blog_wrap">
             <div class="directify_fn_blog">
                 <div class="blog">
@@ -124,8 +126,8 @@
                                         <div class="post">
                                             <div class="img_holder">
                                                 <a href="{% url 'place_detail' place.id %}">
-                                                    {% if place.image1 %}
-                                                        <img src="{{ place.image1.url }}" alt="{{ place.title }}"/>
+                                                    {% if place.image_main %}
+                                                        <img src="{{ place.image_main.url }}" alt="{{ place.title }}"/>
                                                     {% elif place.image2 %}
                                                         <img src="{{ place.image2.url }}" alt="{{ place.title }}"/>
                                                     {% elif place.image3 %}
@@ -138,10 +140,10 @@
                                                         {% if place.category == 'Food & Drink' %}
                                                             <img src="{% static 'img/places/services/Food and Drink service_1_11zon.jpg' %}"
                                                                  alt="{{ place.title }}"/>
-                                                        {% elif place.category == 'medical services' %}
+                                                        {% elif place.category == 'medical' %}
                                                             <img src="{% static 'img/places/services/medical service_2_11zon.jpg' %}"
                                                                  alt="{{ place.title }}"/>
-                                                        {% elif place.category == 'technical services' %}
+                                                        {% elif place.category == 'technical' %}
                                                             <img src="{% static 'img/places/services/technical service_4_11zon.jpg' %}"
                                                                  alt="{{ place.title }}"/>
                                                         {% elif place.category == 'store' %}
@@ -171,29 +173,23 @@
                                     </li>
                                 {% endfor %}
                             </ul>
-                            <div class="directify_fn_pagination">
+                            <h6>Page Number</h6>
+                            <hr>
+                            <div class="directify_fn_pagination" style="width: fit-content; margin-left: 50%;">
                                 <ul>
+                                    {% if page_obj.has_previous %}
+                                        <li>
+                                            <a href="?page={{ page_obj.previous_page_number }}"><span>{{ page_obj.previous_page_number }}</span></a>
+                                        </li>
+                                    {% endif %}
                                     <li class="activated">
-                                        <a href="#"><span>1</span></a>
+                                        <a href="?page={{ page_obj.number }}"><span>{{ page_obj.number }}</span></a>
                                     </li>
-                                    <li>
-                                        <a href="#"><span>2</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span>3</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span>4</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span>...</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span>9</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span>10</span></a>
-                                    </li>
+                                    {% if page_obj.has_next %}
+                                        <li>
+                                            <a href="?page={{ page_obj.next_page_number }}"><span>{{ page_obj.next_page_number }}</span></a>
+                                        </li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
@@ -201,9 +197,7 @@
                 </div>
             </div>
         </div>
-        <!-- /BLOG -->
-
-
+        <!-- /PLACE OR SERVICE -->
     </div>
     <!-- /CONTENT -->
 {% endblock content %}
