@@ -164,7 +164,7 @@
                             <!-- /PLACE IMAGE MAIN -->
 
                             <!-- PLACE CONTENT -->
-                            <div class="post_content">
+                            <div class="post_content" style="margin-top: 2%">
                                 <div class="title_holder">
                                     <span>
                                         Category : <a
@@ -193,13 +193,14 @@
                                     <h4>Information's :</h4>
                                     <p class="text">City : {{ place.city }}</p>
                                     {% if place.address %}
-                                    <p class="text">Address : {{ place.address }}</p>
+                                        <p class="text">Address : {{ place.address }}</p>
                                     {% endif %}
                                     {% if place.phone_number %}
-                                    <p class="text">Phone : {{ place.phone_number }}</p>
+                                        <p class="text">Phone : {{ place.phone_number }}</p>
                                     {% endif %}
                                     {% if place.website %}
-                                    <p class="text">Website : <a href="{{ place.website }}" target="_blank">{{ place.website }}</a></p>
+                                        <p class="text">Website : <a href="{{ place.website }}"
+                                                                     target="_blank">{{ place.website }}</a></p>
                                     {% endif %}
                                 </div>
 
@@ -208,7 +209,7 @@
 
                             <!-- PLACE OTHER IMAGES -->
                             {% if  images %}
-                                <div class="directify_fn_simple_famous_cities_wrap">
+                                <div class="directify_fn_simple_famous_cities_wrap" style="margin-top: 2%">
                                     <div class="directify_fn_simple_famous_cities">
                                         <div class="simple_famous_cities">
                                             <div class="container">
@@ -233,65 +234,72 @@
                             <!-- /PLACE OTHER IMAGES -->
 
                             <!-- POST COMMENT -->
-                            <div class="directify_fn_comment_wrapper">
+                            <div class="directify_fn_comment_wrapper" style="margin-top: 2%; direction: rtl">
                                 <div class="directify_fn_comment">
 
                                     <!-- COMMENTS -->
                                     <div class="comments">
-
                                         <div class="title_holder">
-                                            <h3>All Comments</h3>
+                                            <h2>{% trans 'All Comments' %}</h2>
                                         </div>
-
-                                        <!-- #1 COMMENT -->
-                                        <div class="comment_single">
-                                            <div class="person_info">
-                                                <div class="info">
-                                                    <div class="img_holder">
-                                                        <img src="img/blog/single1-com1.jpg" alt=""/>
+                                        {% if comments %}
+                                            <!-- #1 COMMENT -->
+                                            {% for comment in comments|dictsort:"datetime_created" %}
+                                                <div class="comment_single" style="text-align: right;">
+                                                    {#                                                    <div class="person_info">#}
+                                                    {#                                                        <div class="info">#}
+                                                    {#                                                            <div class="img_holder">#}
+                                                    {#                                                                <img src="{{ comment.user.profile_pic.url }}"#}
+                                                    {#                                                                     alt="{{ comment.user.username }}'s pic"/>#}
+                                                    {#                                                            </div>#}
+                                                    {#                                                        </div>#}
+                                                    {#                                                    </div>#}
+                                                    <div class="person_comment">
+                                                        <div class="inner">
+                                                    <span>
+                                                        <span class="name">{{ comment.user.username }}</span>
+                                                        <span class="date">{{ comment.datetime_created }}</span>
+                                                        <hr style="width: fit-content;">
+                                                        <br>
+                                                        {% if comment.user_rating == 'عالی' %}
+                                                            <span>{% trans 'Rating' %} :
+                                                            <span class="rating"
+                                                                  style="color: #19cb33">عالی</span>
+                                                            <img src="{% static 'img/places/icons/like_perfect.png' %}"
+                                                                 alt="perfect">
+                                                        </span>
+                                                        {% elif comment.user_rating == 'خوب' %}
+                                                            <span>{% trans 'Rating' %} :
+                                                            <span class="rating"
+                                                                  style="color: #0089E2">خوب</span>
+                                                            <img src="{% static 'img/places/icons/like_good.png' %}"
+                                                                 alt="good">
+                                                        </span>
+                                                        {% elif comment.user_rating == 'ضعیف' %}
+                                                            <span>{% trans 'Rating' %} :
+                                                            <span class="rating"
+                                                                  style="color: #EA9037">ضعیف</span>
+                                                            <img src="{% static 'img/places/icons/dislike_weak.png' %}"
+                                                                 alt="weak">
+                                                        </span>
+                                                        {% elif comment.user_rating == 'بسیار بد' %}
+                                                            <span>{% trans 'Rating' %} :
+                                                            <span class="rating"
+                                                                  style="color: red">بسیار بد</span>
+                                                            <img src="{% static 'img/places/icons/dislike_toobad.png' %}"
+                                                                 alt="too bad">
+                                                        </span>
+                                                        {% endif %}
+                                                    </span>
+                                                            <p style="direction: rtl; text-align: justify">{{ comment.text|linebreaks }}</p>
+                                                        </div>
                                                     </div>
-                                                    <span class="number">07</span>
-                                                    <span class="reviews">Reviews</span>
-                                                    <span class="name">Markos</span>
                                                 </div>
-                                            </div>
-                                            <div class="person_comment">
-                                                <div class="inner">
-                                                    <span><span class="date">2 Month ago</span><a
-                                                            href="#">Reply</a></span>
-                                                    <p>We took the Greenwich Village Food tour followed by the Historic
-                                                        Downtown tour. Jen was a great guide. Full of energy and
-                                                        interesting information. She also was flexible when we wanted to
-                                                        go inside a church that wasn't actually part of the tour.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /#1 COMMENT -->
-
-                                        <!-- #2 COMMENT -->
-                                        <div class="comment_single">
-                                            <div class="person_info">
-                                                <div class="info">
-                                                    <div class="img_holder">
-                                                        <img src="img/blog/single1-com2.jpg" alt=""/>
-                                                    </div>
-                                                    <span class="number">07</span>
-                                                    <span class="reviews">Reviews</span>
-                                                    <span class="name">Alaida</span>
-                                                </div>
-                                            </div>
-                                            <div class="person_comment">
-                                                <div class="inner">
-                                                    <span><span class="date">1 Month ago</span><a
-                                                            href="#">Reply</a></span>
-                                                    <p>Wear tennis shoes! There is lots of walking and I repeat lots of
-                                                        walking! We began at Times Square and went by the diamond
-                                                        district. We looked in store windows at the beautiful
-                                                        jewelry.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /#2 COMMENT -->
+                                            {% endfor %}
+                                            <!-- /#1 COMMENT -->
+                                        {% else %}
+                                            <p>{% trans 'Be the first to share your opinion on this post.' %}</p>
+                                        {% endif %}
                                     </div>
                                     <!-- /COMMENTS -->
 
@@ -299,29 +307,14 @@
                                     <div class="add_comment_wrap">
                                         <div class="add_comment">
                                             <div class="title_holder">
-                                                <h3>Write a Comment</h3>
+                                                <h2>{% trans 'Write your Comment' %}</h2>
                                             </div>
-                                            <form>
-                                                <div class="your-comment">
-                                                    <label>Your Comment<span>*</span></label>
-                                                    <textarea id="creator-comment" cols="3" rows="10"></textarea>
-                                                </div>
-                                                <div class="your-name">
-                                                    <label>Your Name<span>*</span></label>
-                                                    <input type="text" id="creator-name"/>
-                                                </div>
-                                                <div class="your-email">
-                                                    <label>Your Email<span>*</span></label>
-                                                    <input type="text" id="creator-email"/>
-                                                </div>
-                                                <div class="your-website">
-                                                    <label>Your Website</label>
-                                                    <input type="text" id="creator-website"/>
-                                                </div>
-                                                <div class="your-button">
-                                                    <input type="submit" id="creator-submit"
-                                                           value="Submit Your Comment"/>
-                                                </div>
+                                            <form class="form" method="POST">
+                                                {% csrf_token %}
+                                                {{ comment_form|crispy }}
+                                                <button type="submit" class="submit" title="Submit your Comment.">
+                                                    {% trans 'Submit' %}
+                                                </button>
                                             </form>
                                         </div>
                                     </div>

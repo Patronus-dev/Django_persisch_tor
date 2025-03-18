@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from io import BytesIO
@@ -8,12 +9,12 @@ from PIL import Image
 
 class Place(models.Model):
     CATEGORY_GROUP = [
-        ('food & drink', 'Food & Drink'),
-        ('medical', 'Medical'),
-        ('technical', 'Technical'),
-        ('store', 'Store'),
-        ('entertainment', 'Entertainment'),
-        ('other', 'Other')
+        (_('food & drink'), _('Food & Drink')),
+        (_('medical'), _('Medical')),
+        (_('technical'), _('Technical')),
+        (_('store'), _('Store')),
+        (_('entertainment'), _('Entertainment')),
+        (_('other'), _('Other'))
     ]
 
     GERMAN_CITIES = (
@@ -98,33 +99,33 @@ class Place(models.Model):
         ("Salzgitter", "Salzgitter"),
     )
 
-    title = models.CharField(max_length=250, unique=True, verbose_name="Name of the place", blank=False, null=False,
-                             help_text="Enter the name of the place.")
+    title = models.CharField(max_length=250, unique=True, verbose_name=_("Name of the place"), blank=False, null=False,
+                             help_text=_("Enter the name of the place."))
     category = models.CharField(max_length=100, choices=CATEGORY_GROUP, blank=False, null=False,
-                                verbose_name="Category", help_text="Select the category of the place.")
+                                verbose_name=_("Category"), help_text=_("Select the category of the place."))
     city = models.CharField(max_length=100, choices=GERMAN_CITIES, blank=False, null=False, default='Berlin')
-    address = models.CharField(max_length=500, verbose_name="Address", blank=False, null=False,
-                               help_text="Enter the address of the place.")
-    phone_number = models.CharField(max_length=15, blank=True, null=True, verbose_name="Phone number",
-                                    help_text="Enter the phone number of the place.")
-    website = models.URLField(max_length=200, blank=True, null=True, verbose_name="Website",
-                              help_text="Enter the website of the place.")
-    description = models.TextField(blank=False, null=False, verbose_name="Description",
-                                   help_text="Write a description of the place.")
+    address = models.CharField(max_length=500, verbose_name=_("Address"), blank=False, null=False,
+                               help_text=_("Enter the address of the place."))
+    phone_number = models.CharField(max_length=15, blank=True, null=True, verbose_name=_("Phone number"),
+                                    help_text=_("Enter the phone number of the place."))
+    website = models.URLField(max_length=200, blank=True, null=True, verbose_name=_("Website"),
+                              help_text=_("Enter the website of the place."))
+    description = models.TextField(blank=False, null=False, verbose_name=_("Description"),
+                                   help_text=_("Write a description of the place."))
 
-    image_main = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Main Image",
-                                   help_text="Upload an main image of the place or service.")
-    image2 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Image2",
-                               help_text="Upload an image 2 of the place or service.")
-    image3 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Image3",
-                               help_text="Upload an image 3 of the place or service.")
-    image4 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Image4",
-                               help_text="Upload an image 4 of the place or service.")
-    image5 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name="Image5",
-                               help_text="Upload an image 5 of the place or service.")
+    image_main = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Main Image"),
+                                   help_text=_("Upload an main image of the place or service."))
+    image2 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image2"),
+                               help_text=_("Upload an image 2 of the place or service."))
+    image3 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image3"),
+                               help_text=_("Upload an image 3 of the place or service."))
+    image4 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image4"),
+                               help_text=_("Upload an image 4 of the place or service."))
+    image5 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image5"),
+                               help_text=_("Upload an image 5 of the place or service."))
 
-    datetime_created = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
-    datetime_updated = models.DateTimeField(auto_now=True, verbose_name="Updated At")
+    datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_("Created At"))
+    datetime_updated = models.DateTimeField(auto_now=True, verbose_name=_("Updated At"))
 
     def __str__(self):
         return self.title
@@ -133,8 +134,8 @@ class Place(models.Model):
         return reverse('place_detail', args=[self.id])
 
     class Meta:
-        verbose_name = "Place"
-        verbose_name_plural = "Places"
+        verbose_name = _("Place")
+        verbose_name_plural = _("Places")
 
     def save(self, *args, **kwargs):
         # برای هر فیلد تصویر تغییر اندازه بده
@@ -169,13 +170,19 @@ class Place(models.Model):
 
 class Comment(models.Model):
     USER_OPINIONS = [
-        ('perfect', 'Perfect'),
-        ('good', 'Good'),
-        ('weak', 'Weak')
+        (_('perfect'), _('Perfect')),
+        (_('good'), _('Good')),
+        (_('weak'), _('Weak')),
+        (_('too bad'), _('Too bad')),
     ]
 
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     place = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='comments')
-    text = models.TextField(max_length=500, blank=False, null=False, verbose_name="Description",
-                            help_text="Write your comment here.")
-    opinion = models.CharField(max_length=50, choices=USER_OPINIONS, blank=False, null=False)
+    text = models.TextField(max_length=500, blank=False, null=False, verbose_name=_("Description"),
+                            help_text=_("Write your comment here."))
+    datetime_created = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
+    user_rating = models.CharField(max_length=50, choices=USER_OPINIONS, blank=False, null=False,
+                                   verbose_name=_("Rating"))
+
+    def __str__(self):
+        return f'{self.user}: {self.text}'

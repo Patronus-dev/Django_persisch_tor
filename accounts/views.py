@@ -16,7 +16,7 @@ class SignUpView(CreateView):
 
 class UserProfileView(DetailView):
     model = CustomUser
-    template_name = "user_profile.html"
+    template_name = "accounts/user_profile.html"
     context_object_name = "user_profile"
 
     def get_object(self):
@@ -26,7 +26,7 @@ class UserProfileView(DetailView):
 class UserProfileEditView(LoginRequiredMixin, UpdateView):
     model = CustomUser
     form_class = UserProfileEditForm
-    template_name = "user_profile_edit.html"
+    template_name = "accounts/user_profile_edit.html"
     success_url = reverse_lazy("user_profile")
 
     def get_object(self):
