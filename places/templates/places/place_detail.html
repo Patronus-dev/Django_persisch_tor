@@ -18,59 +18,24 @@
                         <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
                                                                       alt=""/></a>
                     </div>
-                    <div class="directify_fn_header_search">
-                        <a href="#" style="margin-top: 15%">
-                            <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
-                            Search
-                        </a>
-                        <div class="directify_fn_header_search_see_wrap one">
-                            <div class="header_search_see">
-                                <div class="selects">
-                                    <div>
-                                        <label>
-                                            <input class="directify_fn_search_input" type="search"
-                                                   placeholder="What Are You Looking For?"/>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <select class="directify_fn_select">
-                                                <option value="all">All Listings</option>
-                                                <option value="restaurant">Restaurants</option>
-                                                <option value="hotel">Hotels</option>
-                                                <option value="shopping">Shopping</option>
-                                                <option value="gallery">Gallery</option>
-                                                <option value="park">Park</option>
-                                                <option value="movie">Movie</option>
-                                                <option value="service">Services</option>
-                                                <option value="theatre">Theatres</option>
-                                                <option value="hospital">Hospitals</option>
-                                            </select>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label for="select-location-1"></label><input type="text"
-                                                                                      id="select-location-1"
-                                                                                      placeholder="Location"/>
-                                        <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}"
-                                             alt=""/>
-                                    </div>
-                                </div>
-                                <a href="#"><img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="directify_fn_header_nav_list" style="margin-top: 1%">
+                    <div class="directify_fn_header_nav_list" style="margin-top: 1%;">
                         <ul class="nav__hor">
                             <li>
-                                <a href="{% url 'home' %}">Home<i class="xcon-"></i></a>
+                                <a style="font-size: large" href="#contact_us">{% trans 'Contact us' %}<i
+                                        class="xcon-"></i></a>
                             </li>
                             <li>
-                                <a href="{% url 'place_list' %}">Places & Services<i class="xcon-angle-down"></i></a>
+                                <a style="font-size: large" href="#about_us">{% trans 'About us' %}<i class="xcon-"></i></a>
+                            </li>
+                            <li>
+                                <a style="font-size: large"
+                                   href="{% url 'place_list' %}">{% trans 'Places & Services' %}<i
+                                        class="xcon-angle-down"></i></a>
                                 <ul class="sub_menu masonry-filter">
                                     {% for category in categories %}
                                         <li>
-                                            <a href="{% url 'place_list' %}?category={{ category|urlencode }}"
+                                            <a style="font-size: large"
+                                               href="{% url 'place_list' %}?category={{ category|urlencode }}"
                                                class="filter">
                                                 {{ category|capfirst }}
                                             </a>
@@ -79,26 +44,22 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">Blog<i class="xcon-"></i></a>
-                            </li>
-                            <li>
-                                <a href="#">About us<i class="xcon-"></i></a>
-                            </li>
-                            <li>
-                                <a href="#contact_us">Contact us<i class="xcon-"></i></a>
+                                <a style="font-size: large" href="{% url 'home' %}">{% trans 'Home' %}<i
+                                        class="xcon-"></i></a>
                             </li>
                             <li class="add_listing">
                                 {% if user.is_authenticated %}
-                                    <a href="{% url 'user_profile' %}">Profile</a>
+                                    <a style="font-size: large"
+                                       href="{% url 'user_profile' %}">{% trans 'Profile' %}</a>
                                     <img class="svg" src="{% static 'img/svg/human.svg' %}" alt=""/>
                                 {% else %}
-                                    <a href="{% url 'login' %}">Login</a>
+                                    <a style="font-size: large" href="{% url 'login' %}">{% trans 'Login' %}</a>
                                 {% endif %}
                             </li>
                             <li class="add_listing">
-                                <a href="#">
+                                <a style="font-size: large" href="#">
                                     <img class="svg" src="{% static 'img/svg/pencil.svg' %}" alt=""/>
-                                    <span>Add Listings</span>
+                                    <span>{% trans 'Add new Service' %}</span>
                                 </a>
                             </li>
                         </ul>
@@ -120,7 +81,10 @@
             <div class="directify_fn_blog_single">
                 <div class="blog_single">
                     <div class="container">
-                        <div class="blog_single_wrapper">
+                        <div class="blog_single_wrapper" style="margin-top: 2%; text-align: right; direction: rtl">
+                            <h3>{{ place.title }}</h3>
+                            <hr>
+                            <br>
 
                             <!-- PLACE IMAGE MAIN -->
                             <div class="post_img">
@@ -167,40 +131,33 @@
                             <div class="post_content" style="margin-top: 2%">
                                 <div class="title_holder">
                                     <span>
-                                        Category : <a
-                                            href="{% url 'place_list' %}?category={{ place.category|urlencode }}"
-                                            class="filter">{{ place.category|capfirst }}</a>
+                                        {% trans 'Category' %} :
+                                        <a href="{% url 'place_list' %}?category={{ place.category|urlencode }}"
+                                            class="filter">{{ place.category }}</a>
                                         <span class="date">{{ place.datetime_created }}</span>
                                     </span>
 
                                     <div class="directify_fn_tags">
-                                        <h5 style="color: #C10A28"><strong>Important :</strong></h5>
-                                        <h6 style="color: #C10A28">Only the authenticity of the existence or
-                                            non-existence of each location and the
-                                            authenticity of the service providers' jobs have been reviewed by the site
-                                            support. Accordingly, the site owner does not bear any responsibility or
-                                            endorsement for the level of skill or quality of services provided by the
-                                            stores
-                                            or individuals introduced. Therefore, to remind you of the main purpose of
-                                            this
-                                            website, the final decision to use the services is yours and based on the
-                                            suggestions of other users and is completely optional.
+                                        <h5 style="color: #C10A28"><strong>{% trans 'Important' %} :</strong></h5>
+                                        <h6 style="color: #C10A28">
+                                            {% trans "Only the authenticity of the existence or non-existence of each location and the authenticity of the service providers' jobs have been reviewed by the site support. Accordingly, the site owner does not bear any responsibility or endorsement for the level of skill or quality of services provided by the stores or individuals introduced. Therefore, to remind you of the main purpose of this website, the final decision to use the services is yours and based on the suggestions of other users and is completely optional." %}
                                         </h6>
                                     </div>
                                     <hr>
-                                    <h3>{{ place.title }}</h3>
+                                    <h3>{% trans 'Description' %}</h3>
                                     <p class="text">{{ place.description }}</p>
-                                    <h4>Information's :</h4>
-                                    <p class="text">City : {{ place.city }}</p>
+                                    <h4>{% trans "Information's" %} :</h4>
+                                    <p class="text">{% trans 'City' %} : {{ place.city }}</p>
                                     {% if place.address %}
-                                        <p class="text">Address : {{ place.address }}</p>
+                                        <p class="text">{% trans 'Address' %} : {{ place.address }}</p>
                                     {% endif %}
                                     {% if place.phone_number %}
-                                        <p class="text">Phone : {{ place.phone_number }}</p>
+                                        <p class="text">{% trans 'Phone' %} : {{ place.phone_number }}</p>
                                     {% endif %}
                                     {% if place.website %}
-                                        <p class="text">Website : <a href="{{ place.website }}"
-                                                                     target="_blank">{{ place.website }}</a></p>
+                                        <p class="text">{% trans 'Website' %} : <a href="{{ place.website }}"
+                                                                                   target="_blank">{{ place.website }}</a>
+                                        </p>
                                     {% endif %}
                                 </div>
 
@@ -215,8 +172,8 @@
                                             <div class="container">
                                                 <div class="simple_famous_cities_wrap">
                                                     <div class="title_holder">
-                                                        <h3>Photos</h3>
-                                                        <span class="line"></span>
+                                                        <h3>{% trans 'Photos' %}</h3>
+                                                        <hr>
                                                     </div>
                                                     <div class="fam_cities_wrap directify_fn_masonry">
                                                         {% for image in images %}
@@ -241,11 +198,13 @@
                                     <div class="comments">
                                         <div class="title_holder">
                                             <h2>{% trans 'All Comments' %}</h2>
+                                            <hr>
                                         </div>
                                         {% if comments %}
                                             <!-- #1 COMMENT -->
                                             {% for comment in comments|dictsort:"datetime_created" %}
                                                 <div class="comment_single" style="text-align: right;">
+                                                    {#                                              This is for Comment profile pic#}
                                                     {#                                                    <div class="person_info">#}
                                                     {#                                                        <div class="info">#}
                                                     {#                                                            <div class="img_holder">#}
@@ -298,7 +257,9 @@
                                             {% endfor %}
                                             <!-- /#1 COMMENT -->
                                         {% else %}
-                                            <p>{% trans 'Be the first to share your opinion on this post.' %}</p>
+                                            <p style="font-size: large">
+                                                {% trans 'Be the first to share your opinion on this post.' %}
+                                            </p>
                                         {% endif %}
                                     </div>
                                     <!-- /COMMENTS -->

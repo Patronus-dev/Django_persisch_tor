@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-18 02:36+0330\n"
-"PO-Revision-Date: 2025-03-18 02:37+0330\n"
+"POT-Creation-Date: 2025-03-19 01:33+0330\n"
+"PO-Revision-Date: 2025-03-19 01:34+0330\n"
 "Last-Translator:   <mehdii.dev@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,55 +18,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\models.py:12
-#| msgid "Food & Drink"
-msgid "food & drink"
-msgstr "غذا و نوشیدنی"
-
-#: .\models.py:12
+#: .\models.py:12 .\templates\places\place_list.html:128
 msgid "Food & Drink"
 msgstr "غذا و نوشیدنی"
-
-#: .\models.py:13
-#| msgid "Medical"
-msgid "medical"
-msgstr "خدمات پزشکی"
 
 #: .\models.py:13
 msgid "Medical"
 msgstr "خدمات پزشکی"
 
 #: .\models.py:14
-#| msgid "Technical"
-msgid "technical"
-msgstr "خدمات فنی"
-
-#: .\models.py:14
 msgid "Technical"
 msgstr "خدمات فنی"
-
-#: .\models.py:15
-#| msgid "Store"
-msgid "store"
-msgstr "فروشگاه"
 
 #: .\models.py:15
 msgid "Store"
 msgstr "فروشگاه"
 
 #: .\models.py:16
-#| msgid "Entertainment"
-msgid "entertainment"
-msgstr "سرگرمی"
-
-#: .\models.py:16
 msgid "Entertainment"
 msgstr "سرگرمی"
-
-#: .\models.py:17
-#| msgid "Other"
-msgid "other"
-msgstr "متفرقه"
 
 #: .\models.py:17
 msgid "Other"
@@ -80,7 +50,8 @@ msgstr "نام"
 msgid "Enter the name of the place."
 msgstr "نام را وارد کنید."
 
-#: .\models.py:105
+#: .\models.py:105 .\templates\places\place_detail.html:134
+#: .\templates\places\place_list.html:154
 msgid "Category"
 msgstr "دسته بندی"
 
@@ -88,7 +59,7 @@ msgstr "دسته بندی"
 msgid "Select the category of the place."
 msgstr "دسته بندی را انتخاب کنید."
 
-#: .\models.py:107
+#: .\models.py:107 .\templates\places\place_detail.html:152
 msgid "Address"
 msgstr "آدرس"
 
@@ -104,7 +75,7 @@ msgstr "شماره تماس"
 msgid "Enter the phone number of the place."
 msgstr "شماره تماس را وارد کنید."
 
-#: .\models.py:111
+#: .\models.py:111 .\templates\places\place_detail.html:158
 msgid "Website"
 msgstr "وبسایت"
 
@@ -112,7 +83,7 @@ msgstr "وبسایت"
 msgid "Enter the website of the place."
 msgstr "آدرس وبسایت را وارد کنید."
 
-#: .\models.py:113
+#: .\models.py:113 .\models.py:181 .\templates\places\place_detail.html:147
 msgid "Description"
 msgstr "توضیحات"
 
@@ -177,7 +148,6 @@ msgid "Places"
 msgstr "مکان ها"
 
 #: .\models.py:173
-#| msgid "Perfect"
 msgid "perfect"
 msgstr "عالی"
 
@@ -186,7 +156,6 @@ msgid "Perfect"
 msgstr "عالی"
 
 #: .\models.py:174
-#| msgid "Good"
 msgid "good"
 msgstr "خوب"
 
@@ -195,7 +164,6 @@ msgid "Good"
 msgstr "خوب"
 
 #: .\models.py:175
-#| msgid "Weak"
 msgid "weak"
 msgstr "ضعیف"
 
@@ -204,7 +172,6 @@ msgid "Weak"
 msgstr "ضعیف"
 
 #: .\models.py:176
-#| msgid "Too bad"
 msgid "too bad"
 msgstr "بسیار بد"
 
@@ -212,25 +179,171 @@ msgstr "بسیار بد"
 msgid "Too bad"
 msgstr "بسیار بد"
 
-#: .\templates\places\place_detail.html:7 .\templates\places\place_list.html:7
-msgid "Services"
-msgstr "خدمات"
+#: .\models.py:182
+msgid "Write your comment here."
+msgstr "نظر خود را بنویسید"
 
-#: .\templates\places\place_detail.html:243
-msgid "All Comments"
-msgstr "تمامی نظرات"
-
-#: .\templates\places\place_detail.html:265
-#: .\templates\places\place_detail.html:272
-#: .\templates\places\place_detail.html:279
-#: .\templates\places\place_detail.html:286
+#: .\models.py:185 .\templates\places\place_detail.html:224
+#: .\templates\places\place_detail.html:231
+#: .\templates\places\place_detail.html:238
+#: .\templates\places\place_detail.html:245
 msgid "Rating"
 msgstr "امتیاز"
 
-#: .\templates\places\place_detail.html:301
+#: .\templates\places\place_detail.html:7 .\templates\places\place_list.html:7
+#: .\templates\places\search_result.html:7
+msgid "Services"
+msgstr "خدمات"
+
+#: .\templates\places\place_detail.html:24
+#: .\templates\places\place_list.html:24
+msgid "Contact us"
+msgstr "ارتباط با ما"
+
+#: .\templates\places\place_detail.html:28
+#: .\templates\places\place_list.html:28
+msgid "About us"
+msgstr "درباره ما"
+
+#: .\templates\places\place_detail.html:32
+#: .\templates\places\place_list.html:32
+#| msgid "All places and services"
+msgid "Places & Services"
+msgstr "خدمات و مکان ها"
+
+#: .\templates\places\place_detail.html:47
+#: .\templates\places\place_list.html:47
+msgid "Home"
+msgstr "خانه"
+
+#: .\templates\places\place_detail.html:53
+#: .\templates\places\place_list.html:53
+msgid "Profile"
+msgstr "پروفایل"
+
+#: .\templates\places\place_detail.html:56
+#: .\templates\places\place_list.html:56
+msgid "Login"
+msgstr "ورود"
+
+#: .\templates\places\place_detail.html:62
+#: .\templates\places\place_list.html:62
+#| msgid "Services"
+msgid "Add new Service"
+msgstr "ایجاد سریس جدید"
+
+#: .\templates\places\place_detail.html:141
+msgid "Important"
+msgstr "مهم"
+
+#: .\templates\places\place_detail.html:143
+msgid ""
+"Only the authenticity of the existence or non-existence of each location and"
+" the authenticity of the service providers' jobs have been reviewed by the "
+"site support. Accordingly, the site owner does not bear any responsibility "
+"or endorsement for the level of skill or quality of services provided by the"
+" stores or individuals introduced. Therefore, to remind you of the main "
+"purpose of this website, the final decision to use the services is yours and"
+" based on the suggestions of other users and is completely optional."
+msgstr ""
+"تنها صحت وجود یا عدم وجود هر مکان و همچنین ، صحت شغل خدمات دهندگان توسط "
+"پشتیبانی سایت مورد بررسی قرار گرفته است.  بر این اساس هیچگونه مسئولیت و "
+"تاییدیه ای در قبال میزان مهارت یا کیفیت خدمات ارائه‌ شده توسط فروشگاه ها یا "
+"افراد معرفی شده  بر عهده دارنده سایت نمی باشد. لذا جهت یاد آوری هدف اصلی این"
+" وبسایت ، تصمیم‌گیری نهایی برای استفاده از خدمات برعهده خودتان و با توجه به "
+"پیشنهادات دیگر کاربران بوده و کاملا اختیاری می باشد."
+
+#: .\templates\places\place_detail.html:149
+msgid "Information's"
+msgstr "اطلاعات"
+
+#: .\templates\places\place_detail.html:150
+#: .\templates\places\place_list.html:156
+msgid "City"
+msgstr "شهر"
+
+#: .\templates\places\place_detail.html:155
+msgid "Phone"
+msgstr "شماره تماس"
+
+#: .\templates\places\place_detail.html:175
+msgid "Photos"
+msgstr "عکس ها"
+
+#: .\templates\places\place_detail.html:200
+msgid "All Comments"
+msgstr "تمامی نظرات"
+
+#: .\templates\places\place_detail.html:261
 msgid "Be the first to share your opinion on this post."
 msgstr "اولین نفری باشید که نظر خود را در مورد این پست به اشتراک می گذارد."
 
-#: .\templates\places\place_detail.html:310
+#: .\templates\places\place_detail.html:271
 msgid "Write your Comment"
 msgstr "نظر خود را بنویسید"
+
+#: .\templates\places\place_detail.html:277
+msgid "Submit"
+msgstr "ثبت"
+
+#: .\templates\places\place_list.html:87
+msgid "Choose city"
+msgstr "انتخاب شهر"
+
+#: .\templates\places\place_list.html:90
+msgid "All cities"
+msgstr "همه شهرها"
+
+#: .\templates\places\place_list.html:97
+msgid "Choose category"
+msgstr "انتخاب دسته بندی"
+
+#: .\templates\places\place_list.html:100
+msgid "All categories"
+msgstr "همه دسته بندی ها"
+
+#: .\templates\places\place_list.html:107
+msgid "All places and services"
+msgstr "تمامی خدمات و مکان ها"
+
+#: .\templates\places\place_list.html:157
+msgid "Created"
+msgstr "ایجاد شده در"
+
+#: .\templates\places\place_list.html:161
+msgid "Read More"
+msgstr "بیشتر"
+
+#: .\templates\places\place_list.html:168
+msgid "No items found"
+msgstr "موردی یافت نشد"
+
+#: .\templates\places\place_list.html:169
+msgid "No case with these specifications has been registered yet."
+msgstr "تا به حال موردی با این مشخصات ثبت نشده است."
+
+#: .\templates\places\place_list.html:173
+msgid "Page Number"
+msgstr "شماره صفحه"
+
+#: .\templates\places\search_result.html:188
+msgid "Back to Homepage"
+msgstr "بازگشت به خانه"
+
+#~ msgid "food & drink"
+#~ msgstr "غذا و نوشیدنی"
+
+#~ msgid "medical"
+#~ msgstr "خدمات پزشکی"
+
+#~ msgid "technical"
+#~ msgstr "خدمات فنی"
+
+#~ msgid "store"
+#~ msgstr "فروشگاه"
+
+#~ msgid "entertainment"
+#~ msgstr "سرگرمی"
+
+#~ msgid "other"
+#~ msgstr "متفرقه"

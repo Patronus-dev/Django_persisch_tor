@@ -1,69 +1,54 @@
-from django.shortcuts import render
-from django.views.generic import *
-from django.shortcuts import get_object_or_404
-
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView
 from .models import Place
-from .forms import CommentForm
+from .forms import CommentForm, PlaceFilterForm
+from django.utils.translation import gettext as _
 
 
 class PlaceListView(ListView):
     model = Place
-    paginate_by = 20
+    paginate_by = 16
     template_name = 'places/place_list.html'
     context_object_name = 'places'
+    ordering = ['-datetime_created']
 
     def get_queryset(self):
         queryset = super().get_queryset()
 
-        # دریافت پارامتر کتگوری از URL
+        # دریافت پارامترهای فیلتر از فرم
+        form = PlaceFilterForm(self.request.GET)
         category = self.request.GET.get('category')
+        city = self.request.GET.get('city')
 
+        # فیلتر کردن بر اساس کتگوری و شهر (در صورت انتخاب)
         if category:
-            # فیلتر کردن بر اساس کتگوری
             queryset = queryset.filter(category=category)
+        if city:
+            queryset = queryset.filter(city=city)
 
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # دریافت دسته‌بندی‌های یکتا که حداقل یک مکان دارند
-        categories_with_places = Place.objects.values_list('category', flat=True).distinct()
-        context['categories'] = categories_with_places
+        # فرم فیلتر
+        form = PlaceFilterForm(self.request.GET)
+
+        # دریافت دسته‌بندی‌های یکتا
+        unique_categories = Place.objects.values_list('category', flat=True).distinct()
+        context['categories'] = unique_categories
+
+        # دریافت شهرهای یکتا
+        unique_cities = Place.objects.values_list('city', flat=True).distinct()
+        context['cities'] = unique_cities
+
+        # مقادیر انتخاب‌شده برای فیلتر
+        context['selected_category'] = self.request.GET.get('category', '')
+        context['selected_city'] = self.request.GET.get('city', '')
+        context['form'] = form  # ارسال فرم به قالب
 
         return context
 
-
-# class PlaceDetailView(DetailView):
-#     model = Place
-#     template_name = 'places/place_detail.html'
-#     context_object_name = 'place'
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#
-#         # گرفتن لیست تصاویر
-#         images = [
-#             self.object.image2,
-#             self.object.image3,
-#             self.object.image4,
-#             self.object.image5
-#         ]
-#
-#         # حذف تصاویر خالی (None)
-#         valid_images = [img.url for img in images if img]
-#
-#         # ارسال لیست تصاویر به قالب
-#         context['images'] = valid_images
-#
-#         return context
-#
-#
-# def place_detail_view(request, pk):
-#     place = get_object_or_404(Place, pk=pk)
-#     place_comments = place.comments.all()
-#
-#     return render(request, 'places/place_detail.html', {'place': place, 'comments': place_comments})
 
 def place_detail_view(request, pk):
     place = get_object_or_404(Place, pk=pk)
@@ -87,10 +72,42 @@ def place_detail_view(request, pk):
             comment_form = CommentForm()
     else:
         comment_form = CommentForm()
-        print('سلااااااااااااااااااااااااام')
 
     return render(request, 'places/place_detail.html', {'place': place,
                                                         'comments': place_comments,
                                                         'images': images,
                                                         'comment_form': comment_form,
                                                         })
+
+
+def user_search_place_view(request):
+    if request.method == "POST":
+        user_search = request.POST['user_search']
+        places = Place.objects.filter(title__icontains=user_search)
+        return render(request, 'places/search_result.html', {'user_search': user_search, 'places': places})
+    else:
+        return render(request, 'places/search_result.html', {})
+
+
+def place_list(request):
+    places = Place.objects.all()
+
+    city = request.GET.get('city')
+    category = request.GET.get('category')
+
+    if city:
+        places = places.filter(city=city)
+
+    if category:
+        places = places.filter(category=category)
+
+    categories = Place.objects.values_list('category', flat=True).distinct()
+    cities = Place.objects.values_list('city', flat=True).distinct()
+
+    return render(request, 'places/place_list.html', {
+        'places': places,
+        'categories': categories,
+        'cities': cities,
+        'selected_city': city,
+        'selected_category': category
+    })

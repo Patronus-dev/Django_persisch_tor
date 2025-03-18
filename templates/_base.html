@@ -73,9 +73,9 @@
 
             <div class="directify_fn_mobile_nav">
                 <ul class="nav">
-                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
                     <li>
-                        <a href="{% url 'place_list' %}">Places<i class="xcon-angle-down"></i></a>
+                        <a href="{% url 'place_list' %}">{% trans 'Places & Services' %}<i class="xcon-angle-down"></i></a>
                         <ul class="sub_menu masonry-filter">
                             {% for category in categories %}
                                 <li>
@@ -86,20 +86,20 @@
                             {% endfor %}
                         </ul>
                     </li>
-{#                    <li><a href="#">Blog</a></li>#}
-                    <li><a href="#about_us">About us</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    {#                    <li><a href="#">Blog</a></li>#}
+                    <li><a href="#about_us">{% trans 'About us' %}</a></li>
+                    <li><a href="#">{% trans 'Contact us' %}</a></li>
                     <li class="log-in">
                         {% if user.is_authenticated %}
-                            <a href="{% url 'user_profile' %}">Profile</a>
+                            <a href="{% url 'user_profile' %}">{% trans 'Profile' %}</a>
                         {% else %}
-                            <a href="{% url 'login' %}">Login</a>
+                            <a href="{% url 'login' %}">{% trans 'Login' %}</a>
                         {% endif %}
                     </li>
                     <li class="add_listing">
                         <a href="#">
                             <img class="svg" src="{% static 'img/svg/pencil.svg' %}" alt=""/>
-                            <span>Add Listings</span>
+                            <span>{% trans 'Add new Service' %}</span>
                         </a>
                     </li>
                 </ul>
@@ -149,63 +149,26 @@
                 <div class="directify_fn_header">
                     <div class="header">
                         <div class="directify_fn_header_logo">
-                            <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}" alt=""/></a>
+                            <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
+                                                                         alt=""/></a>
                             <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
                                                                           alt=""/></a>
                         </div>
-                        <div class="directify_fn_header_search">
-                            <a href="#" style="margin-top: 15%">
-                                <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
-                                Search
-                            </a>
-                            <div class="directify_fn_header_search_see_wrap one">
-                                <div class="header_search_see">
-                                    <div class="selects">
-                                        <div>
-                                            <label>
-                                                <input class="directify_fn_search_input" type="search"
-                                                       placeholder="What Are You Looking For?"/>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label>
-                                                <select class="directify_fn_select">
-                                                    <option value="all">All Listings</option>
-                                                    <option value="restaurant">Restaurants</option>
-                                                    <option value="hotel">Hotels</option>
-                                                    <option value="shopping">Shopping</option>
-                                                    <option value="gallery">Gallery</option>
-                                                    <option value="park">Park</option>
-                                                    <option value="movie">Movie</option>
-                                                    <option value="service">Services</option>
-                                                    <option value="theatre">Theatres</option>
-                                                    <option value="hospital">Hospitals</option>
-                                                </select>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label for="select-location-1"></label><input type="text"
-                                                                                          id="select-location-1"
-                                                                                          placeholder="Location"/>
-                                            <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}"
-                                                 alt=""/>
-                                        </div>
-                                    </div>
-                                    <a href="#"><img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="directify_fn_header_nav_list" style="margin-top: 1%">
+                        <div class="directify_fn_header_nav_list" style="margin-top: 1%;">
                             <ul class="nav__hor">
                                 <li>
-                                    <a href="{% url 'home' %}">Home<i class="xcon-"></i></a>
+                                    <a style="font-size: large" href="#contact_us">{% trans 'Contact us' %}<i class="xcon-"></i></a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'place_list' %}">Places & Services<i class="xcon-angle-down"></i></a>
+                                    <a style="font-size: large" href="#about_us">{% trans 'About us' %}<i class="xcon-"></i></a>
+                                </li>
+                                <li>
+                                    <a style="font-size: large" href="{% url 'place_list' %}">{% trans 'Places & Services' %}<i
+                                            class="xcon-angle-down"></i></a>
                                     <ul class="sub_menu masonry-filter">
                                         {% for category in categories %}
                                             <li>
-                                                <a href="{% url 'place_list' %}?category={{ category|urlencode }}"
+                                                <a style="font-size: large" href="{% url 'place_list' %}?category={{ category|urlencode }}"
                                                    class="filter">
                                                     {{ category|capfirst }}
                                                 </a>
@@ -214,26 +177,20 @@
                                     </ul>
                                 </li>
                                 <li>
-{#                                    <a href="#">Blog<i class="xcon-"></i></a>#}
-                                </li>
-                                <li>
-                                    <a href="#about_us">About us<i class="xcon-"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#contact_us">Contact us<i class="xcon-"></i></a>
+                                    <a style="font-size: large" href="{% url 'home' %}">{% trans 'Home' %}<i class="xcon-"></i></a>
                                 </li>
                                 <li class="add_listing">
                                     {% if user.is_authenticated %}
-                                        <a href="{% url 'user_profile' %}">Profile</a>
+                                        <a style="font-size: large" href="{% url 'user_profile' %}">{% trans 'Profile' %}</a>
                                         <img class="svg" src="{% static 'img/svg/human.svg' %}" alt=""/>
                                     {% else %}
-                                        <a href="{% url 'login' %}">Login</a>
+                                        <a style="font-size: large" href="{% url 'login' %}">{% trans 'Login' %}</a>
                                     {% endif %}
                                 </li>
                                 <li class="add_listing">
-                                    <a href="#">
+                                    <a style="font-size: large" href="#">
                                         <img class="svg" src="{% static 'img/svg/pencil.svg' %}" alt=""/>
-                                        <span>Add Listings</span>
+                                        <span>{% trans 'Add new Service' %}</span>
                                     </a>
                                 </li>
                             </ul>

@@ -31,14 +31,23 @@
                                         <span>{% trans 'Discover the Best Places and Services' %}</span>
                                     </div>
                                     <div class="searching" style="float: right">
-                                        <label>
-                                            <input class="directify_fn_search_input" type="search"
-                                                   placeholder="What Are You Looking For?"/>
-                                        </label>
-                                        <a class="directify_fn_search_btn" href="#">
-                                            <img class="svg" src="{% static 'img/svg/search.svg' %}"
-                                                 alt=""/><span>{% trans 'Search' %}</span></a>
-                                        <div class="clearfix"></div>
+                                        <form method="POST" action="{% url 'user_search' %}">
+                                            {% csrf_token %}
+                                            {{ form|crispy }}
+                                            <input class="form-control" type="search" placeholder="{% trans 'What Are You Looking For?' %}"
+                                                   aria-label="Search" name="user_search">
+                                            <button type="submit" class="submit" title={% trans 'Search' %}>
+                                                {% trans 'Search' %}
+                                            </button>
+                                        </form>
+{#                                        <label>#}
+{#                                            <input class="directify_fn_search_input" type="search"#}
+{#                                                   placeholder="{% trans 'What Are You Looking For?' %}"/>#}
+{#                                        </label>#}
+{#                                        <a class="directify_fn_search_btn" href="#">#}
+{#                                            <img class="svg" src="{% static 'img/svg/search.svg' %}"#}
+{#                                                 alt=""/><span>{% trans 'Search' %}</span></a>#}
+{#                                        <div class="clearfix"></div>#}
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +129,7 @@
                             <div class="title_holder" style="direction: rtl">
                                 <h3>{% trans 'How It Works' %}</h3>
                                 <span class="title">{% trans 'Let the Persisch-Tor direct you toward to top places' %}</span>
-                                <span class="line" style="margin-right: 8%"></span>
+                                <span class="line" style="width: 30%; background-color: #0089E2; "></span>
                                 <br>
                                 <div class="title_holder">
                                     <p style="font-size: large; text-align: justify">
@@ -165,6 +174,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <h3>{% trans 'Website rules and regulations' %}</h3>
+                                <span class="title">{% trans 'Let the Persisch-Tor direct you toward to top places' %}</span>
+                                <span class="line" style="width: 30%; background-color: #0089E2; "></span>
                             </div>
                         </div>
                     </div>

@@ -9,12 +9,12 @@ from PIL import Image
 
 class Place(models.Model):
     CATEGORY_GROUP = [
-        (_('food & drink'), _('Food & Drink')),
-        (_('medical'), _('Medical')),
-        (_('technical'), _('Technical')),
-        (_('store'), _('Store')),
-        (_('entertainment'), _('Entertainment')),
-        (_('other'), _('Other'))
+        ('food & drink', _('Food & Drink')),
+        ('medical', _('Medical')),
+        ('technical', _('Technical')),
+        ('store', _('Store')),
+        ('entertainment', _('Entertainment')),
+        ('other', _('Other'))
     ]
 
     GERMAN_CITIES = (

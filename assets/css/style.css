@@ -121,6 +121,7 @@ h1>a,h2>a,h3>a,h4>a,h5>a,h6>a{
 	     -o-transition: all .5s ease;
 	        transition: all .5s ease;
 }
+
 img.svg, .svg ,svg{
 	width: 14px;
 	height: 14px;

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-18 02:08+0330\n"
-"PO-Revision-Date: 2025-03-17 04:24+0330\n"
+"POT-Creation-Date: 2025-03-18 22:41+0330\n"
+"PO-Revision-Date: 2025-03-18 22:43+0330\n"
 "Last-Translator:   <mehdii.dev@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Page not found"
 msgstr "صفحه مورد نظر یافت نشد"
 
-#: .\404.html:21 .\home.html:7
+#: .\404.html:21 .\_base.html:76 .\_base.html:237 .\home.html:7
 msgid "Home"
 msgstr "خانه"
 
@@ -35,8 +35,8 @@ msgid ""
 "We couldn't find the page you were looking for. It may have been moved or "
 "deleted, or you may have typed the URL incorrectly."
 msgstr ""
-"ما نتوانستیم صفحه مورد نظر شما را پیدا کنیم. ممکن است منتقل یا حذف شده باشد، "
-"یا ممکن است آدرس URL را اشتباه تایپ کرده باشید."
+"ما نتوانستیم صفحه مورد نظر شما را پیدا کنیم. ممکن است منتقل یا حذف شده باشد،"
+" یا ممکن است آدرس URL را اشتباه تایپ کرده باشید."
 
 #: .\404.html:45
 msgid "BACK TO HOME"
@@ -54,9 +54,37 @@ msgstr "ما درحال بروز رسانی هستیم :)"
 msgid "Website will be available soon..."
 msgstr "وبسایت به زودی در دسترس خواهد بود..."
 
+#: .\_base.html:78 .\_base.html:240
+msgid "Places & Services"
+msgstr "خدمات و مکان ها"
+
+#: .\_base.html:90 .\_base.html:257
+msgid "About us"
+msgstr "درباره ما"
+
+#: .\_base.html:91 .\_base.html:260
+msgid "Contact us"
+msgstr "ارتباط با ما"
+
+#: .\_base.html:94 .\_base.html:264
+msgid "Profile"
+msgstr "پروفایل"
+
+#: .\_base.html:96 .\_base.html:267 .\registration\login.html:7
+msgid "Login"
+msgstr "ورود"
+
+#: .\_base.html:102 .\_base.html:273
+msgid "Add new Service"
+msgstr "ایجاد سرویس جدید"
+
+#: .\_base.html:160 .\_base.html:228 .\home.html:39 .\home.html:40
+msgid "Search"
+msgstr "جستجو"
+
 #: .\home.html:29
 msgid "Persisch Tor"
-msgstr "پرزیشـــطور"
+msgstr "پرزیشـــــطور"
 
 #: .\home.html:30
 msgid "Gate for easy access!"
@@ -66,23 +94,23 @@ msgstr "دروازه ای برای دسترسی آسان!"
 msgid "Discover the Best Places and Services"
 msgstr "بهترین مکان ها و خدمات را پیداکنید"
 
-#: .\home.html:40
-msgid "Search"
-msgstr "جستجو"
+#: .\home.html:37
+msgid "What Are You Looking For?"
+msgstr "دنبال چی میگردی؟"
 
-#: .\home.html:101
+#: .\home.html:110
 msgid "Go to all Services"
 msgstr "برو به تمامی خدمات"
 
-#: .\home.html:121
+#: .\home.html:130
 msgid "How It Works"
 msgstr "چطوری کار میکنه؟"
 
-#: .\home.html:122
+#: .\home.html:131
 msgid "Let the Persisch-Tor direct you toward to top places"
 msgstr "اجازه دهید پرزیشـــطور شما را به سمت مکان های برتر هدایت کند"
 
-#: .\home.html:127
+#: .\home.html:136
 msgid ""
 "Finding the right services and businesses is always a major challenge for "
 "Persian speakers living in Germany. Many people, when looking for a "
@@ -90,54 +118,43 @@ msgid ""
 "restaurant, etc., look for the opinions and experiences of others to make a "
 "better choice. In the absence of a centralized source, this information is "
 "often shared through social networks and Telegram groups, which makes it "
-"difficult to find accurate and reliable answers, and it is also difficult to "
-"join and check the opinions in such channels and groups.Persisch-Tor "
-"(Persisch-Tor) is designed to simplify this process. Here, users can: Search "
-"for places and professionals based on different categories. Read other "
+"difficult to find accurate and reliable answers, and it is also difficult to"
+" join and check the opinions in such channels and groups.Persisch-Tor "
+"(Persisch-Tor) is designed to simplify this process. Here, users can: Search"
+" for places and professionals based on different categories. Read other "
 "people's opinions about their services and experiences. Share their "
 "experiences with other users. As a result, this platform is a suitable "
 "platform for collecting information that is directly provided by users. "
 "Therefore, the decision to choose services or places will be based on real "
 "feedback and opinions of our fellow speakers who have used these services. "
-"As a result, this website not only helps to find reliable services, but also "
-"provides an opportunity to share useful experiences."
+"As a result, this website not only helps to find reliable services, but also"
+" provides an opportunity to share useful experiences."
 msgstr ""
-"همواره پیدا کردن خدمات و کسب‌ وکارهای مناسب یکی از چالش‌های اساسی برای فارسی‌ "
-"زبانان ساکن آلمان است. بسیاری از افراد هنگام جستجوی یک پزشک متخصص، یک "
-"تعمیرکار حرفه‌ای، یک فروشگاه مناسب یا یک رستوران باکیفیت و ... به دنبال نظرات "
-"و تجربیات دیگران هستند تا انتخاب بهتری داشته باشند. در نبود یک منبع متمرکز، "
-"این اطلاعات اغلب از طریق شبکه‌های اجتماعی و گروه‌های تلگرامی به اشتراک گذاشته "
-"می‌شود که یافتن پاسخ دقیق و قابل‌اعتماد را دشوار می‌کند و همچینن عضویت و چک "
-"کردن نظرات در اینگونه کانال ها و گروه ها دشوار است.\n"
+"همواره پیدا کردن خدمات و کسب‌ وکارهای مناسب یکی از چالش‌های اساسی برای فارسی‌ زبانان ساکن آلمان است. بسیاری از افراد هنگام جستجوی یک پزشک متخصص، یک تعمیرکار حرفه‌ای، یک فروشگاه مناسب یا یک رستوران باکیفیت و ... به دنبال نظرات و تجربیات دیگران هستند تا انتخاب بهتری داشته باشند. در نبود یک منبع متمرکز، این اطلاعات اغلب از طریق شبکه‌های اجتماعی و گروه‌های تلگرامی به اشتراک گذاشته می‌شود که یافتن پاسخ دقیق و قابل‌اعتماد را دشوار می‌کند و همچینن عضویت و چک کردن نظرات در اینگونه کانال ها و گروه ها دشوار است.\n"
 "\n"
-"پرزیشــــطور (Persisch-Tor) با هدف ساده‌تر کردن این روند طراحی شده است. "
-"کاربران می‌توانند در اینجا:\n"
+"پرزیشــــطور (Persisch-Tor) با هدف ساده‌تر کردن این روند طراحی شده است. کاربران می‌توانند در اینجا:\n"
 "مکان‌ها و متخصصان را بر اساس دسته‌بندی‌های مختلف جستجو کنند.\n"
 "نظرات دیگران را درباره خدمات و تجربه‌هایشان بخوانند.\n"
 "تجربیات خود را با دیگر کاربران به اشتراک بگذارند.\n"
-"در نتیجه این پلتفرم، بستری مناسب برای جمع‌آوری اطلاعاتی است که مستقیماً از سوی "
-"کاربران ارائه شده‌اند. بنابراین، تصمیم‌گیری در مورد انتخاب خدمات یا مکان‌ها بر "
-"اساس بازخوردهای واقعی و نظرات هم زبانان ما خواهد بود که از این خدمات استفاده "
-"کرده‌اند. در نتیجه، این وب‌ سایت نه‌ تنها به یافتن خدمات معتبر کمک می‌کند، بلکه "
-"امکان اشتراک‌ گذاری تجربه‌ های مفید را نیز فراهم می‌آورد."
+"در نتیجه این پلتفرم، بستری مناسب برای جمع‌آوری اطلاعاتی است که مستقیماً از سوی کاربران ارائه شده‌اند. بنابراین، تصمیم‌گیری در مورد انتخاب خدمات یا مکان‌ها بر اساس بازخوردهای واقعی و نظرات هم زبانان ما خواهد بود که از این خدمات استفاده کرده‌اند. در نتیجه، این وب‌ سایت نه‌ تنها به یافتن خدمات معتبر کمک می‌کند، بلکه امکان اشتراک‌ گذاری تجربه‌ های مفید را نیز فراهم می‌آورد."
 
-#: .\home.html:138
+#: .\home.html:147
 msgid "Everything is ready!"
 msgstr "همه چی حاضره!"
 
-#: .\home.html:139
+#: .\home.html:148
 msgid ""
-"Find the right service provider for your needs by reviewing user reviews and "
-"share your experience once you're done."
+"Find the right service provider for your needs by reviewing user reviews and"
+" share your experience once you're done."
 msgstr ""
-"با بررسی نظرات کاربران، ارائه دهنده خدمات مناسب برای نیازهای خود را بیابید و "
-"سپس تجربه خود را به اشتراک بگذارید."
+"با بررسی نظرات کاربران، ارائه دهنده خدمات مناسب برای نیازهای خود را بیابید و"
+" سپس تجربه خود را به اشتراک بگذارید."
 
-#: .\home.html:151
+#: .\home.html:160
 msgid "Find or introduce"
 msgstr "پیدا کن یا معرفی کن"
 
-#: .\home.html:152
+#: .\home.html:161
 msgid ""
 "Browse the listings, read reviews, and find the right choice. Also, share "
 "your experiences about receiving services from professionals (doctors, "
@@ -147,11 +164,11 @@ msgstr ""
 "تجربیات خود را در مورد دریافت خدمات از افراد حرفه ای (پزشکان، تکنسین ها، "
 "فروشگاه ها و ...) با دیگران به اشتراک بگذارید."
 
-#: .\home.html:163
+#: .\home.html:172
 msgid "Decide What you want"
 msgstr "تصمیم بگیر چی میخوای"
 
-#: .\home.html:164
+#: .\home.html:173
 msgid ""
 "Are you looking for a good clinic, specialists in any field, a cozy hotel "
 "for your stay, a restaurant for a delicious meal, or a reliable store with "
@@ -192,13 +209,11 @@ msgstr "لطفا آدرس ایمیل را تایید کنید"
 #, python-format
 msgid ""
 "Please confirm that\n"
-"                    <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
-"address for user %(user_display)s.\n"
+"                    <a href=\"mailto:%(email)s\">%(email)s</a> is an email address for user %(user_display)s.\n"
 "                "
 msgstr ""
 "لطفا تایید کنید\n"
-"<a href=\"mailto:%(email)s\">%(email)s</a> یک آدرس ایمیل برای کاربر %"
-"(user_display)s است."
+"<a href=\"mailto:%(email)s\">%(email)s</a> یک آدرس ایمیل برای کاربر %(user_display)s است."
 
 #: .\registration\email_confirm.html:25
 msgid "Confirm"
@@ -207,8 +222,7 @@ msgstr "تایید"
 #: .\registration\email_confirm.html:31
 #, python-format
 msgid ""
-"Unable to confirm %(email)s because it is already confirmed by a different "
-"account.\n"
+"Unable to confirm %(email)s because it is already confirmed by a different account.\n"
 "                "
 msgstr "تأیید %(email)s ممکن نیست زیرا قبلاً توسط حساب دیگری تأیید شده است."
 
@@ -216,15 +230,10 @@ msgstr "تأیید %(email)s ممکن نیست زیرا قبلاً توسط حس
 #, python-format
 msgid ""
 "This email confirmation link expired or is invalid. Please\n"
-"                <a href=\"%(email_url)s\">issue a new email confirmation "
-"request</a>."
+"                <a href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "این پیوند تأیید ایمیل منقضی شده یا نامعتبر است. لطفا\n"
 "<a href=\"%(email_url)s\">یک درخواست تأیید ایمیل جدید صادر کنید</a>."
-
-#: .\registration\login.html:7
-msgid "Login"
-msgstr "ورود"
 
 #: .\registration\password_change_done.html:7
 #: .\registration\password_change_form.html:7
