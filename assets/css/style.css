@@ -7711,6 +7711,13 @@ div.directify_fn_sign_in_closer{
 /*------------------------------------------------------------------*/
 /*	me) Sign up form
 /*------------------------------------------------------------------*/
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
 
 /* From Uiverse.io by Yaya12085 */
 .form-outline {

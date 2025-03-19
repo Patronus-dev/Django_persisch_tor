@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 20:52+0330\n"
-"PO-Revision-Date: 2025-03-19 20:55+0330\n"
+"POT-Creation-Date: 2025-03-19 21:18+0330\n"
+"PO-Revision-Date: 2025-03-19 21:19+0330\n"
 "Last-Translator:   <mehdii.dev@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -151,15 +151,14 @@ msgid "Rating"
 msgstr "امتیاز"
 
 #: .\templates\places\place_create.html:7
-#| msgid "Add new Service"
 msgid "New Service"
 msgstr "سرویس جدید"
 
-#: .\templates\places\place_create.html:25
+#: .\templates\places\place_create.html:26
 msgid "Hi !"
 msgstr "درود!"
 
-#: .\templates\places\place_create.html:26
+#: .\templates\places\place_create.html:27
 msgid ""
 "Please enter the information about your desired location or service "
 "carefully. Your post will be reviewed by the site support after registration"
@@ -170,10 +169,22 @@ msgstr ""
 "ثبت ،  توسط پشتیبانی سایت بررسی می‌شود و در صورت تأیید و صحت اطلاعات طی چند "
 "روز آینده منتشر خواهد شد."
 
-#: .\templates\places\place_create.html:53
+#: .\templates\places\place_create.html:44
 #: .\templates\places\place_detail.html:212
 msgid "Submit"
 msgstr "ثبت"
+
+#: .\templates\places\place_create.html:55
+msgid ""
+"Please log in to your account or register to access this section. Follow the"
+" link below."
+msgstr ""
+"لطفاً برای دسترسی به این قسمت ابتدا وارد حساب کاربری خود شوید یا ثبت‌نام "
+"کنید. از لینک زیر اقدام نمایید."
+
+#: .\templates\places\place_create.html:58
+msgid "Login / Signup"
+msgstr "ورود / ثبت نام"
 
 #: .\templates\places\place_detail.html:75
 msgid "Important"
@@ -225,7 +236,6 @@ msgid "Write your Comment"
 msgstr "نظر خود را بنویسید"
 
 #: .\templates\places\place_detail.html:211
-#| msgid "Write your Comment"
 msgid "Submit your Comment."
 msgstr "نظر خود را ثبت کنید."
 
@@ -284,7 +294,6 @@ msgid "Next"
 msgstr "بعدی"
 
 #: .\templates\places\search_result.html:7
-#| msgid "Searched For"
 msgid "Search"
 msgstr "جستجو"
 

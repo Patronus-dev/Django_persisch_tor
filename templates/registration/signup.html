@@ -8,36 +8,33 @@
 
 
 {% block content %}
-    <div style="margin-top: 10%;">
-        <div style="width: fit-content; margin: 0 auto; border: solid 1px royalblue; border-radius: 2%">
-            <form class="form" method="post">
-                <p class="title">Create an Account </p>
-                <p class="message">Signup now and get access to our website. </p>
-                {% csrf_token %}
-                {{ form|crispy }}
-                <div class="flex">
-{#                    <label style="width: 100%">#}
-{#                        <input required="" placeholder="" type="text" class="input">#}
-{#                        <span>Username</span>#}
-{#                    </label>#}
+    <section class="vh-100" style="margin-top: 5rem; margin-bottom: 5rem">
+        <div class="container py-5 h-100">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                         class="img-fluid" alt="Phone image">
                 </div>
-
-                <label>
-                    <input required="" placeholder="" type="email" class="input">
-                    <span>Email</span>
-                </label>
-{##}
-{#                <label>#}
-{#                    <input required="" placeholder="" type="password" class="input">#}
-{#                    <span>Password</span>#}
-{#                </label>#}
-{#                <label>#}
-{#                    <input required="" placeholder="" type="password" class="input">#}
-{#                    <span>Confirm password</span>#}
-{#                </label>#}
-                <button class="submit">Submit</button>
-                <p class="signin">Already have an account ? <a href="{% url 'login' %}">Login</a></p>
-            </form>
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                    <form class="form" method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <!-- Submit button -->
+                        <button type="submit" data-mdb-button-init data-mdb-ripple-init
+                                class="btn btn-primary btn-lg btn-block">{% trans 'Submit' %}
+                        </button>
+                        <div class="divider d-flex align-items-center my-4">
+                            <p class="text-center fw-bold mx-3 mb-0 text-muted">{% trans 'OR' %}</p>
+                        </div>
+                        <p style="text-align: center">{% trans "Already have an account ?" %}</p>
+                        <a data-mdb-ripple-init class="btn btn-primary btn-lg btn-block"
+                           style="background-color: #3b5998" href="{% url 'login' %}"
+                           role="button">
+                            <i class="fab fa-facebook-f me-2"></i>{% trans 'Login' %}
+                        </a>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 {% endblock content %}

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-18 22:41+0330\n"
-"PO-Revision-Date: 2025-03-18 22:43+0330\n"
+"POT-Creation-Date: 2025-03-19 22:41+0330\n"
+"PO-Revision-Date: 2025-03-19 22:44+0330\n"
 "Last-Translator:   <mehdii.dev@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,9 @@ msgstr ""
 msgid "Page not found"
 msgstr "صفحه مورد نظر یافت نشد"
 
-#: .\404.html:21 .\_base.html:76 .\_base.html:237 .\home.html:7
+#: .\404.html:21 .\_base.html:68 .\_base.html:143 .\home.html:7
+#: .\registration\password_change_done.html:24
+#: .\registration\password_reset_done.html:25
 msgid "Home"
 msgstr "خانه"
 
@@ -54,33 +56,30 @@ msgstr "ما درحال بروز رسانی هستیم :)"
 msgid "Website will be available soon..."
 msgstr "وبسایت به زودی در دسترس خواهد بود..."
 
-#: .\_base.html:78 .\_base.html:240
+#: .\_base.html:71 .\_base.html:127
 msgid "Places & Services"
 msgstr "خدمات و مکان ها"
 
-#: .\_base.html:90 .\_base.html:257
+#: .\_base.html:83 .\_base.html:122
 msgid "About us"
 msgstr "درباره ما"
 
-#: .\_base.html:91 .\_base.html:260
+#: .\_base.html:84 .\_base.html:118
 msgid "Contact us"
 msgstr "ارتباط با ما"
 
-#: .\_base.html:94 .\_base.html:264
+#: .\_base.html:87 .\_base.html:149
 msgid "Profile"
 msgstr "پروفایل"
 
-#: .\_base.html:96 .\_base.html:267 .\registration\login.html:7
+#: .\_base.html:89 .\_base.html:152 .\registration\login.html:7
+#: .\registration\login.html:33 .\registration\signup.html:33
 msgid "Login"
 msgstr "ورود"
 
-#: .\_base.html:102 .\_base.html:273
+#: .\_base.html:95 .\_base.html:158
 msgid "Add new Service"
 msgstr "ایجاد سرویس جدید"
-
-#: .\_base.html:160 .\_base.html:228 .\home.html:39 .\home.html:40
-msgid "Search"
-msgstr "جستجو"
 
 #: .\home.html:29
 msgid "Persisch Tor"
@@ -94,23 +93,27 @@ msgstr "دروازه ای برای دسترسی آسان!"
 msgid "Discover the Best Places and Services"
 msgstr "بهترین مکان ها و خدمات را پیداکنید"
 
-#: .\home.html:37
+#: .\home.html:38
 msgid "What Are You Looking For?"
 msgstr "دنبال چی میگردی؟"
 
-#: .\home.html:110
+#: .\home.html:42
+msgid "Search"
+msgstr "جستجو"
+
+#: .\home.html:107
 msgid "Go to all Services"
 msgstr "برو به تمامی خدمات"
 
-#: .\home.html:130
+#: .\home.html:128
 msgid "How It Works"
 msgstr "چطوری کار میکنه؟"
 
-#: .\home.html:131
+#: .\home.html:129
 msgid "Let the Persisch-Tor direct you toward to top places"
 msgstr "اجازه دهید پرزیشـــطور شما را به سمت مکان های برتر هدایت کند"
 
-#: .\home.html:136
+#: .\home.html:134
 msgid ""
 "Finding the right services and businesses is always a major challenge for "
 "Persian speakers living in Germany. Many people, when looking for a "
@@ -138,11 +141,11 @@ msgstr ""
 "تجربیات خود را با دیگر کاربران به اشتراک بگذارند.\n"
 "در نتیجه این پلتفرم، بستری مناسب برای جمع‌آوری اطلاعاتی است که مستقیماً از سوی کاربران ارائه شده‌اند. بنابراین، تصمیم‌گیری در مورد انتخاب خدمات یا مکان‌ها بر اساس بازخوردهای واقعی و نظرات هم زبانان ما خواهد بود که از این خدمات استفاده کرده‌اند. در نتیجه، این وب‌ سایت نه‌ تنها به یافتن خدمات معتبر کمک می‌کند، بلکه امکان اشتراک‌ گذاری تجربه‌ های مفید را نیز فراهم می‌آورد."
 
-#: .\home.html:147
+#: .\home.html:145
 msgid "Everything is ready!"
 msgstr "همه چی حاضره!"
 
-#: .\home.html:148
+#: .\home.html:146
 msgid ""
 "Find the right service provider for your needs by reviewing user reviews and"
 " share your experience once you're done."
@@ -150,11 +153,11 @@ msgstr ""
 "با بررسی نظرات کاربران، ارائه دهنده خدمات مناسب برای نیازهای خود را بیابید و"
 " سپس تجربه خود را به اشتراک بگذارید."
 
-#: .\home.html:160
+#: .\home.html:158
 msgid "Find or introduce"
 msgstr "پیدا کن یا معرفی کن"
 
-#: .\home.html:161
+#: .\home.html:159
 msgid ""
 "Browse the listings, read reviews, and find the right choice. Also, share "
 "your experiences about receiving services from professionals (doctors, "
@@ -164,11 +167,11 @@ msgstr ""
 "تجربیات خود را در مورد دریافت خدمات از افراد حرفه ای (پزشکان، تکنسین ها، "
 "فروشگاه ها و ...) با دیگران به اشتراک بگذارید."
 
-#: .\home.html:172
+#: .\home.html:170
 msgid "Decide What you want"
 msgstr "تصمیم بگیر چی میخوای"
 
-#: .\home.html:173
+#: .\home.html:171
 msgid ""
 "Are you looking for a good clinic, specialists in any field, a cozy hotel "
 "for your stay, a restaurant for a delicious meal, or a reliable store with "
@@ -235,6 +238,26 @@ msgstr ""
 "این پیوند تأیید ایمیل منقضی شده یا نامعتبر است. لطفا\n"
 "<a href=\"%(email_url)s\">یک درخواست تأیید ایمیل جدید صادر کنید</a>."
 
+#: .\registration\login.html:26
+msgid "Remember me"
+msgstr "مرا بخاطر بسپار"
+
+#: .\registration\login.html:28
+msgid "Forgot password?"
+msgstr "رمز عبور را فراموش کرده اید؟"
+
+#: .\registration\login.html:36 .\registration\signup.html:27
+msgid "OR"
+msgstr "یا اینکه"
+
+#: .\registration\login.html:38
+msgid "Don't have an account ?"
+msgstr "حساب کاربری ندارید؟"
+
+#: .\registration\login.html:42
+msgid "Signup"
+msgstr "ثبت نام"
+
 #: .\registration\password_change_done.html:7
 #: .\registration\password_change_form.html:7
 #: .\registration\password_reset_complete.html:7
@@ -242,14 +265,52 @@ msgstr ""
 msgid "Password change"
 msgstr "تغییر کلمه عبور"
 
+#: .\registration\password_change_done.html:20
+#| msgid "Password change"
+msgid "Password changed successfully!"
+msgstr "رمز عبور با موفقیت تغییر کرد!"
+
+#: .\registration\password_change_done.html:21
+msgid ""
+"Your password has been successfully changed. Please visit the login page to "
+"access the website."
+msgstr ""
+"رمز عبور شما با موفقیت تغییر کرده است. لطفا برای ورود به وب سایت به صفحه "
+"ورود مراجعه کنید."
+
+#: .\registration\password_change_form.html:25 .\registration\signup.html:24
+msgid "Submit"
+msgstr "ثبت"
+
 #: .\registration\password_reset_confirm.html:7
 #: .\registration\password_reset_form.html:7
 msgid "Password reset"
 msgstr "بازنشانی کلمه عبور"
 
+#: .\registration\password_reset_done.html:21
+msgid "Email sent!"
+msgstr "ایمیل ارسال شد!"
+
+#: .\registration\password_reset_done.html:22
+msgid ""
+"An email containing password change instructions has been sent to you. "
+"Please check your inbox."
+msgstr ""
+"یک ایمیل حاوی دستورالعمل های تغییر رمز عبور برای شما ارسال شده است. لطفا "
+"صندوق ورودی خود را بررسی کنید."
+
+#: .\registration\password_reset_form.html:24
+msgid "Send"
+msgstr "ارسال"
+
 #: .\registration\signup.html:7
 msgid "Sign up"
 msgstr "ثبت نام"
+
+#: .\registration\signup.html:29
+#| msgid "Don't have an account ?"
+msgid "Already have an account ?"
+msgstr "حساب کاربری دارید؟"
 
 #~ msgid "or browse"
 #~ msgstr "یا پیدا کنید"

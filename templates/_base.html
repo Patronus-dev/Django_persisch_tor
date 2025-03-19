@@ -56,27 +56,17 @@
                     <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}" alt=""/></a>
                     <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}" alt=""/></a>
                 </div>
-                <div class="mobile_search">
-                    <a href="#">
-                        <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
-                        Search
-                    </a>
-                </div>
                 <div class="hamburger hamburger--collapse-r">
                     <div class="hamburger-box">
                         <div class="hamburger-inner"></div>
                     </div>
                 </div>
-                <div class="s-search">
-                    <a href="#">
-                        <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
-                    </a>
-                </div>
             </div>
 
             <div class="directify_fn_mobile_nav">
                 <ul class="nav">
-                    <li><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+                    <li><a href="{% url 'home' %}">{% trans 'Home' %}</a>
+                    </li>
                     <li>
                         <a href="{% url 'place_list' %}">{% trans 'Places & Services' %}<i class="xcon-angle-down"></i></a>
                         <ul class="sub_menu masonry-filter">
@@ -106,39 +96,6 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-
-            <div class="mobile_search_see one">
-                <div class="selects">
-                    <div>
-                        <label>
-                            <input class="directify_fn_search_input" type="search"
-                                   placeholder="What Are You Looking For?"/>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <select class="directify_fn_select">
-                                <option value="all">All Listings</option>
-                                <option value="restaurant">Restaurants</option>
-                                <option value="hotel">Hotels</option>
-                                <option value="shopping">Shopping</option>
-                                <option value="gallery">Gallery</option>
-                                <option value="park">Park</option>
-                                <option value="movie">Movie</option>
-                                <option value="service">Services</option>
-                                <option value="theatre">Theatres</option>
-                                <option value="hospital">Hospitals</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div>
-                        <label for="select-location"></label>
-                        <input type="text" id="select-location" placeholder="Location"/>
-                        <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}" alt=""/>
-                    </div>
-                </div>
-                <a href="#"><img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
             </div>
         </div>
     {% endblock header_mobile %}

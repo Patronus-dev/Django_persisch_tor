@@ -21,62 +21,48 @@
                             <div class="post_content" style="margin-top: 2rem; margin-bottom: 2rem">
                                 <div class="title_holder">
 
-                                    <div class="directify_fn_tags">
-                                        <h4><strong>{% trans 'Hi !' %}</strong></h4>
-                                        <p style="font-size: large">{% trans 'Please enter the information about your desired location or service carefully. Your post will be reviewed by the site support after registration and, if the information is confirmed and accurate, it will be published within the next few days.' %}</p>
-                                    </div>
-                                    <hr>
-                                </div>
-                            </div>
-                            <!-- /PLACE CONTENT -->
-
-                            <!-- SUBMIT CONTENT -->
-                            <div class="directify_fn_submit_content">
-                                <div class="directify_fn_submit" style="margin-top: 2rem">
                                     {% if user.is_authenticated %}
-                                        <div class="form">
-<!-- SUBMIT FORM -->
-{#                                            <form method="POST" enctype="multipart/form-data">#}
-{#                                                {% csrf_token %}#}
-{#                                                {{ form.as_p }}#}
-{#                                                <!-- Submit button -->#}
-{#                                                <button data-mdb-ripple-init type="submit"#}
-{#                                                        class="btn btn-primary btn-block mb-4">{% trans 'Submit' %}#}
-{#                                                </button>#}
-{#                                            </form>#}
+                                        <div class="directify_fn_tags">
+                                            <h4><strong>{% trans 'Hi !' %}</strong></h4>
+                                            <p style="font-size: large">{% trans 'Please enter the information about your desired location or service carefully. Your post will be reviewed by the site support after registration and, if the information is confirmed and accurate, it will be published within the next few days.' %}</p>
+                                        </div>
+                                        <hr>
+                                        </div>
+                                        </div>
+                                        <!-- /PLACE CONTENT -->
 
+                                        <!-- SUBMIT CONTENT -->
+                                        <div class="directify_fn_submit_content">
+                                        <div class="directify_fn_submit" style="margin-top: 2rem">
+                                        <div class="form">
+                                            <!-- SUBMIT FORM -->
                                             <form class="row g-3" method="POST">
                                                 {% csrf_token %}
                                                 {{ form|crispy }}
-                                                <div class="d-grid gap-2" style="font-size: large">
-                                                    <button type="submit"
-                                                            class="btn btn-success">{% trans 'Submit' %}</button>
+                                                <div class="col-12" style="font-size: large">
+                                                    <button type="submit" class="btn btn-success">{% trans 'Submit' %}</button>
                                                 </div>
                                             </form>
-
                                             <!-- /SUBMIT FORM -->
+
                                             {% else %}
+
                                             <!-- MAIN SECTION -->
-                                            <div class="directify_fn_submit_main_section">
+                                            <div class="directify_fn_submit_main_section"
+                                                 style="direction: rtl; text-align: right">
                                                 <div class="have-account">
-                                                    <p>اگر حساب کاربری دارید، لطفاً
-                                                        <a href="#" class="md-trigger md-setperspective"
-                                                           data-modal="modal-18">وارد شوید</a>
-                                                        یا ایمیل خود را وارد کنید تا همزمان با ارسال این فرم ثبت‌نام
-                                                        انجام شود. اطلاعات حساب
-                                                        شما از طریق ایمیل تأیید خواهد شد.
-                                                    </p>
-                                                </div>
-                                                <div class="sign-email">
-                                                    <label for="sign-email">ایمیل خود را وارد کنید<span>*</span></label>
-                                                    <input type="email" id="sign-email" class="form-control" required/>
+                                                    <p>{% trans 'Please log in to your account or register to access this section. Follow the link below.' %}</p>
+                                                    <br>
+                                                    <a href="{% url 'login' %}" class="md-trigger md-setperspective"
+                                                       data-modal="modal-18">{% trans 'Login / Signup' %}</a>
                                                 </div>
                                             </div>
                                             <!-- /MAIN SECTION -->
+
                                         </div>
                                     {% endif %}
-                                </div>
-                            </div>
+                                    </div>
+                                    </div>
                             <!-- /SUBMIT CONTENT -->
 
                         </div>
