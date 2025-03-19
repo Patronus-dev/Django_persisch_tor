@@ -30,24 +30,19 @@
                                         <h3>{% trans 'Gate for easy access!' %}</h3>
                                         <span>{% trans 'Discover the Best Places and Services' %}</span>
                                     </div>
-                                    <div class="searching" style="float: right">
+                                    <div class="search">
                                         <form method="POST" action="{% url 'user_search' %}">
                                             {% csrf_token %}
-                                            {{ form|crispy }}
-                                            <input class="form-control" type="search" placeholder="{% trans 'What Are You Looking For?' %}"
-                                                   aria-label="Search" name="user_search">
-                                            <button type="submit" class="submit" title={% trans 'Search' %}>
-                                                {% trans 'Search' %}
-                                            </button>
+                                            <div class="input-group" style="text-align: right; direction: rtl">
+                                                <input type="search" class="form-control rounded"
+                                                       placeholder="{% trans 'What Are You Looking For?' %}"
+                                                       aria-label="Search" aria-describedby="search-addon"
+                                                       name="user_search"/>
+                                                <button type="submit" class="btn btn-outline-primary"
+                                                        data-mdb-ripple-init>{% trans 'Search' %}
+                                                </button>
+                                            </div>
                                         </form>
-{#                                        <label>#}
-{#                                            <input class="directify_fn_search_input" type="search"#}
-{#                                                   placeholder="{% trans 'What Are You Looking For?' %}"/>#}
-{#                                        </label>#}
-{#                                        <a class="directify_fn_search_btn" href="#">#}
-{#                                            <img class="svg" src="{% static 'img/svg/search.svg' %}"#}
-{#                                                 alt=""/><span>{% trans 'Search' %}</span></a>#}
-{#                                        <div class="clearfix"></div>#}
                                     </div>
                                 </div>
                             </div>
@@ -105,9 +100,11 @@
                                                 </div>
                                             {% endfor %}
                                         </div>
-                                        <div class="all_cat_btn" style="direction: rtl; margin-right: 15%">
+                                        <div style="direction: rtl; margin-right: 15%">
                                             <a href="{% url 'place_list' %}">
-                                                <span class="text">{% trans 'Go to all Services' %}</span>
+                                                <button type="button" class="btn btn-link" data-mdb-ripple-init data-mdb-ripple-color="dark">
+                                                    {% trans 'Go to all Services' %}
+                                                </button>
                                             </a>
                                         </div>
                                     </div>

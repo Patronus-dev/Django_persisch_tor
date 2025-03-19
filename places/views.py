@@ -1,13 +1,12 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView
+from django.views.generic import *
 from .models import Place
 from .forms import CommentForm, PlaceFilterForm
-from django.utils.translation import gettext as _
 
 
 class PlaceListView(ListView):
     model = Place
-    paginate_by = 16
+    paginate_by = 18
     template_name = 'places/place_list.html'
     context_object_name = 'places'
     ordering = ['-datetime_created']

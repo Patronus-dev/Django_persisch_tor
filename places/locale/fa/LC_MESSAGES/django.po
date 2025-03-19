@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 01:33+0330\n"
-"PO-Revision-Date: 2025-03-19 01:34+0330\n"
+"POT-Creation-Date: 2025-03-19 13:15+0330\n"
+"PO-Revision-Date: 2025-03-19 13:17+0330\n"
 "Last-Translator:   <mehdii.dev@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\models.py:12 .\templates\places\place_list.html:128
+#: .\models.py:12 .\templates\places\place_list.html:131
+#: .\templates\places\search_result.html:107
 msgid "Food & Drink"
 msgstr "غذا و نوشیدنی"
 
@@ -51,7 +52,8 @@ msgid "Enter the name of the place."
 msgstr "نام را وارد کنید."
 
 #: .\models.py:105 .\templates\places\place_detail.html:134
-#: .\templates\places\place_list.html:154
+#: .\templates\places\place_list.html:157
+#: .\templates\places\search_result.html:133
 msgid "Category"
 msgstr "دسته بندی"
 
@@ -197,38 +199,43 @@ msgstr "خدمات"
 
 #: .\templates\places\place_detail.html:24
 #: .\templates\places\place_list.html:24
+#: .\templates\places\search_result.html:24
 msgid "Contact us"
 msgstr "ارتباط با ما"
 
 #: .\templates\places\place_detail.html:28
-#: .\templates\places\place_list.html:28
+#: .\templates\places\place_list.html:29
+#: .\templates\places\search_result.html:28
 msgid "About us"
 msgstr "درباره ما"
 
 #: .\templates\places\place_detail.html:32
-#: .\templates\places\place_list.html:32
-#| msgid "All places and services"
+#: .\templates\places\place_list.html:33
+#: .\templates\places\search_result.html:32
 msgid "Places & Services"
 msgstr "خدمات و مکان ها"
 
 #: .\templates\places\place_detail.html:47
-#: .\templates\places\place_list.html:47
+#: .\templates\places\place_list.html:48
+#: .\templates\places\search_result.html:47
 msgid "Home"
 msgstr "خانه"
 
 #: .\templates\places\place_detail.html:53
-#: .\templates\places\place_list.html:53
+#: .\templates\places\place_list.html:54
+#: .\templates\places\search_result.html:53
 msgid "Profile"
 msgstr "پروفایل"
 
 #: .\templates\places\place_detail.html:56
-#: .\templates\places\place_list.html:56
+#: .\templates\places\place_list.html:57
+#: .\templates\places\search_result.html:56
 msgid "Login"
 msgstr "ورود"
 
 #: .\templates\places\place_detail.html:62
-#: .\templates\places\place_list.html:62
-#| msgid "Services"
+#: .\templates\places\place_list.html:63
+#: .\templates\places\search_result.html:62
 msgid "Add new Service"
 msgstr "ایجاد سریس جدید"
 
@@ -258,7 +265,8 @@ msgid "Information's"
 msgstr "اطلاعات"
 
 #: .\templates\places\place_detail.html:150
-#: .\templates\places\place_list.html:156
+#: .\templates\places\place_list.html:159
+#: .\templates\places\search_result.html:135
 msgid "City"
 msgstr "شهر"
 
@@ -286,47 +294,61 @@ msgstr "نظر خود را بنویسید"
 msgid "Submit"
 msgstr "ثبت"
 
-#: .\templates\places\place_list.html:87
-msgid "Choose city"
-msgstr "انتخاب شهر"
-
-#: .\templates\places\place_list.html:90
-msgid "All cities"
-msgstr "همه شهرها"
-
-#: .\templates\places\place_list.html:97
-msgid "Choose category"
-msgstr "انتخاب دسته بندی"
-
-#: .\templates\places\place_list.html:100
-msgid "All categories"
-msgstr "همه دسته بندی ها"
-
-#: .\templates\places\place_list.html:107
+#: .\templates\places\place_list.html:86
 msgid "All places and services"
 msgstr "تمامی خدمات و مکان ها"
 
-#: .\templates\places\place_list.html:157
+#: .\templates\places\place_list.html:88
+msgid "Choose city"
+msgstr "انتخاب شهر"
+
+#: .\templates\places\place_list.html:91
+msgid "All cities"
+msgstr "همه شهرها"
+
+#: .\templates\places\place_list.html:99
+msgid "Choose category"
+msgstr "انتخاب دسته بندی"
+
+#: .\templates\places\place_list.html:103
+msgid "All categories"
+msgstr "همه دسته بندی ها"
+
+#: .\templates\places\place_list.html:160
+#: .\templates\places\search_result.html:136
 msgid "Created"
 msgstr "ایجاد شده در"
 
-#: .\templates\places\place_list.html:161
+#: .\templates\places\place_list.html:164
+#: .\templates\places\search_result.html:140
 msgid "Read More"
 msgstr "بیشتر"
 
-#: .\templates\places\place_list.html:168
+#: .\templates\places\place_list.html:171
 msgid "No items found"
 msgstr "موردی یافت نشد"
 
-#: .\templates\places\place_list.html:169
+#: .\templates\places\place_list.html:172
 msgid "No case with these specifications has been registered yet."
 msgstr "تا به حال موردی با این مشخصات ثبت نشده است."
 
-#: .\templates\places\place_list.html:173
+#: .\templates\places\place_list.html:176
 msgid "Page Number"
 msgstr "شماره صفحه"
 
-#: .\templates\places\search_result.html:188
+#: .\templates\places\search_result.html:86
+msgid "Searched For"
+msgstr "جستجو برای"
+
+#: .\templates\places\search_result.html:87
+msgid "You can see the results below"
+msgstr "نتایج جستجو را در قسمت زیر مشاهده کنید"
+
+#: .\templates\places\search_result.html:148
+msgid "Hey! You forgot to search For a Place or Service"
+msgstr "سلام! شما فراموش کرده اید برای یک مکان یا خدمات جستجو کنید"
+
+#: .\templates\places\search_result.html:151
 msgid "Back to Homepage"
 msgstr "بازگشت به خانه"
 

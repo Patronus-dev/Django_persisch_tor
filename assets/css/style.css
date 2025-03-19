@@ -4986,7 +4986,7 @@ span.browse_me{
 /*------------------------------------------------------------------*/
 .directify_fn_blog_wrap{
 	width: 100%;
-	float: left;
+	float: right;
 	height: auto;
 	padding: 100px 0px;
 	background-color: #f6fafb;
@@ -4999,6 +4999,7 @@ span.browse_me{
 .directify_fn_blog_wrap .blog_wrapper{
 	width: 100%;
 	float: left;
+	padding-right: 50px;
 	height: auto;
 	clear: both;
 }
@@ -5009,8 +5010,8 @@ span.browse_me{
 	margin-bottom: 40px;
 }
 .directify_fn_blog_wrap .blog_wrapper ul.mypost li{
-	margin: 0px;
-	width: 30.8333%;
+	margin-right: 0rem;
+	width: 29.9%;
 	float: left;
 	margin-left: 2.5%;
 	margin-bottom: 30px;
@@ -7830,6 +7831,11 @@ div.directify_fn_sign_in_closer{
 .submit:hover {
   background-color: rgb(56, 90, 194);
 }
+.submit:active {
+  background-color: darkblue; /* تغییر رنگ هنگام کلیک */
+  transform: scale(0.95); /* ایجاد افکت کوچک شدن دکمه هنگام کلیک */
+}
+
 
 @keyframes pulse {
   from {

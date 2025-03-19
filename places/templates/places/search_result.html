@@ -18,59 +18,24 @@
                         <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
                                                                       alt=""/></a>
                     </div>
-                    <div class="directify_fn_header_search">
-                        <a href="#" style="margin-top: 15%">
-                            <img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/>
-                            Search
-                        </a>
-                        <div class="directify_fn_header_search_see_wrap one">
-                            <div class="header_search_see">
-                                <div class="selects">
-                                    <div>
-                                        <label>
-                                            <input class="directify_fn_search_input" type="search"
-                                                   placeholder="What Are You Looking For?"/>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <select class="directify_fn_select">
-                                                <option value="all">All Listings</option>
-                                                <option value="restaurant">Restaurants</option>
-                                                <option value="hotel">Hotels</option>
-                                                <option value="shopping">Shopping</option>
-                                                <option value="gallery">Gallery</option>
-                                                <option value="park">Park</option>
-                                                <option value="movie">Movie</option>
-                                                <option value="service">Services</option>
-                                                <option value="theatre">Theatres</option>
-                                                <option value="hospital">Hospitals</option>
-                                            </select>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label for="select-location-1"></label><input type="text"
-                                                                                      id="select-location-1"
-                                                                                      placeholder="Location"/>
-                                        <img class="svg" src="{% static 'img/svg/gps-fixed-indicator.svg' %}"
-                                             alt=""/>
-                                    </div>
-                                </div>
-                                <a href="#"><img class="svg" src="{% static 'img/svg/search.svg' %}" alt=""/><span>Search</span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="directify_fn_header_nav_list" style="margin-top: 1%">
+                    <div class="directify_fn_header_nav_list" style="margin-top: 1%;">
                         <ul class="nav__hor">
                             <li>
-                                <a href="{% url 'home' %}">Home<i class="xcon-"></i></a>
+                                <a style="font-size: large" href="#contact_us">{% trans 'Contact us' %}<i
+                                        class="xcon-"></i></a>
                             </li>
                             <li>
-                                <a href="{% url 'place_list' %}">Places & Services<i class="xcon-angle-down"></i></a>
+                                <a style="font-size: large" href="#about_us">{% trans 'About us' %}<i class="xcon-"></i></a>
+                            </li>
+                            <li>
+                                <a style="font-size: large"
+                                   href="{% url 'place_list' %}">{% trans 'Places & Services' %}<i
+                                        class="xcon-angle-down"></i></a>
                                 <ul class="sub_menu masonry-filter">
                                     {% for category in categories %}
                                         <li>
-                                            <a href="{% url 'place_list' %}?category={{ category|urlencode }}"
+                                            <a style="font-size: large"
+                                               href="{% url 'place_list' %}?category={{ category|urlencode }}"
                                                class="filter">
                                                 {{ category|capfirst }}
                                             </a>
@@ -79,26 +44,22 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">Blog<i class="xcon-"></i></a>
-                            </li>
-                            <li>
-                                <a href="#">About us<i class="xcon-"></i></a>
-                            </li>
-                            <li>
-                                <a href="#contact_us">Contact us<i class="xcon-"></i></a>
+                                <a style="font-size: large" href="{% url 'home' %}">{% trans 'Home' %}<i
+                                        class="xcon-"></i></a>
                             </li>
                             <li class="add_listing">
                                 {% if user.is_authenticated %}
-                                    <a href="{% url 'user_profile' %}">Profile</a>
+                                    <a style="font-size: large"
+                                       href="{% url 'user_profile' %}">{% trans 'Profile' %}</a>
                                     <img class="svg" src="{% static 'img/svg/human.svg' %}" alt=""/>
                                 {% else %}
-                                    <a href="{% url 'login' %}">Login</a>
+                                    <a style="font-size: large" href="{% url 'login' %}">{% trans 'Login' %}</a>
                                 {% endif %}
                             </li>
                             <li class="add_listing">
-                                <a href="#">
+                                <a style="font-size: large" href="#">
                                     <img class="svg" src="{% static 'img/svg/pencil.svg' %}" alt=""/>
-                                    <span>Add Listings</span>
+                                    <span>{% trans 'Add new Service' %}</span>
                                 </a>
                             </li>
                         </ul>
@@ -119,15 +80,15 @@
             <div class="directify_fn_blog">
                 <div class="blog">
                     <div class="container">
-                        <div class="blog_wrapper">
-                            <ul class="directify_fn_masonry mypost" style="margin-top: 2%">
+                        <div class="blog_wrapper" style="margin-top: 5%; text-align: right;direction: rtl;">
+                            <ul class="directify_fn_masonry mypost">
                                 {% if user_search %}
-                                    <h3>Searched For : {{ user_search }}</h3>
-                                    <p style="font-size: large">You can see the results below</p>
+                                    <h3>{% trans 'Searched For' %} : {{ user_search }}</h3>
+                                    <p style="font-size: large">{% trans 'You can see the results below' %}</p>
                                     <hr>
                                     <br>
                                     {% for place in places %}
-                                        <li class="directify_fn_masonry_in" style="margin-top: 10%">
+                                        <li class="directify_fn_masonry_in" style="margin-top: 10rem">
                                             <div class="post">
                                                 <div class="img_holder">
                                                     <a href="{% url 'place_detail' place.id %}">
@@ -143,7 +104,7 @@
                                                         {% elif place.image5 %}
                                                             <img src="{{ place.image5.url }}" alt="{{ place.title }}"/>
                                                         {% else %}
-                                                            {% if place.category == 'Food & Drink' %}
+                                                            {% if place.category == _('Food & Drink') %}
                                                                 <img src="{% static 'img/places/services/Food and Drink service_1_11zon.jpg' %}"
                                                                      alt="{{ place.title }}"/>
                                                             {% elif place.category == 'medical' %}
@@ -169,23 +130,26 @@
                                                     <h3>
                                                         <a href="{% url 'place_detail' place.id %}">{{ place.title }}</a>
                                                     </h3>
-                                                    <p><strong>Category :</strong> {{ place.category }}</p>
-                                                    <p><strong>City :</strong> {{ place.city }}</p>
-                                                    <span class="date"><strong>Created :</strong> {{ place.datetime_created }}</span>
+                                                    <p><strong>{% trans 'Category' %} :</strong> {{ place.category }}
+                                                    </p>
+                                                    <p><strong>{% trans 'City' %} :</strong> {{ place.city }}</p>
+                                                    <span class="date"><strong>{% trans 'Created' %} :</strong> {{ place.datetime_created }}</span>
                                                     <hr>
                                                     <br>
-                                                    <span><a
-                                                            href="{% url 'place_detail' place.id %}">Read More</a></span>
+                                                    <span style="font-size: large">
+                                                        <a href="{% url 'place_detail' place.id %}">{% trans 'Read More' %}</a>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </li>
                                     {% endfor %}
                                 {% else %}
-                                    <div style="margin-top: 5%;">
-                                        <h2>Hey! You forgot to search For a Place or Service</h2>
+                                    <div style="margin-top: 3rem; margin-bottom: 5rem; text-align: center">
+                                        <h3>{% trans 'Hey! You forgot to search For a Place or Service' %}.</h3>
                                         <a href="{% url 'home' %}">
-                                            <button style="margin: 0 auto"
-                                                    class="submit">{% trans 'Back to Homepage' %}</button>
+                                            <button style="margin-top: 2rem;" type="button" class="btn btn-outline-primary" data-mdb-ripple-init data-mdb-ripple-color="dark">
+                                                {% trans 'Back to Homepage' %}
+                                            </button>
                                         </a>
                                     </div>
                                 {% endif %}

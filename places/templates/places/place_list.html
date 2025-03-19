@@ -81,11 +81,12 @@
                 <div class="blog">
                     <div class="container">
                         <div class="blog_wrapper">
-                            <ul class="directify_fn_masonry mypost"
-                                style="margin-top: 2%; margin-bottom: 15%; text-align: right; direction: rtl">
-                                <form method="get" style="text-align: left; float: left; font-size: large">
-                                    <label for="city-select">{% trans 'Choose city' %} :</label>
-                                    <select style="font-size: large" id="city-select" name="city"
+                            <div class="menu_list" style="margin-top: 2rem; text-align: right">
+                                <h3>{% trans 'All places and services' %}</h3>
+                                <form method="get" style="text-align: right; font-size: 1rem;">
+                                    <label style="font-size: 1rem;" for="city-select">{% trans 'Choose city' %}
+                                        :</label>
+                                    <select id="city-select" name="city" style=" margin-bottom: 1rem"
                                             onchange="this.form.submit()">
                                         <option value="">{% trans 'All cities' %}</option>
                                         {% for city in cities %}
@@ -93,23 +94,26 @@
                                                     {% if selected_city == city %}selected{% endif %}>{{ city }}</option>
                                         {% endfor %}
                                     </select>
+                                    <br>
 
                                     <label for="category-select">{% trans 'Choose category' %} :</label>
-                                    <select style="font-size: large" id="category-select" name="category"
+                                    <select style="font-size: 1rem" id="category-select" name="category"
                                             onchange="this.form.submit()">
-                                        <option value="">{% trans 'All categories' %}</option>
+                                        <option value=""
+                                                style="width: fit-content">{% trans 'All categories' %}</option>
                                         {% for category in categories %}
                                             <option value="{{ category }}"
                                                     {% if selected_category == category %}selected{% endif %}>{{ category }}</option>
                                         {% endfor %}
                                     </select>
                                 </form>
-                                <h3>{% trans 'All places and services' %}</h3>
-                                <hr>
-                                <br>
+                            </div>
+                            <hr>
+                            <ul class="directify_fn_masonry mypost"
+                                style="margin-top: 2rem; margin-bottom: 5rem; text-align: right; direction: rtl;">
                                 {% if places %}
                                     {% for place in places %}
-                                        <li class="directify_fn_masonry_in" style="margin-top: 10%">
+                                        <li class="directify_fn_masonry_in">
                                             <div class="post">
                                                 <div class="img_holder">
                                                     <a href="{% url 'place_detail' place.id %}">
@@ -157,7 +161,7 @@
                                                     <span class="date"><strong>{% trans 'Created' %} :</strong> {{ place.datetime_created }}</span>
                                                     <hr>
                                                     <br>
-                                                    <span style="font-size: large">
+                                                    <span style="font-size: 1rem">
                                                         <a href="{% url 'place_detail' place.id %}">{% trans 'Read More' %}</a>
                                                     </span>
                                                 </div>
@@ -166,28 +170,42 @@
                                     {% endfor %}
                                 {% else %}
                                     <h2>{% trans 'No items found' %} !</h2>
-                                    <p style="font-size: x-large">{% trans 'No case with these specifications has been registered yet.' %}</p>
+                                    <p style="font-size: 1.4rem">{% trans 'No case with these specifications has been registered yet.' %}</p>
                                 {% endif %}
                             </ul>
                             {% if places %}
-                                <h6>{% trans 'Page Number' %}</h6>
-                                <hr>
-                                <div class="directify_fn_pagination" style="width: fit-content; margin-left: 50%;">
-                                    <ul>
-                                        {% if page_obj.has_previous %}
-                                            <li>
-                                                <a href="?page={{ page_obj.previous_page_number }}"><span>{{ page_obj.previous_page_number }}</span></a>
+                                <div style="margin: 0 auto; width: fit-content">
+                                    <nav aria-label="...">
+                                        <ul class="pagination">
+                                            {% if page_obj.has_previous %}
+                                                <li class="page-item">
+                                                    <a class="page-link"
+                                                       href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link"
+                                                       href="?page={{ page_obj.previous_page_number }}">
+                                                        {{ page_obj.previous_page_number }}
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+
+                                            <li class="page-item active" aria-current="page">
+                                                <a class="page-link" href="?page={{ page_obj.number }}">
+                                                    {{ page_obj.number }}<span class="visually-hidden">{% trans '(current)' %}</span>
+                                                </a>
                                             </li>
-                                        {% endif %}
-                                        <li class="activated">
-                                            <a href="?page={{ page_obj.number }}"><span>{{ page_obj.number }}</span></a>
-                                        </li>
-                                        {% if page_obj.has_next %}
-                                            <li>
-                                                <a href="?page={{ page_obj.next_page_number }}"><span>{{ page_obj.next_page_number }}</span></a>
-                                            </li>
-                                        {% endif %}
-                                    </ul>
+                                            {% if page_obj.has_next %}
+                                                <li class="page-item"><a class="page-link"
+                                                                         href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link"
+                                                       href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
                                 </div>
                             {% endif %}
                         </div>
