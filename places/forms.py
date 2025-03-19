@@ -30,7 +30,6 @@ class NewPlaceForm(forms.ModelForm):
                   'city',
                   'address',
                   'phone_number',
-                  'website',
                   'description',
                   'image_main',
                   'image2',

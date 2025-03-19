@@ -5642,12 +5642,12 @@ span.browse_me{
 /*	29.1) SUBMIT CONTENT
 /*------------------------------------------------------------------*/
 .directify_fn_submit_content{
-	width: 100%;
-	float: left;
 	clear: both;
+	width: 50rem;
 	height: auto;
-	background-color: #f6fafb;
-	padding: 0px 20px 50px 20px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+	padding: 50px 50px 50px 50px;
 
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -7713,141 +7713,66 @@ div.directify_fn_sign_in_closer{
 /*------------------------------------------------------------------*/
 
 /* From Uiverse.io by Yaya12085 */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 350px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 20px;
+.form-outline {
   position: relative;
+  margin-bottom: 1.5rem;
 }
 
-.title {
-  font-size: 28px;
-  color: royalblue;
-  font-weight: 600;
-  letter-spacing: -1px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding-left: 30px;
-}
-
-/*.title::before,.title::after {*/
-/*  position: absolute;*/
-/*  content: "";*/
-/*  height: 16px;*/
-/*  width: 16px;*/
-/*  border-radius: 50%;*/
-/*  left: 0px;*/
-/*  background-color: royalblue;*/
-/*}*/
-
-/*.title::before {*/
-/*  width: 18px;*/
-/*  height: 18px;*/
-/*  background-color: royalblue;*/
-/*}*/
-
-/*.title::after {*/
-/*  width: 18px;*/
-/*  height: 18px;*/
-/*  animation: pulse 1s linear infinite;*/
-/*}*/
-
-.message, .signin {
-  color: rgba(88, 87, 87, 0.822);
-  font-size: 14px;
-}
-
-.signin {
-  text-align: center;
-}
-
-.signin a {
-  color: royalblue;
-}
-
-.signin a:hover {
-  text-decoration: underline royalblue;
-}
-
-.flex {
-  display: flex;
+.form-outline .form-control {
   width: 100%;
-  gap: 6px;
-}
-
-.form label {
-  position: relative;
-}
-
-.form label .input {
-  width: 100%;
-  padding: 10px 10px 20px 10px;
-  outline: 0;
-  border: 1px solid rgba(105, 105, 105, 0.397);
-  border-radius: 10px;
-}
-
-.form label .input + span {
-  position: absolute;
-  left: 10px;
-  top: 15px;
-  color: grey;
-  font-size: 0.9em;
-  cursor: text;
-  transition: 0.3s ease;
-}
-
-.form label .input:placeholder-shown + span {
-  top: 15px;
-  font-size: 0.9em;
-}
-
-.form label .input:focus + span,.form label .input:valid + span {
-  top: 30px;
-  font-size: 0.7em;
-  font-weight: 600;
-}
-
-.form label .input:valid + span {
-  color: green;
-}
-
-.submit {
-  border: none;
-  outline: none;
-  background-color: royalblue;
   padding: 10px;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 16px;
-  transform: .3s ease;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
-.submit:hover {
+.form-outline .form-control:focus {
+  border-color: royalblue;
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
+}
+
+.form-outline label {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-size: 0.9rem;
+  color: #6c757d;
+  transition: 0.3s ease-in-out;
+}
+
+.form-outline .form-control:focus + label,
+.form-outline .form-control:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.75rem;
+  color: royalblue;
+  background: white;
+  padding: 0 5px;
+}
+
+.form-check-input {
+  margin-right: 8px;
+}
+
+.btn-primary {
+  background-color: royalblue;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
   background-color: rgb(6, 90, 194);
 }
-.submit:active {
-  background-color: darkblue; /* تغییر رنگ هنگام کلیک */
-  transform: scale(0.95); /* ایجاد افکت کوچک شدن دکمه هنگام کلیک */
+
+.btn-primary:active {
+  background-color: darkblue;
+  transform: scale(0.95);
 }
 
-
-@keyframes pulse {
-  from {
-    transform: scale(0.9);
-    opacity: 1;
-  }
-
-  to {
-    transform: scale(1.8);
-    opacity: 0;
-  }
-}
 
 /*------------------------------------------------------------------*/
 /*	41) PRELOADER

@@ -104,7 +104,7 @@ class Place(models.Model):
         ("Salzgitter", "Salzgitter"),
     )
 
-    title = models.CharField(max_length=250, unique=True, verbose_name=_("Name of the place or service"),
+    title = models.CharField(max_length=250, verbose_name=_("Name of the place or service"),
                              blank=False, null=False,)
     category = models.CharField(max_length=100, choices=CATEGORY_GROUP, blank=False, null=False,
                                 verbose_name=_("Category"),)
@@ -112,7 +112,6 @@ class Place(models.Model):
                             verbose_name=_("City"),)
     address = models.CharField(max_length=500, verbose_name=_("Address"), blank=False, null=False,)
     phone_number = models.CharField(max_length=15, blank=True, null=True, verbose_name=_("Phone number"),)
-    website = models.URLField(max_length=200, blank=True, null=True, verbose_name=_("Website"),)
     description = models.TextField(blank=False, null=False, verbose_name=_("Description"),)
 
     image_main = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Main Image"),)

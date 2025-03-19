@@ -4,75 +4,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block page_title %}{% trans 'Services' %}{% endblock page_title %}
-
-<!-- HEADER -->
-{% block header %}
-    <header class="directify_fn_header_wrap" data-bg-type="light">
-        <div>
-            <div class="directify_fn_header">
-                <div class="header">
-                    <div class="directify_fn_header_logo">
-                        <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
-                                                                     alt=""/></a>
-                        <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
-                                                                      alt=""/></a>
-                    </div>
-                    <div class="directify_fn_header_nav_list" style="margin-top: 1%;">
-                        <ul class="nav__hor">
-                            <li>
-                                <a style="font-size: large" href="../../../#contact_us">{% trans 'Contact us' %}<i
-                                        class="xcon-"></i></a>
-                            </li>
-                            <li>
-                                <a style="font-size: large" href="../#about_us">{% trans 'About us' %}<i
-                                        class="xcon-"></i></a>
-                            </li>
-                            <li>
-                                <a style="font-size: large" href="{% url 'place_list' %}">
-                                    {% trans 'Places & Services' %}
-                                    <i class="xcon-angle-down"></i>
-                                </a>
-                                <ul class="sub_menu masonry-filter">
-                                    {% for category in categories %}
-                                        <li>
-                                            <a style="font-size: 1rem"
-                                               href="{% url 'place_list' %}?category={{ category|urlencode }}"
-                                               class="filter">
-                                                {{ category|capfirst }}
-                                            </a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </li>
-                            <li>
-                                <a style="font-size: large" href="{% url 'home' %}">{% trans 'Home' %}<i
-                                        class="xcon-"></i></a>
-                            </li>
-                            <li class="add_listing">
-                                {% if user.is_authenticated %}
-                                    <a style="font-size: large"
-                                       href="{% url 'user_profile' %}">{% trans 'Profile' %}</a>
-                                    <img class="svg" src="{% static 'img/svg/human.svg' %}" alt=""/>
-                                {% else %}
-                                    <a style="font-size: large" href="{% url 'login' %}">{% trans 'Login' %}</a>
-                                {% endif %}
-                            </li>
-                            <li class="add_listing">
-                                <a style="font-size: large" href="#">
-                                    <img class="svg" src="{% static 'img/svg/pencil.svg' %}" alt=""/>
-                                    <span>{% trans 'Add new Service' %}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </header>
-{% endblock header %}
-<!-- /HEADER -->
+{% block page_title %}{{ place.title }}{% endblock page_title %}
 
 {% block content %}
     <!-- CONTENT -->
@@ -162,7 +94,6 @@
                                         </p>
                                     {% endif %}
                                 </div>
-
                             </div>
                             <!-- /PLACE CONTENT -->
 
@@ -275,9 +206,11 @@
                                             <form class="form" method="POST">
                                                 {% csrf_token %}
                                                 {{ comment_form|crispy }}
-                                                <button type="submit" class="submit" title="Submit your Comment.">
-                                                    {% trans 'Submit' %}
-                                                </button>
+                                                    <button type="submit" class="btn btn-success"
+                                                            data-mdb-ripple-init data-mdb-ripple-color="dark"
+                                                            title="{% trans 'Submit your Comment.' %}">
+                                                        {% trans 'Submit' %}
+                                                    </button>
                                             </form>
                                         </div>
                                     </div>
