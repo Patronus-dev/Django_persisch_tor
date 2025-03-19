@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import *
+
 from .models import Place
-from .forms import CommentForm, PlaceFilterForm
+from .forms import CommentForm, PlaceFilterForm, NewPlaceForm
 
 
 class PlaceListView(ListView):
@@ -14,8 +16,10 @@ class PlaceListView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
 
+        # فیلتر کردن فقط پست‌های منتشر شده
+        queryset = queryset.filter(status='pub')  # فقط پست‌های منتشر شده را بیاور
+
         # دریافت پارامترهای فیلتر از فرم
-        form = PlaceFilterForm(self.request.GET)
         category = self.request.GET.get('category')
         city = self.request.GET.get('city')
 
@@ -110,3 +114,10 @@ def place_list(request):
         'selected_city': city,
         'selected_category': category
     })
+
+
+class CreatePlaceView(CreateView):
+    form_class = NewPlaceForm
+    model = Place
+    template_name = 'places/place_create.html'
+

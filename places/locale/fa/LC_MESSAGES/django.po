@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 13:15+0330\n"
-"PO-Revision-Date: 2025-03-19 13:17+0330\n"
+"POT-Creation-Date: 2025-03-19 16:36+0330\n"
+"PO-Revision-Date: 2025-03-19 16:36+0330\n"
 "Last-Translator:   <mehdii.dev@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\models.py:12 .\templates\places\place_list.html:131
+#: .\models.py:12 .\templates\places\place_list.html:134
 #: .\templates\places\search_result.html:107
 msgid "Food & Drink"
 msgstr "غذا و نوشیدنی"
@@ -44,206 +44,182 @@ msgid "Other"
 msgstr "متفرقه"
 
 #: .\models.py:102
-msgid "Name of the place"
-msgstr "نام"
+#| msgid "Upload an image 2 of the place or service."
+msgid "Name of the place or service"
+msgstr "عنوان مکان یا سرویس"
 
-#: .\models.py:103
-msgid "Enter the name of the place."
-msgstr "نام را وارد کنید."
-
-#: .\models.py:105 .\templates\places\place_detail.html:134
-#: .\templates\places\place_list.html:157
+#: .\models.py:104 .\templates\places\place_detail.html:136
+#: .\templates\places\place_list.html:160
 #: .\templates\places\search_result.html:133
 msgid "Category"
 msgstr "دسته بندی"
 
-#: .\models.py:105
-msgid "Select the category of the place."
-msgstr "دسته بندی را انتخاب کنید."
+#: .\models.py:106 .\templates\places\place_detail.html:152
+#: .\templates\places\place_list.html:162
+#: .\templates\places\search_result.html:135
+msgid "City"
+msgstr "شهر"
 
-#: .\models.py:107 .\templates\places\place_detail.html:152
+#: .\models.py:107 .\templates\places\place_detail.html:154
 msgid "Address"
 msgstr "آدرس"
 
 #: .\models.py:108
-msgid "Enter the address of the place."
-msgstr "آدرس را وارد کنید."
-
-#: .\models.py:109
 msgid "Phone number"
 msgstr "شماره تماس"
 
-#: .\models.py:110
-msgid "Enter the phone number of the place."
-msgstr "شماره تماس را وارد کنید."
-
-#: .\models.py:111 .\templates\places\place_detail.html:158
+#: .\models.py:109 .\templates\places\place_detail.html:160
 msgid "Website"
 msgstr "وبسایت"
 
-#: .\models.py:112
-msgid "Enter the website of the place."
-msgstr "آدرس وبسایت را وارد کنید."
-
-#: .\models.py:113 .\models.py:181 .\templates\places\place_detail.html:147
+#: .\models.py:110 .\models.py:172 .\templates\places\place_detail.html:149
 msgid "Description"
 msgstr "توضیحات"
 
-#: .\models.py:114
-msgid "Write a description of the place."
-msgstr "توضیحی در مورد این موضوع بنویسید."
-
-#: .\models.py:116
+#: .\models.py:112
 msgid "Main Image"
 msgstr "عکس اصلی"
 
-#: .\models.py:117
-msgid "Upload an main image of the place or service."
-msgstr "یک تصویر اصلی برای مکان یا خدمات بارگذاری کنید."
-
-#: .\models.py:118
+#: .\models.py:113
 msgid "Image2"
 msgstr "عکس 2"
 
-#: .\models.py:119
-msgid "Upload an image 2 of the place or service."
-msgstr "تصویر دوم از مکان یا خدمات بارگذاری کنید."
-
-#: .\models.py:120
+#: .\models.py:114
 msgid "Image3"
 msgstr "عکس 3"
 
-#: .\models.py:121
-msgid "Upload an image 3 of the place or service."
-msgstr "تصویر سوم از مکان یا خدمات بارگذاری کنید."
-
-#: .\models.py:122
+#: .\models.py:115
 msgid "Image4"
 msgstr "عکس 4"
 
-#: .\models.py:123
-msgid "Upload an image 4 of the place or service."
-msgstr "تصویر سوم از مکان یا خدمات بارگذاری کنید."
-
-#: .\models.py:124
+#: .\models.py:116
 msgid "Image5"
 msgstr "عکس 5"
 
-#: .\models.py:125
-msgid "Upload an image 5 of the place or service."
-msgstr "تصویر پنجم از مکان یا خدمات بارگذاری کنید."
-
-#: .\models.py:127
+#: .\models.py:118
 msgid "Created At"
 msgstr "ایجاد شده در"
 
-#: .\models.py:128
+#: .\models.py:119
 msgid "Updated At"
 msgstr "ویرایش شده در"
 
-#: .\models.py:137
+#: .\models.py:128
 msgid "Place"
 msgstr "مکان"
 
-#: .\models.py:138
+#: .\models.py:129
 msgid "Places"
 msgstr "مکان ها"
 
-#: .\models.py:173
+#: .\models.py:164
 msgid "perfect"
 msgstr "عالی"
 
-#: .\models.py:173
+#: .\models.py:164
 msgid "Perfect"
 msgstr "عالی"
 
-#: .\models.py:174
+#: .\models.py:165
 msgid "good"
 msgstr "خوب"
 
-#: .\models.py:174
+#: .\models.py:165
 msgid "Good"
 msgstr "خوب"
 
-#: .\models.py:175
+#: .\models.py:166
 msgid "weak"
 msgstr "ضعیف"
 
-#: .\models.py:175
+#: .\models.py:166
 msgid "Weak"
 msgstr "ضعیف"
 
-#: .\models.py:176
+#: .\models.py:167
 msgid "too bad"
 msgstr "بسیار بد"
 
-#: .\models.py:176
+#: .\models.py:167
 msgid "Too bad"
 msgstr "بسیار بد"
 
-#: .\models.py:182
+#: .\models.py:173
 msgid "Write your comment here."
 msgstr "نظر خود را بنویسید"
 
-#: .\models.py:185 .\templates\places\place_detail.html:224
-#: .\templates\places\place_detail.html:231
-#: .\templates\places\place_detail.html:238
-#: .\templates\places\place_detail.html:245
+#: .\models.py:176 .\templates\places\place_detail.html:226
+#: .\templates\places\place_detail.html:233
+#: .\templates\places\place_detail.html:240
+#: .\templates\places\place_detail.html:247
 msgid "Rating"
 msgstr "امتیاز"
 
+#: .\templates\places\place_create.html:7
 #: .\templates\places\place_detail.html:7 .\templates\places\place_list.html:7
 #: .\templates\places\search_result.html:7
 msgid "Services"
 msgstr "خدمات"
 
+#: .\templates\places\place_create.html:24
 #: .\templates\places\place_detail.html:24
 #: .\templates\places\place_list.html:24
 #: .\templates\places\search_result.html:24
 msgid "Contact us"
 msgstr "ارتباط با ما"
 
+#: .\templates\places\place_create.html:28
 #: .\templates\places\place_detail.html:28
-#: .\templates\places\place_list.html:29
+#: .\templates\places\place_list.html:28
 #: .\templates\places\search_result.html:28
 msgid "About us"
 msgstr "درباره ما"
 
-#: .\templates\places\place_detail.html:32
+#: .\templates\places\place_create.html:33
+#: .\templates\places\place_detail.html:33
 #: .\templates\places\place_list.html:33
 #: .\templates\places\search_result.html:32
 msgid "Places & Services"
 msgstr "خدمات و مکان ها"
 
-#: .\templates\places\place_detail.html:47
-#: .\templates\places\place_list.html:48
+#: .\templates\places\place_create.html:49
+#: .\templates\places\place_detail.html:49
+#: .\templates\places\place_list.html:49
 #: .\templates\places\search_result.html:47
 msgid "Home"
 msgstr "خانه"
 
-#: .\templates\places\place_detail.html:53
-#: .\templates\places\place_list.html:54
+#: .\templates\places\place_create.html:55
+#: .\templates\places\place_detail.html:55
+#: .\templates\places\place_list.html:55
 #: .\templates\places\search_result.html:53
 msgid "Profile"
 msgstr "پروفایل"
 
-#: .\templates\places\place_detail.html:56
-#: .\templates\places\place_list.html:57
+#: .\templates\places\place_create.html:58
+#: .\templates\places\place_detail.html:58
+#: .\templates\places\place_list.html:58
 #: .\templates\places\search_result.html:56
 msgid "Login"
 msgstr "ورود"
 
-#: .\templates\places\place_detail.html:62
-#: .\templates\places\place_list.html:63
+#: .\templates\places\place_create.html:64
+#: .\templates\places\place_detail.html:64
+#: .\templates\places\place_list.html:64
 #: .\templates\places\search_result.html:62
 msgid "Add new Service"
 msgstr "ایجاد سریس جدید"
 
-#: .\templates\places\place_detail.html:141
+#: .\templates\places\place_create.html:99
+#: .\templates\places\place_detail.html:279
+msgid "Submit"
+msgstr "ثبت"
+
+#: .\templates\places\place_detail.html:143
 msgid "Important"
 msgstr "مهم"
 
-#: .\templates\places\place_detail.html:143
+#: .\templates\places\place_detail.html:145
 msgid ""
 "Only the authenticity of the existence or non-existence of each location and"
 " the authenticity of the service providers' jobs have been reviewed by the "
@@ -260,81 +236,79 @@ msgstr ""
 " وبسایت ، تصمیم‌گیری نهایی برای استفاده از خدمات برعهده خودتان و با توجه به "
 "پیشنهادات دیگر کاربران بوده و کاملا اختیاری می باشد."
 
-#: .\templates\places\place_detail.html:149
+#: .\templates\places\place_detail.html:151
 msgid "Information's"
 msgstr "اطلاعات"
 
-#: .\templates\places\place_detail.html:150
-#: .\templates\places\place_list.html:159
-#: .\templates\places\search_result.html:135
-msgid "City"
-msgstr "شهر"
-
-#: .\templates\places\place_detail.html:155
+#: .\templates\places\place_detail.html:157
 msgid "Phone"
 msgstr "شماره تماس"
 
-#: .\templates\places\place_detail.html:175
+#: .\templates\places\place_detail.html:177
 msgid "Photos"
 msgstr "عکس ها"
 
-#: .\templates\places\place_detail.html:200
+#: .\templates\places\place_detail.html:202
 msgid "All Comments"
 msgstr "تمامی نظرات"
 
-#: .\templates\places\place_detail.html:261
+#: .\templates\places\place_detail.html:263
 msgid "Be the first to share your opinion on this post."
 msgstr "اولین نفری باشید که نظر خود را در مورد این پست به اشتراک می گذارد."
 
-#: .\templates\places\place_detail.html:271
+#: .\templates\places\place_detail.html:273
 msgid "Write your Comment"
 msgstr "نظر خود را بنویسید"
 
-#: .\templates\places\place_detail.html:277
-msgid "Submit"
-msgstr "ثبت"
-
-#: .\templates\places\place_list.html:86
+#: .\templates\places\place_list.html:87
 msgid "All places and services"
 msgstr "تمامی خدمات و مکان ها"
 
-#: .\templates\places\place_list.html:88
+#: .\templates\places\place_list.html:89
 msgid "Choose city"
 msgstr "انتخاب شهر"
 
-#: .\templates\places\place_list.html:91
+#: .\templates\places\place_list.html:93
 msgid "All cities"
 msgstr "همه شهرها"
 
-#: .\templates\places\place_list.html:99
+#: .\templates\places\place_list.html:101
 msgid "Choose category"
 msgstr "انتخاب دسته بندی"
 
-#: .\templates\places\place_list.html:103
+#: .\templates\places\place_list.html:105
 msgid "All categories"
 msgstr "همه دسته بندی ها"
 
-#: .\templates\places\place_list.html:160
+#: .\templates\places\place_list.html:163
 #: .\templates\places\search_result.html:136
 msgid "Created"
 msgstr "ایجاد شده در"
 
-#: .\templates\places\place_list.html:164
+#: .\templates\places\place_list.html:167
 #: .\templates\places\search_result.html:140
 msgid "Read More"
 msgstr "بیشتر"
 
-#: .\templates\places\place_list.html:171
+#: .\templates\places\place_list.html:174
 msgid "No items found"
 msgstr "موردی یافت نشد"
 
-#: .\templates\places\place_list.html:172
+#: .\templates\places\place_list.html:175
 msgid "No case with these specifications has been registered yet."
 msgstr "تا به حال موردی با این مشخصات ثبت نشده است."
 
-#: .\templates\places\place_list.html:176
-msgid "Page Number"
-msgstr "شماره صفحه"
+#: .\templates\places\place_list.html:185
+msgid "Previous"
+msgstr ""
+
+#: .\templates\places\place_list.html:198
+msgid "(current)"
+msgstr ""
+
+#: .\templates\places\place_list.html:207
+msgid "Next"
+msgstr ""
 
 #: .\templates\places\search_result.html:86
 msgid "Searched For"
@@ -351,6 +325,42 @@ msgstr "سلام! شما فراموش کرده اید برای یک مکان ی�
 #: .\templates\places\search_result.html:151
 msgid "Back to Homepage"
 msgstr "بازگشت به خانه"
+
+#~ msgid "Name of the place"
+#~ msgstr "نام"
+
+#~ msgid "Enter the name of the place."
+#~ msgstr "نام را وارد کنید."
+
+#~ msgid "Select the category of the place."
+#~ msgstr "دسته بندی را انتخاب کنید."
+
+#~ msgid "Enter the address of the place."
+#~ msgstr "آدرس را وارد کنید."
+
+#~ msgid "Enter the phone number of the place."
+#~ msgstr "شماره تماس را وارد کنید."
+
+#~ msgid "Enter the website of the place."
+#~ msgstr "آدرس وبسایت را وارد کنید."
+
+#~ msgid "Write a description of the place."
+#~ msgstr "توضیحی در مورد این موضوع بنویسید."
+
+#~ msgid "Upload an main image of the place or service."
+#~ msgstr "یک تصویر اصلی برای مکان یا خدمات بارگذاری کنید."
+
+#~ msgid "Upload an image 3 of the place or service."
+#~ msgstr "تصویر سوم از مکان یا خدمات بارگذاری کنید."
+
+#~ msgid "Upload an image 4 of the place or service."
+#~ msgstr "تصویر سوم از مکان یا خدمات بارگذاری کنید."
+
+#~ msgid "Upload an image 5 of the place or service."
+#~ msgstr "تصویر پنجم از مکان یا خدمات بارگذاری کنید."
+
+#~ msgid "Page Number"
+#~ msgstr "شماره صفحه"
 
 #~ msgid "food & drink"
 #~ msgstr "غذا و نوشیدنی"

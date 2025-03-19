@@ -8,6 +8,11 @@ from PIL import Image
 
 
 class Place(models.Model):
+    STATUS_CHOICES = [
+        ('pub', 'Published'),
+        ('drf', 'Draft'),
+    ]
+
     CATEGORY_GROUP = [
         ('food & drink', _('Food & Drink')),
         ('medical', _('Medical')),
@@ -99,31 +104,24 @@ class Place(models.Model):
         ("Salzgitter", "Salzgitter"),
     )
 
-    title = models.CharField(max_length=250, unique=True, verbose_name=_("Name of the place"), blank=False, null=False,
-                             help_text=_("Enter the name of the place."))
+    title = models.CharField(max_length=250, unique=True, verbose_name=_("Name of the place or service"),
+                             blank=False, null=False,)
     category = models.CharField(max_length=100, choices=CATEGORY_GROUP, blank=False, null=False,
-                                verbose_name=_("Category"), help_text=_("Select the category of the place."))
-    city = models.CharField(max_length=100, choices=GERMAN_CITIES, blank=False, null=False, default='Berlin')
-    address = models.CharField(max_length=500, verbose_name=_("Address"), blank=False, null=False,
-                               help_text=_("Enter the address of the place."))
-    phone_number = models.CharField(max_length=15, blank=True, null=True, verbose_name=_("Phone number"),
-                                    help_text=_("Enter the phone number of the place."))
-    website = models.URLField(max_length=200, blank=True, null=True, verbose_name=_("Website"),
-                              help_text=_("Enter the website of the place."))
-    description = models.TextField(blank=False, null=False, verbose_name=_("Description"),
-                                   help_text=_("Write a description of the place."))
+                                verbose_name=_("Category"),)
+    city = models.CharField(max_length=100, choices=GERMAN_CITIES, blank=False, null=False, default='Berlin',
+                            verbose_name=_("City"),)
+    address = models.CharField(max_length=500, verbose_name=_("Address"), blank=False, null=False,)
+    phone_number = models.CharField(max_length=15, blank=True, null=True, verbose_name=_("Phone number"),)
+    website = models.URLField(max_length=200, blank=True, null=True, verbose_name=_("Website"),)
+    description = models.TextField(blank=False, null=False, verbose_name=_("Description"),)
 
-    image_main = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Main Image"),
-                                   help_text=_("Upload an main image of the place or service."))
-    image2 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image2"),
-                               help_text=_("Upload an image 2 of the place or service."))
-    image3 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image3"),
-                               help_text=_("Upload an image 3 of the place or service."))
-    image4 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image4"),
-                               help_text=_("Upload an image 4 of the place or service."))
-    image5 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image5"),
-                               help_text=_("Upload an image 5 of the place or service."))
+    image_main = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Main Image"),)
+    image2 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image2"),)
+    image3 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image3"),)
+    image4 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image4"),)
+    image5 = models.ImageField(upload_to='places/', null=True, blank=True, verbose_name=_("Image5"),)
 
+    status = models.CharField(verbose_name='Status', choices=STATUS_CHOICES, max_length=3)
     datetime_created = models.DateTimeField(auto_now_add=True, verbose_name=_("Created At"))
     datetime_updated = models.DateTimeField(auto_now=True, verbose_name=_("Updated At"))
 

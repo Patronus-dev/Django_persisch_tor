@@ -21,20 +21,22 @@
                     <div class="directify_fn_header_nav_list" style="margin-top: 1%;">
                         <ul class="nav__hor">
                             <li>
-                                <a style="font-size: large" href="#contact_us">{% trans 'Contact us' %}<i
+                                <a style="font-size: large" href="../#contact_us">{% trans 'Contact us' %}<i
                                         class="xcon-"></i></a>
                             </li>
                             <li>
-                                <a style="font-size: large" href="#about_us">{% trans 'About us' %}<i class="xcon-"></i></a>
+                                <a style="font-size: large" href="../#about_us">{% trans 'About us' %}<i
+                                        class="xcon-"></i></a>
                             </li>
                             <li>
-                                <a style="font-size: large"
-                                   href="{% url 'place_list' %}">{% trans 'Places & Services' %}<i
-                                        class="xcon-angle-down"></i></a>
+                                <a style="font-size: large" href="{% url 'place_list' %}">
+                                    {% trans 'Places & Services' %}
+                                    <i class="xcon-angle-down"></i>
+                                </a>
                                 <ul class="sub_menu masonry-filter">
                                     {% for category in categories %}
                                         <li>
-                                            <a style="font-size: large"
+                                            <a style="font-size: 1rem"
                                                href="{% url 'place_list' %}?category={{ category|urlencode }}"
                                                class="filter">
                                                 {{ category|capfirst }}
@@ -192,7 +194,8 @@
 
                                             <li class="page-item active" aria-current="page">
                                                 <a class="page-link" href="?page={{ page_obj.number }}">
-                                                    {{ page_obj.number }}<span class="visually-hidden">{% trans '(current)' %}</span>
+                                                    {{ page_obj.number }}<span
+                                                        class="visually-hidden">{% trans '(current)' %}</span>
                                                 </a>
                                             </li>
                                             {% if page_obj.has_next %}

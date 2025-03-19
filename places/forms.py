@@ -20,3 +20,21 @@ class PlaceFilterForm(forms.Form):
         required=False,
         label='دسته‌بندی'
     )
+
+
+class NewPlaceForm(forms.ModelForm):
+    class Meta:
+        model = Place
+        fields = ['title',
+                  'category',
+                  'city',
+                  'address',
+                  'phone_number',
+                  'website',
+                  'description',
+                  'image_main',
+                  'image2',
+                  'image3',
+                  'image4',
+                  'image5',
+                  ]

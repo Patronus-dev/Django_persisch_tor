@@ -1,0 +1,125 @@
+{% extends '_base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+
+{% block page_title %}{% trans 'Services' %}{% endblock page_title %}
+
+<!-- HEADER -->
+{% block header %}
+    <header class="directify_fn_header_wrap" data-bg-type="light">
+        <div>
+            <div class="directify_fn_header">
+                <div class="header">
+                    <div class="directify_fn_header_logo">
+                        <a class="dark" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
+                                                                     alt=""/></a>
+                        <a class="light" href="{% url 'home' %}"><img src="{% static 'img/logo_small.png' %}"
+                                                                      alt=""/></a>
+                    </div>
+                    <div class="directify_fn_header_nav_list" style="margin-top: 1%;">
+                        <ul class="nav__hor">
+                            <li>
+                                <a style="font-size: large" href="../../../#contact_us">{% trans 'Contact us' %}<i
+                                        class="xcon-"></i></a>
+                            </li>
+                            <li>
+                                <a style="font-size: large" href="../#about_us">{% trans 'About us' %}<i
+                                        class="xcon-"></i></a>
+                            </li>
+                            <li>
+                                <a style="font-size: large" href="{% url 'place_list' %}">
+                                    {% trans 'Places & Services' %}
+                                    <i class="xcon-angle-down"></i>
+                                </a>
+                                <ul class="sub_menu masonry-filter">
+                                    {% for category in categories %}
+                                        <li>
+                                            <a style="font-size: 1rem"
+                                               href="{% url 'place_list' %}?category={{ category|urlencode }}"
+                                               class="filter">
+                                                {{ category|capfirst }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li>
+                                <a style="font-size: large" href="{% url 'home' %}">{% trans 'Home' %}<i
+                                        class="xcon-"></i></a>
+                            </li>
+                            <li class="add_listing">
+                                {% if user.is_authenticated %}
+                                    <a style="font-size: large"
+                                       href="{% url 'user_profile' %}">{% trans 'Profile' %}</a>
+                                    <img class="svg" src="{% static 'img/svg/human.svg' %}" alt=""/>
+                                {% else %}
+                                    <a style="font-size: large" href="{% url 'login' %}">{% trans 'Login' %}</a>
+                                {% endif %}
+                            </li>
+                            <li class="add_listing">
+                                <a style="font-size: large" href="#">
+                                    <img class="svg" src="{% static 'img/svg/pencil.svg' %}" alt=""/>
+                                    <span>{% trans 'Add new Service' %}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+<!-- /HEADER -->
+
+{% block content %}
+    <!-- CONTENT -->
+    <div class="directify_fn_content">
+
+        <!-- IMAGE HOLDER -->
+        <div class="directify_fn_submit_img_holder">
+            <div class="overlay_color"></div>
+            <div class="overlay_image jarallax" data-speed="0.2"></div>
+        </div>
+        <!-- /IMAGE HOLDER -->
+
+        <!-- SUBMIT CONTENT -->
+        <div class="directify_fn_submit_content">
+            <div class="directify_fn_submit">
+                {% if user.is_authenticated %}
+                    <div class="form">
+                        <!-- SUBMIT FORM -->
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <!-- دکمه ارسال -->
+                            <button type="submit" class="btn btn-primary btn-block">ارسال</button>
+                        </form>
+                        <!-- /SUBMIT FORM -->
+                        {% else %}
+                        <!-- MAIN SECTION -->
+                        <div class="directify_fn_submit_main_section">
+                            <div class="have-account">
+                                <p>اگر حساب کاربری دارید، لطفاً
+                                    <a href="#" class="md-trigger md-setperspective" data-modal="modal-18">وارد شوید</a>
+                                    یا ایمیل خود را وارد کنید تا همزمان با ارسال این فرم ثبت‌نام انجام شود. اطلاعات حساب
+                                    شما از طریق ایمیل تأیید خواهد شد.
+                                </p>
+                            </div>
+                            <div class="sign-email">
+                                <label for="sign-email">ایمیل خود را وارد کنید<span>*</span></label>
+                                <input type="email" id="sign-email" class="form-control" required/>
+                            </div>
+                        </div>
+                        <!-- /MAIN SECTION -->
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <!-- /SUBMIT CONTENT -->
+
+    </div>
+    <!-- /CONTENT -->
+{% endblock content %}

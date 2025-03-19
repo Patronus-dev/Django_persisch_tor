@@ -4,7 +4,7 @@ from .models import Place, Comment
 
 @admin.register(Place)
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'city', 'datetime_created', 'id', )
+    list_display = ('title', 'status', 'category', 'city', 'datetime_created', 'id', )
     ordering = ('category', )
 
 
